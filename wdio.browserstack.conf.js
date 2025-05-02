@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import { ProxyAgent, setGlobalDispatcher } from 'undici'
 import { bootstrap } from 'global-agent'
+import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
 
 /**
  * Enable webdriver.io to use the outbound proxy.
@@ -40,7 +41,7 @@ export const config = {
   specs: ['./test/specs/**/*.js'],
   // Tests to exclude
   exclude: [],
-  maxInstances: 1,
+  maxInstances: 10,
 
   commonCapabilities: {
     'bstack:options': {
@@ -48,16 +49,7 @@ export const config = {
     }
   },
 
-  capabilities: [
-    {
-      browserName: 'Chrome', // Set as required
-      'bstack:options': {
-        browserVersion: 'latest',
-        os: 'Windows',
-        osVersion: '11'
-      }
-    }
-  ],
+  capabilities: browserStackCapabilities,
 
   services: [
     [
@@ -117,7 +109,7 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    timeout: oneMinute
+    timeout: oneMinute * 10
   },
 
   // Hooks
