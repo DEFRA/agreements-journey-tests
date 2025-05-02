@@ -41,7 +41,33 @@ npm install
 Start application you are testing on the url specified in `baseUrl` [wdio.local.conf.js](wdio.local.conf.js)
 
 ```bash
+wdio.local.conf.js
+------------------
+# Used to run tests locally against a local instance of Chrome
 npm run test:local
+```
+
+```bash
+wdio.local.browserstack.conf.js
+-------------------------------
+# Used to run tests locally against BrowserStack. The BrowserStackLocal service or binary must be used.
+BROWSERSTACK_USERNAME=your-username BROWSERSTACK_KEY=your-key npm run test:local:browserstack
+```
+
+```bash
+wdio.browserstack.conf.js
+-------------------------
+# Used to run tests in the portal against BrowserStack. The BrowserStackLocal service or binary must be used.
+
+#Run in the CDP Portal using BrowserStack
+```
+
+```bash
+wdio.conf.js
+-------------------------
+# Used to run tests in the portal against chrome instance
+
+#Run in the CDP Portal using Chrome
 ```
 
 ### Debugging local tests
@@ -88,8 +114,8 @@ If you want to use the repository exclusively for running docker composed based 
 
 ## BrowserStack
 
-Two wdio configuration files are provided to help run the tests using BrowserStack in both a GitHub workflow (`wdio.github.browserstack.conf.js`) and from the CDP Portal (`wdio.browserstack.conf.js`).
-They can be run from npm using the `npm run test:browserstack` (for running via portal) and `npm run test:github:browserstack` (from GitHib runner).
+wdio configuration files are provided to help run the tests using BrowserStack in from the CDP Portal (`wdio.browserstack.conf.js`).
+They can be run from npm using the `npm run test:browserstack` (for running via portal).
 See the CDP Documentation for more details.
 
 ## Licence

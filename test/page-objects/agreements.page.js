@@ -1,4 +1,4 @@
-import { Page } from 'page-objects/page'
+import { Page } from './page.js'
 
 class AgreementsPage extends Page {
   open() {
@@ -29,4 +29,4 @@ class AgreementsPage extends Page {
     return await totalRow.mapSeries(async (cell) => await cell.getText())
   }
 }
-export default new AgreementsPage()
+export { AgreementsPage }

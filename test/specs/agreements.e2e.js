@@ -1,9 +1,11 @@
 import { browser, expect } from '@wdio/globals'
-import AgreementsPage from 'page-objects/agreements.page.js'
+import { AgreementsPage } from '../page-objects/agreements.page.js' // ✅ relative path
+
+const agreementsPage = new AgreementsPage() // ✅ manual instantiation
 
 describe('Agreements Page - Post Application Submission', () => {
   before(async () => {
-    await AgreementsPage.open()
+    await agreementsPage.open()
   })
 
   it('should redirect the farmer to the "Agreements" page', async () => {
@@ -32,17 +34,17 @@ describe('Agreements Page - Post Application Submission', () => {
       sectionNumber <= 12;
       sectionNumber++, i++
     ) {
-      const actualHeader = await AgreementsPage.getSectionText(sectionNumber)
+      const actualHeader = await agreementsPage.getSectionText(sectionNumber)
       expect(actualHeader).toBe(expectedSectionHeaderText[i])
     }
   })
 
   it('should display correct Agreement Period details', async () => {
-    const startDateText = await AgreementsPage.getAgreementPeriodText(
+    const startDateText = await agreementsPage.getAgreementPeriodText(
       'Agreement Start Date'
     )
     const endDateText =
-      await AgreementsPage.getAgreementPeriodText('Agreement End Date')
+      await agreementsPage.getAgreementPeriodText('Agreement End Date')
 
     expect(startDateText).toBe('Agreement Start Date: 01/11/2024')
     expect(endDateText).toBe('Agreement End Date: 31/10/2027')
@@ -56,7 +58,7 @@ describe('Agreements Page - Post Application Submission', () => {
       '£4,126.07',
       '£12,617.59'
     ]
-    const actualTotals = await AgreementsPage.getAnnualPaymentScheduleTotalRow()
+    const actualTotals = await agreementsPage.getAnnualPaymentScheduleTotalRow()
     expect(actualTotals).toEqual(expectedTotals)
   })
 
@@ -74,7 +76,7 @@ describe('Agreements Page - Post Application Submission', () => {
 
   for (const [label, expectedValue] of Object.entries(expectedKeyDetails)) {
     it(`should display correct value for "${label}"`, async () => {
-      const actualValue = await AgreementsPage.getAgreementKeyDetailValue(label)
+      const actualValue = await agreementsPage.getAgreementKeyDetailValue(label)
       expect(actualValue).toBe(expectedValue)
     })
   }
