@@ -59,7 +59,7 @@ export const config = {
         testObservabilityOptions: {
           user: process.env.BROWSERSTACK_USER,
           key: process.env.BROWSERSTACK_KEY,
-          projectName: 'cdp-node-env-test-suite', // should match project in browserstack
+          projectName: 'agreements-journey-tests', // should match project in browserstack
           buildName: `agreements-journey-tests-${process.env.ENVIRONMENT}`
         },
         acceptInsecureCerts: true,
@@ -81,7 +81,7 @@ export const config = {
   bail: 0,
   waitforTimeout: 10000,
   waitforInterval: 200,
-  connectionRetryTimeout: 6000,
+  connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
 
   framework: 'mocha',
