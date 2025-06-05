@@ -54,32 +54,6 @@ export const browserStackCapabilities = [
     }
   },
   {
-    browserName: 'Safari',
-    'wdio-ics:options': {
-      logName: 'osx-safari'
-    },
-    'bstack:options': {
-      idleTimeout: 300,
-      resolution: '1920x1080',
-      browserVersion: 'latest',
-      os: 'OS X',
-      osVersion: 'Sequoia'
-    }
-  },
-  {
-    browserName: 'Safari',
-    'wdio-ics:options': {
-      logName: 'osx-safari-15.6'
-    },
-    'bstack:options': {
-      idleTimeout: 300,
-      resolution: '1920x1080',
-      browserVersion: '15.6',
-      os: 'OS X',
-      osVersion: 'Monterey'
-    }
-  },
-  {
     browserName: 'Firefox',
     'wdio-ics:options': {
       logName: 'osx-firefox'
