@@ -60,7 +60,7 @@ export async function setupAgreement({ sbi, frn, agreementName, clientRef }) {
     if (response.statusCode !== 200) {
       console.error('Create agreement failed with non-200 status')
       throw new Error(
-        `Failed to create test agreement. Status: ${response.status}, Response: ${JSON.stringify(responseBody)}`
+        `Failed to create test agreement. Status: ${response.statusCode}, Response: ${JSON.stringify(responseBody)}`
       )
     }
     return responseBody.agreementData?.agreementNumber
