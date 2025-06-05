@@ -5,13 +5,14 @@ import { unacceptAgreement } from '../services/unaccept-agreement.js'
 const agreementsPage = new AgreementsPage() // ✅ manual instantiation
 
 describe('Agreements Page - Post Application Submission', () => {
+  const defaultAgreementId = 'SFI123456789'
   before(async () => {
     addAllureArgument(
       'logName',
       browser.options.capabilities['wdio-ics:options'].logName
     )
     try {
-      await unacceptAgreement('SFI123456789')
+      await unacceptAgreement(defaultAgreementId)
     } catch (e) {
       console.warn('making sure agreement is setup for use')
     }
