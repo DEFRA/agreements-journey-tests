@@ -1,8 +1,9 @@
 import { Page } from './page.js'
 
 class AgreementsPage extends Page {
-  open() {
-    return super.open('/agreement/SFI123456789')
+  open(id) {
+    const path = id ? `/agreement/${id}` : '/agreement/SFI123456789'
+    return super.open(path)
   }
 
   async getSectionText(sectionNumber) {
@@ -27,6 +28,15 @@ class AgreementsPage extends Page {
       '//h2[normalize-space()="7. Annual Payment Schedule"]/following::table[2]//tr[td[1][normalize-space()="Total"]]/td'
     )
     return await totalRow.mapSeries(async (cell) => await cell.getText())
+  }
+
+  async acceptAgreement(selector) {
+    const button = await $("button[type='submit']")
+    await button.click()
+  }
+
+  async getAgreementAcceptText(label) {
+    return await $(`.govuk-heading-l`).getText()
   }
 }
 export { AgreementsPage }

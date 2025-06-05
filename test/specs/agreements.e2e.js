@@ -1,4 +1,3 @@
-import { addArgument as addAllureArgument } from '@wdio/allure-reporter'
 import { browser, expect } from '@wdio/globals'
 import { AgreementsPage } from '../page-objects/agreements.page.js' // ✅ relative path
 
@@ -10,6 +9,11 @@ describe('Agreements Page - Post Application Submission', () => {
       'logName',
       browser.options.capabilities['wdio-ics:options'].logName
     )
+    try {
+      await unacceptAgreement('SFI123456789')
+    } catch (e) {
+      console.warn('making sure agreement is setup for use')
+    }
     await agreementsPage.open()
   })
 

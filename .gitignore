@@ -11,3 +11,7 @@ coverage
 allure-report/
 allure-results/
 FAILED
+browserstack.err
+local.log
+ logs/
+/logs/bstack-wdio-service.log
