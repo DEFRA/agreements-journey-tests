@@ -1,6 +1,7 @@
 import { browser, expect } from '@wdio/globals'
 import { AgreementsPage } from '../page-objects/agreements.page.js' // ✅ relative path
-
+import { addArgument as addAllureArgument } from '@wdio/allure-reporter'
+import { unacceptAgreement } from '../services/unaccept-agreement.js'
 const agreementsPage = new AgreementsPage() // ✅ manual instantiation
 
 describe('Agreements Page - Post Application Submission', () => {
