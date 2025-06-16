@@ -4,6 +4,7 @@ import { setupAgreement } from '../services/setup-agreement.js'
 import { getAgreement } from '../services/get-agreement.js'
 import { unacceptAgreement } from '../services/unaccept-agreement.js'
 import { faker } from '@faker-js/faker'
+import { getGasAgreementAcceptedMessage } from '~/test/services/gas-agreement-accepted-message.js'
 const agreementsPage = new AgreementsPage()
 
 describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
@@ -34,6 +35,21 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     expect(agreementData).toMatchObject({ sbi, status: 'accepted' })
     expect(agreementData.invoice).toBeDefined()
     expect(agreementData.invoice[0].paymentHubRequest.value).toBe(22.14)
+  })
+
+  it('should validate agreement is submitted to gas via API', async () => {
+    console.log(`agreement accepted: ${agreementId}`)
+    const agreementAcceptedData =
+      await getGasAgreementAcceptedMessage(agreementId)
+    expect(agreementAcceptedData).toMatchObject({
+      event: {
+        type: 'agreement_accepted'
+      }
+    })
+    console.log(
+      'agreementAcceptedData from GAS:-----',
+      JSON.stringify(agreementAcceptedData, null, 2)
+    )
   })
 
   it('should un-accept the agreement and validate via API', async () => {
