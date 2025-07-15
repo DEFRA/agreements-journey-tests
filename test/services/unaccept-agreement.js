@@ -2,7 +2,7 @@ import { request } from 'undici'
 import { browser } from '@wdio/globals'
 
 export async function unacceptAgreement(agreementId) {
-  const url = `${browser.options.baseUrl}/api/agreement/${agreementId}/unaccept`
+  const url = `${browser.options.baseUrl}/unaccept-offer/${agreementId}`
   console.debug('Unaccept agreement request URL:', url)
   const requestOptions = {
     method: 'POST',
@@ -27,7 +27,7 @@ export async function unacceptAgreement(agreementId) {
       `Failed to unaccept agreement ${agreementId}. Status: ${response.statusCode}`
     )
   }
-  if (responseBody.message !== 'Agreement unaccepted') {
+  if (responseBody.message !== 'Offer unaccepted') {
     console.error('Unexpected response message:', responseBody.message)
     throw new Error(`Unexpected response message: ${responseBody.message}`)
   }

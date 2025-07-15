@@ -1,10 +1,12 @@
 import { expect } from '@wdio/globals'
-import { AgreementsPage } from '../page-objects/agreements.page.js'
+import { ReviewOfferPage } from 'page-objects/review-offer.page.js'
+import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
 import { setupAgreement } from '../services/setup-agreement.js'
 import { getAgreement } from '../services/get-agreement.js'
 import { unacceptAgreement } from '../services/unaccept-agreement.js'
 import { faker } from '@faker-js/faker'
-const agreementsPage = new AgreementsPage()
+const reviewOfferPage = new ReviewOfferPage()
+const offerAcceptedPage = new OfferAcceptedPage()
 
 describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
   let agreementId
@@ -18,13 +20,13 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     agreementId = await setupAgreement({ sbi, frn, agreementName, clientRef })
     console.log(`Created agreement with ID: ${agreementId}`)
     await browser.url(`/agreement/${agreementId}`)
-    await agreementsPage.open(agreementId)
+    await reviewOfferPage.open(agreementId)
   })
 
   it('should accept the agreement', async () => {
-    await agreementsPage.acceptAgreement()
-    const confirmationText = await agreementsPage.getAgreementAcceptText()
-    expect(confirmationText).toBe('Agreement accepted')
+    await reviewOfferPage.selectContinue()
+    const confirmationText = await offerAcceptedPage.getConfirmationText()
+    expect(confirmationText).toBe('Offer accepted')
   })
 
   it('should validate agreement is accepted along with invoice details via API', async () => {
@@ -50,10 +52,10 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
   })
   it('re-acceptance of agreement and validate via API', async () => {
     await browser.url(`/agreement/${agreementId}`)
-    await agreementsPage.open(agreementId)
-    await agreementsPage.acceptAgreement()
-    const confirmationText = await agreementsPage.getAgreementAcceptText()
-    expect(confirmationText).toBe('Agreement accepted')
+    await reviewOfferPage.open(agreementId)
+    await reviewOfferPage.selectContinue()
+    const confirmationText = await offerAcceptedPage.getConfirmationText()
+    expect(confirmationText).toBe('Offer accepted')
     const agreementData = await getAgreement(agreementId)
     console.debug(
       'agreementData after accept:-----',
