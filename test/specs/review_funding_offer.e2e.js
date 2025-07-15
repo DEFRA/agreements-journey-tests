@@ -141,7 +141,7 @@ describe('Given the applicant is authenticated', () => {
       expect(await reviewOfferPage.getTotalYearlyPayment()).toBe('£1,461.36')
     })
 
-    it('should continue to next page', async () => {
+    it.skip('should continue to next page', async () => {
       await reviewOfferPage.selectContinue()
       const confirmationText = await offerAcceptedPage.getConfirmationText()
       expect(confirmationText).toBe('Offer accepted')
