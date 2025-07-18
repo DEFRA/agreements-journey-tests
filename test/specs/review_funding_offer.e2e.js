@@ -42,34 +42,34 @@ describe('Given the applicant is authenticated', () => {
           action: 'Assess moorland and produce a written record',
           code: 'CMOR1',
           parcel: 'SO3757 3159',
-          quantity: '8.3405'
+          quantity: '4.5123 ha'
         },
         {
           action: 'Limited livestock grazing on moorland',
           code: 'UPL3',
           parcel: 'SO3757 3159',
-          quantity: '8.3405'
+          quantity: '3.5125 ha'
         },
         {
           action:
             'Keep cattle and ponies on moorland supplement (minimum 30% GLU)',
           code: 'UPL4',
           parcel: 'SO3757 3159',
-          quantity: '8.3405'
+          quantity: '3.5125 ha'
         },
         {
           action:
             'Keep native breeds on extensively managed habitats supplement (more than 80%)',
           code: 'SPM5',
           parcel: 'SO3757 3159',
-          quantity: '8.3405'
+          quantity: '3.5125 ha'
         },
         {
           action:
             'Shepherding livestock on moorland (remove stock for at least 8 months)',
           code: 'UPL10',
           parcel: 'SO3757 3159',
-          quantity: '8.3405'
+          quantity: '8.3405 ha'
         }
       ]
 
@@ -89,38 +89,38 @@ describe('Given the applicant is authenticated', () => {
           action: 'Assess moorland and produce a written record',
           code: 'CMOR1',
           rate: '£10.60',
-          quarterlyPayment: '',
-          yearlyPayment: '£360.41'
+          quarterlyPayment: '£79.96',
+          yearlyPayment: '£319.84'
         },
         {
           action: 'Limited livestock grazing on moorland',
           code: 'UPL3',
           rate: '£66.00',
-          quarterlyPayment: '',
-          yearlyPayment: '£550.47'
+          quarterlyPayment: '£57.96',
+          yearlyPayment: '£231.84'
         },
         {
           action:
             'Keep cattle and ponies on moorland supplement (minimum 30% GLU)',
           code: 'UPL4',
-          rate: '£27.00',
-          quarterlyPayment: '',
-          yearlyPayment: '£58.39'
+          rate: '£7.00',
+          quarterlyPayment: '£6.15',
+          yearlyPayment: '£24.60'
         },
         {
           action:
             'Keep native breeds on extensively managed habitats supplement (more than 80%)',
           code: 'SPM5',
-          rate: '£21.00',
-          quarterlyPayment: '',
-          yearlyPayment: '£91.75'
+          rate: '£11.00',
+          quarterlyPayment: '£9.66',
+          yearlyPayment: '£38.64'
         },
         {
           action:
             'Shepherding livestock on moorland (remove stock for at least 8 months)',
           code: 'UPL10',
           rate: '£48.00',
-          quarterlyPayment: '',
+          quarterlyPayment: '£100.09',
           yearlyPayment: '£400.34'
         }
       ]
@@ -138,7 +138,8 @@ describe('Given the applicant is authenticated', () => {
           expectedPaymentsData[i].yearlyPayment
         )
       }
-      expect(await reviewOfferPage.getTotalYearlyPayment()).toBe('£1,461.36')
+      expect(await reviewOfferPage.getTotalQuarterlyPayment()).toBe('£253.82')
+      expect(await reviewOfferPage.getTotalYearlyPayment()).toBe('£1,015.26')
     })
 
     it.skip('should continue to next page', async () => {

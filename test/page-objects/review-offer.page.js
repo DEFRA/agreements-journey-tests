@@ -58,6 +58,10 @@ class ReviewOfferPage extends Page {
     return await $(`#paymentsTableTotalYearlyPayment`).getText()
   }
 
+  async getTotalQuarterlyPayment() {
+    return await $(`#paymentsTableTotalQuarterlyPayment`).getText()
+  }
+
   async selectContinue(selector) {
     const button = await $("button[type='submit']")
     await button.click()
