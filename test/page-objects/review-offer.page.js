@@ -6,22 +6,6 @@ class ReviewOfferPage extends Page {
     return super.open(path)
   }
 
-  async getFarmName() {
-    return await $(`#farmName`).getText()
-  }
-
-  async getSBI() {
-    return await $(`#sbi`).getText()
-  }
-
-  async getFarmerName() {
-    return await $(`#farmerName`).getText()
-  }
-
-  async getPageHeader() {
-    return await $(`.govuk-heading-xl`).getText()
-  }
-
   async getActionTableRowData(rowIndex) {
     const action = await $(`#actionTableActionRow${rowIndex}`).getText()
     const code = await $(`#actionTableCodeRow${rowIndex}`).getText()
@@ -63,8 +47,7 @@ class ReviewOfferPage extends Page {
   }
 
   async selectContinue(selector) {
-    const button = await $("button[type='submit']")
-    await button.click()
+    await $('.govuk-button').click()
   }
 }
 export { ReviewOfferPage }
