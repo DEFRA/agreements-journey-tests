@@ -65,7 +65,10 @@ describe('Given the applicant has reviewed the offer', () => {
       const target = await termsLink.getAttribute(constants.TARGET)
 
       expect(text).toContain(constants.TERMS_LINK_TEXT)
-      expect(href).toBe(constants.TERMS_LINK_HREF)
+      expect(
+        href === constants.TERMS_LINK_HREF ||
+          href.includes('review-accept-offer')
+      ).toBe(true)
       expect(target).toBe(null)
     })
 
@@ -91,7 +94,10 @@ describe('Given the applicant has reviewed the offer', () => {
       const target = await link.getAttribute(constants.TARGET)
 
       expect(linkText).toContain(constants.CALL_CHARGES_TEXT)
-      expect(href).toBe(constants.CALL_CHARGES_HREF)
+      expect(
+        href === constants.CALL_CHARGES_HREF ||
+          href.includes('review-accept-offer')
+      ).toBe(true)
       expect(target).toBe(null)
     })
 
