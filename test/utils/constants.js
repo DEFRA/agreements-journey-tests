@@ -19,13 +19,15 @@ export const ACTION_TABLE_DATA = [
     quantity: '3.5125 ha'
   },
   {
-    action: 'Keep native breeds on extensively managed habitats supplement (more than 80%)',
+    action:
+      'Keep native breeds on extensively managed habitats supplement (more than 80%)',
     code: 'SPM5',
     parcel: 'SO3757 3159',
     quantity: '3.5125 ha'
   },
   {
-    action: 'Shepherding livestock on moorland (remove stock for at least 8 months)',
+    action:
+      'Shepherding livestock on moorland (remove stock for at least 8 months)',
     code: 'UPL10',
     parcel: 'SO3757 3159',
     quantity: '8.3405 ha'
@@ -54,14 +56,16 @@ export const PAYMENTS_DATA = [
     yearlyPayment: '£24.60'
   },
   {
-    action: 'Keep native breeds on extensively managed habitats supplement (more than 80%)',
+    action:
+      'Keep native breeds on extensively managed habitats supplement (more than 80%)',
     code: 'SPM5',
     rate: '£11.00',
     quarterlyPayment: '£9.66',
     yearlyPayment: '£38.64'
   },
   {
-    action: 'Shepherding livestock on moorland (remove stock for at least 8 months)',
+    action:
+      'Shepherding livestock on moorland (remove stock for at least 8 months)',
     code: 'UPL10',
     rate: '£48.00',
     quarterlyPayment: '£100.09',
