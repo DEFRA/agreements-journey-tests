@@ -14,7 +14,7 @@ class AcceptYourOfferPage extends Page {
   }
 
   async toggleGuidanceDetails() {
-    return $('#update-guidance-details summary').click()
+    return $('summary=If you need to make an update').click()
   }
 
   getConfirmationChecklist() {
@@ -22,19 +22,21 @@ class AcceptYourOfferPage extends Page {
   }
 
   async getGuidanceDetailsText() {
-    return $('#update-guidance-details .govuk-details__text').getText()
+    const details = await $('summary=If you need to make an update')
+    const parent = await details.parentElement()
+    return parent.$('.govuk-details__text').getText()
   }
 
   async getCallChargesLink() {
-    return this.getLinkByPartialText('Find out about call charges')
+    return await this.getLinkByPartialText('Find out about call charges')
   }
 
   async getTermsAndConditionsLink() {
-    return this.getLinkByPartialText('terms and conditions')
+    return await this.getLinkByPartialText('terms and conditions')
   }
 
   async getFundingLink() {
-    return this.getLinkByPartialText('Find funding for land or farms')
+    return await this.getLinkByPartialText('Find funding for land or farms')
   }
 }
 export { AcceptYourOfferPage }

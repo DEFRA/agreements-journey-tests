@@ -2,7 +2,7 @@ import { request } from 'undici'
 import { browser } from '@wdio/globals'
 
 export async function unacceptAgreement(agreementId) {
-  const url = `${browser.options.baseUrl}/unaccept-offer/${agreementId}`
+  const url = `${browser.options.testAPIEndPointUrl}/unaccept-offer/${agreementId}`
   console.debug('Unaccept agreement request URL:', url)
   const requestOptions = {
     method: 'POST',

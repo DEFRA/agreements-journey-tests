@@ -3,7 +3,7 @@ import { ReviewOfferPage } from 'page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from 'page-objects/accept-your-offer.page.js'
 import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
 import { unacceptAgreement } from '../services/unaccept-agreement.js'
-import * as constants from '../utils/constants.js'
+import * as constants from '../support/constants.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
@@ -99,7 +99,7 @@ describe('Given the applicant has reviewed the offer', () => {
       // expect(target).toBe(null)
     })
 
-    it.skip('should proceed to Offer Accepted page on submit', async () => {
+    it('should proceed to Offer Accepted page on submit', async () => {
       await acceptYourOfferPage.selectAcceptOffer()
       const confirmationText = await offerAcceptedPage.getConfirmationText()
       expect(confirmationText).toBe(constants.OFFER_ACCEPTED_TEXT)

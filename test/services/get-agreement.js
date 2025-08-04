@@ -2,7 +2,7 @@ import { request } from 'undici'
 import { browser } from '@wdio/globals'
 
 export async function getAgreement(agreementId) {
-  const url = `${browser.options.baseUrl}/api/test/agreement?id=${agreementId}`
+  const url = `${browser.options.testAPIEndPointUrl}/api/test/agreement?id=${agreementId}`
   console.debug('Get agreement request URL:', url)
   const requestOptions = {
     method: 'GET',

@@ -39,7 +39,7 @@ export async function setupAgreement({ sbi, frn, agreementName, clientRef }) {
       }
     }
   }
-  const url = `${browser.options.baseUrl}/api/test/queue-message`
+  const url = `${browser.options.testAPIEndPointUrl}/api/test/queue-message`
   console.debug('Create agreement request URL:', url)
   console.debug(
     'Create agreement request body:',
