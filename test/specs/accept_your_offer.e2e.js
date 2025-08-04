@@ -2,8 +2,8 @@ import { browser, expect } from '@wdio/globals'
 import { ReviewOfferPage } from 'page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from 'page-objects/accept-your-offer.page.js'
 import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
-import { unacceptAgreement } from '../services/unaccept-agreement.js'
 import * as constants from '../support/constants.js'
+import { createTestAgreement } from '~/test/support/agreement-helper.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
@@ -11,13 +11,15 @@ const offerAcceptedPage = new OfferAcceptedPage()
 
 describe('Given the applicant has reviewed the offer', () => {
   describe('When the applicant navigate to “Accept your offer” page', () => {
+    let agreementId
+    let sbi
     before(async () => {
-      try {
-        await unacceptAgreement(constants.DEFAULT_AGREEMENT_ID)
-      } catch (e) {
-        console.warn('making sure agreement is setup for use')
-      }
-      await reviewOfferPage.open(constants.DEFAULT_AGREEMENT_ID)
+      // Step 1: Create agreement
+      const agreement = await createTestAgreement()
+      agreementId = agreement.agreementId
+      sbi = agreement.sbi
+      console.log(`Created agreement with ID: ${agreementId}`)
+      await reviewOfferPage.open(agreementId)
       await reviewOfferPage.selectContinue()
     })
 
@@ -26,10 +28,12 @@ describe('Given the applicant has reviewed the offer', () => {
     })
 
     it('Then should show the Farm Details', async () => {
-      expect(await acceptYourOfferPage.getFarmName()).toBe(constants.FARM_NAME)
-      expect(await acceptYourOfferPage.getSBI()).toBe(constants.SBI)
-      expect(await acceptYourOfferPage.getFarmerName()).toBe(
-        constants.FARMER_NAME
+      expect(await reviewOfferPage.getFarmName()).toBe(
+        constants.DEFAULT_FARM_NAME
+      )
+      expect(await reviewOfferPage.getSBI()).toBe(constants.DEFAULT_SBI + sbi)
+      expect(await reviewOfferPage.getFarmerName()).toBe(
+        constants.DEFAULT_FARMER_NAME
       )
     })
 
@@ -42,7 +46,7 @@ describe('Given the applicant has reviewed the offer', () => {
     it('should return to the Review Offer page when clicking Back', async () => {
       await acceptYourOfferPage.clickBackLink()
       const url = await browser.getUrl()
-      expect(url).toContain(`/review-offer/${constants.DEFAULT_AGREEMENT_ID}`)
+      expect(url).toContain(`/review-offer/${agreementId}`)
       expect(await reviewOfferPage.getPageHeader()).toBe(
         constants.REVIEW_OFFER_HEADER
       )
