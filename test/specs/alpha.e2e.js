@@ -2,24 +2,21 @@ import { expect } from '@wdio/globals'
 import { ReviewOfferPage } from 'page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from 'page-objects/accept-your-offer.page.js'
 import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
-import { setupAgreement } from '../services/setup-agreement.js'
 import { getAgreement } from '../services/get-agreement.js'
 import { unacceptAgreement } from '../services/unaccept-agreement.js'
-import { faker } from '@faker-js/faker'
+import { createTestAgreement } from '../support/agreement-helper.js'
+import * as constants from '../support/constants.js'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const offerAcceptedPage = new OfferAcceptedPage()
 
 describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
-  let agreementId
-  const sbi = faker.string.numeric(10)
-  const frn = faker.string.numeric(10)
-  const clientRef = 'ref-e2e-001'
-  const agreementName = 'E2E Agreement Test Farm'
-
+  let agreementId, sbi
   before(async () => {
     // Step 1: Create agreement
-    agreementId = await setupAgreement({ sbi, frn, agreementName, clientRef })
+    const agreement = await createTestAgreement()
+    agreementId = agreement.agreementId
+    sbi = agreement.sbi
     console.log(`Created agreement with ID: ${agreementId}`)
     await browser.url(`/agreement/${agreementId}`)
     await reviewOfferPage.open(agreementId)
@@ -59,7 +56,7 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     await reviewOfferPage.selectContinue()
     await acceptYourOfferPage.selectAcceptOffer()
     const confirmationText = await offerAcceptedPage.getConfirmationText()
-    expect(confirmationText).toBe('Offer accepted')
+    expect(confirmationText).toBe(constants.OFFER_ACCEPTED_HEADER)
     const agreementData = await getAgreement(agreementId)
     console.debug(
       'agreementData after accept:-----',

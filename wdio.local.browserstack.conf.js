@@ -4,9 +4,19 @@ import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
 export const config = {
   user: process.env.BROWSERSTACK_USERNAME,
   key: process.env.BROWSERSTACK_KEY,
-  // baseUrl: `https://farming-grants-agreements-api.test.cdp-int.defra.cloud/`,
+  // Local
   baseUrl: 'http://localhost:3555',
-  // baseUrl: `https://farming-grants-agreements-api.dev.cdp-int.defra.cloud/`,
+  testAPIEndPointUrl: 'http://localhost:3555',
+  proxy: '',
+  // DEV URL
+  // baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
+  // testAPIEndPointUrl:
+  //   'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
+  // proxy:"/agreement",
+  // TEST URL
+  // baseUrl: 'https://grants-ui.test.cdp-int.defra.cloud',
+  // testAPIEndPointUrl:
+  //   'https://farming-grants-agreements-api.test.cdp-int.defra.cloud',
   runner: 'local',
   specs: ['./test/specs/*.js'],
   exclude: [],

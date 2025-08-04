@@ -1,4 +1,21 @@
 export const REVIEW_FUNDING_OFFER_TITLE = 'Review funding offer'
+export const DEFAULT_ACTION_TABLE_DATA = [
+  {
+    action: 'CSAM1',
+    code: 'CSAM1',
+    parcel: 'SX06799238',
+    quantity: '1.23 ha'
+  }
+]
+export const DEFAULT_PAYMENTS_DATA = [
+  {
+    action: 'CSAM1',
+    code: 'CSAM1',
+    rate: '£6.00',
+    quarterlyPayment: '£1.85',
+    yearlyPayment: '£7.38'
+  }
+]
 export const ACTION_TABLE_DATA = [
   {
     action: 'Assess moorland and produce a written record',
@@ -72,11 +89,16 @@ export const PAYMENTS_DATA = [
     yearlyPayment: '£400.34'
   }
 ]
+export const DEFAULT_TOTAL_QUARTERLY_PAYMENT = '£1.85'
+export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£7.38'
 export const TOTAL_QUARTERLY_PAYMENT = '£253.82'
 export const TOTAL_YEARLY_PAYMENT = '£1,015.26'
 export const ACCEPT_OFFER_TITLE = 'Accept offer'
+export const DEFAULT_FARM_NAME = 'Sample Farm Ltd'
 export const FARM_NAME = 'Agile Farm'
 export const SBI = 'Single business identifier (SBI): 999999999'
+export const DEFAULT_SBI = 'Single business identifier (SBI): '
+export const DEFAULT_FARMER_NAME = 'Diana Peart'
 export const FARMER_NAME = 'Alfred Waldron'
 export const ACCEPT_OFFER_HEADER = 'Accept your offer'
 export const REVIEW_OFFER_HEADER = 'Review your funding offer'
@@ -106,3 +128,10 @@ export const CALL_CHARGES_HREF = '#'
 export const HREF = 'href'
 export const TARGET = 'target'
 export const DEFAULT_AGREEMENT_ID = 'SFI999999999'
+export const OFFER_ACCEPTED_TITLE = 'Offer accepted'
+export const OFFER_ACCEPTED_HEADER = 'Offer accepted'
+export const START_DATE = 'The start date for these actions is '
+export const AGREEMENT_REFERENCE = 'Your agreement number is '
+export const FULL_STOP = '.'
+export const HELP_TEXT =
+  'You can contact the Rural Payments Agency (RPA) by phone or email for help and support.'

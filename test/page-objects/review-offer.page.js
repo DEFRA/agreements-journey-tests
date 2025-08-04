@@ -2,8 +2,9 @@ import { Page } from './page.js'
 
 class ReviewOfferPage extends Page {
   open(id) {
+    const proxy = `${browser.options.proxy}`
     const path = id ? `/review-offer/${id}` : '/review-offer/SFI123456789'
-    return super.open(path)
+    return super.open(proxy + path)
   }
 
   async getActionTableRowData(rowIndex) {
@@ -50,4 +51,5 @@ class ReviewOfferPage extends Page {
     await $('.govuk-button').click()
   }
 }
+
 export { ReviewOfferPage }
