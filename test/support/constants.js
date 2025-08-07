@@ -135,3 +135,14 @@ export const AGREEMENT_REFERENCE = 'Your agreement number is '
 export const FULL_STOP = '.'
 export const HELP_TEXT =
   'You can contact the Rural Payments Agency (RPA) by phone or email for help and support.'
+export const DEFAULT_ADDRESS = '123 Farm Lane, Farmville'
+export const DEFAULT_AGREEMENT_NAME = 'Unnamed Agreement'
+export const SUB_HEADERS = [
+  { element: 'introSubHeader', expected: '1. Introduction and overview' },
+  { element: 'partiesSubHeader', expected: '2. Parties to the agreement' },
+  { element: 'landSubHeader', expected: '3. Land covered by agreement' },
+  { element: 'actionsSubHeader', expected: '4. Summary of actions' },
+  { element: 'paymentSubHeader', expected: '5. Summary of payments' },
+  { element: 'scheduleSubHeader', expected: '6. Payment schedule' },
+  { element: 'protectionSubHeader', expected: '7. Data protection' }
+]
