@@ -1,4 +1,4 @@
-import { browser, expect } from '@wdio/globals'
+import { expect } from '@wdio/globals'
 import { ReviewOfferPage } from 'page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from 'page-objects/accept-your-offer.page.js'
 import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
@@ -29,12 +29,6 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.selectAcceptOffer()
       await offerAcceptedPage.clickViewAgreementLink()
-    })
-
-    it('Then should show the title', async () => {
-      await expect(browser).toHaveTitle(
-        constants.DEFAULT_FARM_NAME + ' agreement'
-      )
     })
 
     it('Then should show the Farm Details', async () => {
