@@ -1,4 +1,4 @@
-export const REVIEW_FUNDING_OFFER_TITLE = 'Review funding offer'
+export const REVIEW_FUNDING_OFFER_TITLE = 'Review funding offer - GOV.UK'
 export const DEFAULT_ACTION_TABLE_DATA = [
   {
     action: 'CSAM1',
@@ -93,7 +93,7 @@ export const DEFAULT_TOTAL_QUARTERLY_PAYMENT = '£1.85'
 export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£7.38'
 export const TOTAL_QUARTERLY_PAYMENT = '£253.82'
 export const TOTAL_YEARLY_PAYMENT = '£1,015.26'
-export const ACCEPT_OFFER_TITLE = 'Accept offer'
+export const ACCEPT_OFFER_TITLE = 'Accept offer - GOV.UK'
 export const DEFAULT_FARM_NAME = 'Sample Farm Ltd'
 export const FARM_NAME = 'Agile Farm'
 export const SBI = 'Single business identifier (SBI): 999999999'
@@ -128,7 +128,7 @@ export const CALL_CHARGES_HREF = '#'
 export const HREF = 'href'
 export const TARGET = 'target'
 export const DEFAULT_AGREEMENT_ID = 'SFI999999999'
-export const OFFER_ACCEPTED_TITLE = 'Offer accepted'
+export const OFFER_ACCEPTED_TITLE = 'Offer accepted - GOV.UK'
 export const OFFER_ACCEPTED_HEADER = 'Offer accepted'
 export const START_DATE = 'The start date for these actions is '
 export const AGREEMENT_REFERENCE = 'Your agreement number is '
