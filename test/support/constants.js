@@ -1,4 +1,4 @@
-export const REVIEW_FUNDING_OFFER_TITLE = 'Review funding offer - GOV.UK'
+export const REVIEW_FUNDING_OFFER_TITLE = 'Review your funding offer - GOV.UK'
 export const DEFAULT_ACTION_TABLE_DATA = [
   {
     action: 'CSAM1',
