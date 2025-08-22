@@ -46,7 +46,7 @@ describe('Given the applicant has reviewed the offer', () => {
     it('should return to the Review Offer page when clicking Back', async () => {
       await acceptYourOfferPage.clickBackLink()
       const url = await browser.getUrl()
-      expect(url).toContain(`/review-accept-offer/${agreementId}`)
+      expect(url).toContain(`/review-offer/${agreementId}`)
       expect(await reviewOfferPage.getPageHeader()).toBe(
         constants.REVIEW_OFFER_HEADER
       )
