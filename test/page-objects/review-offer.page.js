@@ -3,7 +3,7 @@ import { Page } from './page.js'
 class ReviewOfferPage extends Page {
   open(id) {
     const proxy = `${browser.options.proxy}`
-    const path = id ? `/review-offer/${id}` : '/review-offer/SFI123456789'
+    const path = id ? `/${id}` : '/SFI123456789'
     return super.open(proxy + path)
   }
 

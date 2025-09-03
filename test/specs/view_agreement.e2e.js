@@ -35,7 +35,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       expect(await viewAgreementPage.getFarmName()).toBe(
         constants.DEFAULT_FARM_NAME
       )
-      expect(await viewAgreementPage.getSBI()).toBe(constants.DEFAULT_SBI + sbi)
+      expect(await viewAgreementPage.getSBI()).toBe(sbi)
       expect(await viewAgreementPage.getFarmerName()).toBe(
         constants.DEFAULT_FARMER_NAME
       )

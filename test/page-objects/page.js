@@ -26,7 +26,7 @@ class Page {
   }
 
   async getLinkByPartialText(partialText) {
-    const links = await $$('a.govuk-link')
+    const links = await $$('a.govuk-link, button.govuk-link')
     for (const link of links) {
       if (
         (await link.getText()).toLowerCase().includes(partialText.toLowerCase())
