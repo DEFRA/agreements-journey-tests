@@ -31,7 +31,7 @@ describe('Given the applicant has reviewed the offer', () => {
       expect(await reviewOfferPage.getFarmName()).toBe(
         constants.DEFAULT_FARM_NAME
       )
-      expect(await reviewOfferPage.getSBI()).toBe(constants.DEFAULT_SBI + sbi)
+      expect(await reviewOfferPage.getSBI()).toBe(sbi)
       expect(await reviewOfferPage.getFarmerName()).toBe(
         constants.DEFAULT_FARMER_NAME
       )
@@ -46,7 +46,7 @@ describe('Given the applicant has reviewed the offer', () => {
     it('should return to the Review Offer page when clicking Back', async () => {
       await acceptYourOfferPage.clickBackLink()
       const url = await browser.getUrl()
-      expect(url).toContain(`/review-offer/${agreementId}`)
+      expect(url).toContain(`/${agreementId}`)
       expect(await reviewOfferPage.getPageHeader()).toBe(
         constants.REVIEW_OFFER_HEADER
       )

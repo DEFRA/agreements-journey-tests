@@ -18,7 +18,7 @@ class AcceptYourOfferPage extends Page {
   }
 
   getConfirmationChecklist() {
-    return $$('ul.govuk-list--bullet > li').map((el) => el.getText())
+    return $$('ul.govuk-list--bullet li').map((el) => el.getText())
   }
 
   async getGuidanceDetailsText() {

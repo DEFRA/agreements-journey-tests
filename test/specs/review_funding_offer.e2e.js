@@ -27,7 +27,7 @@ describe('Given the applicant is authenticated', () => {
       expect(await reviewOfferPage.getFarmName()).toBe(
         constants.DEFAULT_FARM_NAME
       )
-      expect(await reviewOfferPage.getSBI()).toBe(constants.DEFAULT_SBI + sbi)
+      expect(await reviewOfferPage.getSBI()).toBe(sbi)
       expect(await reviewOfferPage.getFarmerName()).toBe(
         constants.DEFAULT_FARMER_NAME
       )
