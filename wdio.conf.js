@@ -17,7 +17,8 @@ export const config = {
   // baseUrl: `https://grants-ui.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
   baseUrl: `https://farming-grants-agreements-api.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
   testAPIEndPointUrl: `https://farming-grants-agreements-api.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
-  proxy: '/agreement',
+  // proxy: '/agreement',
+  proxy: '',
   // Connection to remote chromedriver
   hostname: process.env.CHROMEDRIVER_URL || '127.0.0.1',
   port: process.env.CHROMEDRIVER_PORT || 4444,
