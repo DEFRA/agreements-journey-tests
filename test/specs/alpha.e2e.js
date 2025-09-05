@@ -39,7 +39,7 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     // expect(agreementData.invoice[0].paymentHubRequest.value).toBe(22.14)
   })
 
-  it.skip('should un-accept the agreement and validate via API', async () => {
+  it('should un-accept the agreement and validate via API', async () => {
     await unacceptAgreement(agreementId)
     const agreementData = await getAgreement(agreementId)
     console.log(

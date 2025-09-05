@@ -117,20 +117,20 @@ export const config = {
   // testAPIEndPointUrl: 'http://localhost:3555',
   // proxy: '',
   // DEV URL
-  // baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
-  // testAPIEndPointUrl:
-  //   'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
-  // proxy: '/agreement',
+  baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
+  testAPIEndPointUrl:
+    'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
+  proxy: '/agreement',
   // TEST URL
   // baseUrl: 'https://grants-ui.test.cdp-int.defra.cloud',
   // testAPIEndPointUrl:
   //   'https://farming-grants-agreements-api.test.cdp-int.defra.cloud',
   // proxy: '/agreement',
   // DEV AGREEMENTS DIRECT URL
-  baseUrl: 'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
-  testAPIEndPointUrl:
-    'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
-  proxy: '',
+  // baseUrl: 'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
+  // testAPIEndPointUrl:
+  //   'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
+  // proxy: '',
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
   waitforInterval: 200,

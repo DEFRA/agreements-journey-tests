@@ -2,7 +2,13 @@ import { request } from 'undici'
 import { randomUUID } from 'crypto'
 import { browser } from '@wdio/globals'
 
-export async function setupAgreement({ sbi, frn, agreementName, clientRef }) {
+export async function setupAgreement({
+  sbi,
+  frn,
+  agreementName,
+  clientRef,
+  quantity = 1.23
+}) {
   const requestBody = {
     id: randomUUID(),
     source: 'fg-gas-backend',
@@ -32,7 +38,7 @@ export async function setupAgreement({ sbi, frn, agreementName, clientRef }) {
             code: 'CSAM1',
             appliedFor: {
               unit: 'ha',
-              quantity: 1.23
+              quantity
             }
           }
         ]
