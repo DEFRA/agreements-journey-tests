@@ -7,6 +7,14 @@ export const DEFAULT_ACTION_TABLE_DATA = [
     quantity: '1.23 ha'
   }
 ]
+export const DEFAULT_ACTION_TABLE_DATA_UPDATED = [
+  {
+    action: 'CSAM1',
+    code: 'CSAM1',
+    parcel: 'SX06799238',
+    quantity: '2.23 ha'
+  }
+]
 export const DEFAULT_PAYMENTS_DATA = [
   {
     action: 'CSAM1',
