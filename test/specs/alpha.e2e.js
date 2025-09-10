@@ -35,8 +35,8 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     const agreementData = await getAgreement(agreementId)
     expect(agreementData).not.toBeUndefined()
     expect(agreementData).toMatchObject({ sbi, status: 'accepted' })
-    // expect(agreementData.invoice).toBeDefined()
-    // expect(agreementData.invoice[0].paymentHubRequest.value).toBe(22.14)
+    expect(agreementData.invoice).toBeDefined()
+    expect(agreementData.invoice[0].paymentHubRequest.value).toBe(22.14)
   })
 
   it('should un-accept the agreement and validate via API', async () => {
@@ -51,7 +51,7 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
       status: 'offered'
     })
   })
-  it.skip('re-acceptance of agreement and validate via API', async () => {
+  it('re-acceptance of agreement and validate via API', async () => {
     await browser.url(`/agreement/${agreementId}`)
     await reviewOfferPage.open(agreementId)
     await reviewOfferPage.selectContinue()
@@ -65,8 +65,8 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     )
     expect(agreementData).not.toBeUndefined()
     expect(agreementData).toMatchObject({ sbi, status: 'accepted' })
-    // expect(agreementData.invoice).toBeDefined()
-    // expect(agreementData.invoice[0].paymentHubRequest.value).toBe(22.14)
-    // expect(agreementData.invoice[1].paymentHubRequest.value).toBe(22.14)
+    expect(agreementData.invoice).toBeDefined()
+    expect(agreementData.invoice[0].paymentHubRequest.value).toBe(22.14)
+    expect(agreementData.invoice[1].paymentHubRequest.value).toBe(22.14)
   })
 })
