@@ -33,7 +33,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       await offerAcceptedPage.clickViewAgreementLink()
     })
 
-    it.skip('Then should show the Farm Details', async () => {
+    it('Then should show the Farm Details', async () => {
       expect(await viewAgreementPage.getFarmName()).toBe(
         constants.DEFAULT_FARM_NAME
       )
@@ -52,9 +52,9 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       expect(await viewAgreementPage.getAddress()).toBe(
         constants.DEFAULT_ADDRESS
       )
-      // expect(await viewAgreementPage.getAgreementName()).toBe(
-      //   constants.DEFAULT_AGREEMENT_NAME
-      // )
+      expect(await viewAgreementPage.getAgreementName()).toBe(
+        constants.DEFAULT_AGREEMENT_NAME
+      )
       expect(await viewAgreementPage.getAgreementNumber()).toBe(agreementId)
       const formattedDate = dayjs(
         agreementData.payment.agreementStartDate

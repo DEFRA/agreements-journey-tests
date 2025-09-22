@@ -34,7 +34,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       await expect(browser).toHaveTitle(constants.OFFER_ACCEPTED_TITLE)
     })
 
-    it.skip('Then should show the Farm Details', async () => {
+    it('Then should show the Farm Details', async () => {
       expect(await offerAcceptedPage.getFarmName()).toBe(
         constants.DEFAULT_FARM_NAME
       )

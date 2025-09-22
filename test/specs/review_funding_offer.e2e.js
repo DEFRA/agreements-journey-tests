@@ -25,7 +25,7 @@ describe('Given the applicant is authenticated', () => {
       await expect(browser).toHaveTitle(constants.REVIEW_FUNDING_OFFER_TITLE)
     })
 
-    it.skip('Then should show the Farm Details', async () => {
+    it('Then should show the Farm Details', async () => {
       expect(await reviewOfferPage.getFarmName()).toBe(
         constants.DEFAULT_FARM_NAME
       )
