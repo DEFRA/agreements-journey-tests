@@ -13,12 +13,11 @@ const offerAcceptedPage = new OfferAcceptedPage()
 const loginPage = new LoginPage()
 
 describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
-  let agreementId, sbi
+  let agreementId
   before(async () => {
     // Step 1: Create agreement
     const agreement = await createTestAgreement()
     agreementId = agreement.agreementId
-    sbi = agreement.sbi
     console.log(`Created agreement with ID: ${agreementId}`)
     await loginPage.login(agreementId)
   })
