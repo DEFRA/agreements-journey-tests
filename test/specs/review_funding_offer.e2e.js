@@ -67,15 +67,21 @@ describe('Given the applicant is authenticated', () => {
         expect(rowData.paymentRate).toBe(
           constants.DEFAULT_PAYMENTS_DATA[i].rate
         )
-        expect(rowData.quarterlyPayment).toBe(
-          constants.DEFAULT_PAYMENTS_DATA[i].quarterlyPayment
+        expect(rowData.firstPayment).toBe(
+          constants.DEFAULT_PAYMENTS_DATA[i].firstPayment
+        )
+        expect(rowData.subsequentPayments).toBe(
+          constants.DEFAULT_PAYMENTS_DATA[i].subsequentPayments
         )
         expect(rowData.yearlyPayment).toBe(
           constants.DEFAULT_PAYMENTS_DATA[i].yearlyPayment
         )
       }
-      expect(await reviewOfferPage.getTotalQuarterlyPayment()).toBe(
-        constants.DEFAULT_TOTAL_QUARTERLY_PAYMENT
+      expect(await reviewOfferPage.getTotalFirstPayment()).toBe(
+        constants.DEFAULT_TOTAL_FIRST_PAYMENT
+      )
+      expect(await reviewOfferPage.getTotalSubsequentPayment()).toBe(
+        constants.DEFAULT_TOTAL_SUBSEQUENT_PAYMENT
       )
       expect(await reviewOfferPage.getTotalYearlyPayment()).toBe(
         constants.DEFAULT_TOTAL_YEARLY_PAYMENT

@@ -20,7 +20,8 @@ export const DEFAULT_PAYMENTS_DATA = [
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
     rate: '£10.60 per ha',
-    quarterlyPayment: '£12.01',
+    firstPayment: '£12.01',
+    subsequentPayments: '£12.01',
     yearlyPayment: '£48.06'
   },
   {
@@ -28,11 +29,13 @@ export const DEFAULT_PAYMENTS_DATA = [
       'One-off payment per agreement per year for Assess moorland and produce a written record',
     code: 'CMOR1',
     rate: '£272.00',
-    quarterlyPayment: '£68.00',
+    firstPayment: '£68.00',
+    subsequentPayments: '£68.00',
     yearlyPayment: '£272.00'
   }
 ]
-export const DEFAULT_TOTAL_QUARTERLY_PAYMENT = '£80.01'
+export const DEFAULT_TOTAL_FIRST_PAYMENT = '£80.01'
+export const DEFAULT_TOTAL_SUBSEQUENT_PAYMENT = '£80.01'
 export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£320.06'
 export const ACCEPT_OFFER_TITLE = 'Accept offer - GOV.UK'
 export const DEFAULT_FARM_NAME = 'J&S Hartley'

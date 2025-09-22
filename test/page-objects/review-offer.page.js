@@ -25,26 +25,40 @@ class ReviewOfferPage extends Page {
     const paymentRate = await $(
       `#paymentsTablePaymentRateForEachYearRow${rowIndex}`
     ).getText()
-    const quarterlyPayment = await $(
-      `#paymentsTableQuarterlyPaymentRow${rowIndex}`
+    const firstPayment = await $(
+      `#paymentsTableFirstPaymentRow${rowIndex}`
+    ).getText()
+    const subsequentPayments = await $(
+      `#paymentsTableSubsequentPaymentRow${rowIndex}`
     ).getText()
     const yearlyPayment = await $(
       `#paymentsTableYearlyPaymentRow${rowIndex}`
     ).getText()
 
     console.log(
-      `Row ${rowIndex} - Action: ${action}, Code: ${code}, Payment Rate: ${paymentRate}, Quarterly: ${quarterlyPayment}, Yearly: ${yearlyPayment}`
+      `Row ${rowIndex} - Action: ${action}, Code: ${code}, Payment Rate: ${paymentRate}, First Payment: ${firstPayment},Subsequent payments : ${subsequentPayments}, Yearly: ${yearlyPayment}`
     )
 
-    return { action, code, paymentRate, quarterlyPayment, yearlyPayment }
+    return {
+      action,
+      code,
+      paymentRate,
+      firstPayment,
+      subsequentPayments,
+      yearlyPayment
+    }
+  }
+
+  async getTotalFirstPayment() {
+    return await $(`#paymentsTableTotalFirstPayment`).getText()
+  }
+
+  async getTotalSubsequentPayment() {
+    return await $(`#paymentsTableTotalSubsequentPayment`).getText()
   }
 
   async getTotalYearlyPayment() {
     return await $(`#paymentsTableTotalYearlyPayment`).getText()
-  }
-
-  async getTotalQuarterlyPayment() {
-    return await $(`#paymentsTableTotalQuarterlyPayment`).getText()
   }
 
   async selectContinue(selector) {
