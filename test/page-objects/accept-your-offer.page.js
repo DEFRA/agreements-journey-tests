@@ -36,7 +36,7 @@ class AcceptYourOfferPage extends Page {
   }
 
   async getFundingLink() {
-    return await this.getLinkByPartialText('Find funding for land or farms')
+    return await this.getLinkByPartialText('funding for land or farms')
   }
 }
 export { AcceptYourOfferPage }

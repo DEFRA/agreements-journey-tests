@@ -3,7 +3,7 @@ export const DEFAULT_ACTION_TABLE_DATA = [
   {
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
-    parcel: '8083',
+    parcel: 'SD6743 8083',
     quantity: '1.23 ha'
   }
 ]
@@ -38,7 +38,7 @@ export const ACCEPT_OFFER_TITLE = 'Accept offer - GOV.UK'
 export const DEFAULT_FARM_NAME = 'J&S Hartley'
 export const SBI = 'Single business identifier (SBI): 999999999'
 export const DEFAULT_SBI = 'Single business identifier (SBI): '
-export const DEFAULT_FARMER_NAME = 'Diana Peart'
+export const DEFAULT_FARMER_NAME = 'Edward Jones'
 export const FARMER_NAME = 'Alfred Waldron'
 export const ACCEPT_OFFER_HEADER = 'Accept your offer'
 export const REVIEW_OFFER_HEADER = 'Review your funding offer'
@@ -57,7 +57,7 @@ export const BULLET_POINTS = [
 ]
 export const TERMS_LINK_TEXT = 'terms and conditions'
 export const TERMS_LINK_HREF = '#'
-export const FUNDING_LINK_TEXT = 'Find funding for land or farms'
+export const FUNDING_LINK_TEXT = 'funding for land or farms (opens in new tab)'
 export const FUNDING_LINK_HREF =
   'https://www.gov.uk/find-funding-for-land-or-farms'
 export const GUIDANCE_DETAILS_TEXT =
@@ -77,7 +77,7 @@ export const HELP_TEXT =
   'You can contact the Rural Payments Agency (RPA) by phone or email for help and support.'
 export const DEFAULT_ADDRESS =
   'Mason House Farm Clitheroe Rd, Bashall Eaves, Bartindale Road, Clitheroe, BB7 3DD'
-export const DEFAULT_AGREEMENT_NAME = 'Unnamed Agreement'
+export const DEFAULT_AGREEMENT_NAME = 'E2E Agreement Test Farm'
 export const SUB_HEADERS = [
   { element: 'introSubHeader', expected: '1. Introduction and overview' },
   { element: 'partiesSubHeader', expected: '2. Parties to the agreement' },
@@ -89,4 +89,4 @@ export const SUB_HEADERS = [
 ]
 export const USERNAME = '1102838829'
 export const PASSWORD = process.env.DEFRA_ID_USER_PASSWORD
-export const FARM_NAME = 'Agile Farm agreement'
+export const FARM_NAME = 'E2E Agreement Test Farm'
