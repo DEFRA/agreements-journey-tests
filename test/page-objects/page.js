@@ -6,18 +6,7 @@ class Page {
   }
 
   async open(path) {
-    await this.login()
-    const baseUrl = browser.options.baseUrl
-    const fullUrl = `${baseUrl}${path}`
-    await browser.url(fullUrl)
-    const currentURL = await browser.getUrl()
-    console.log('currentURL: ' + currentURL)
-    return fullUrl
-  }
-
-  async login() {
-    await browser.url(browser.options.baseUrl)
-    await $('=Sign in').click()
+    return browser.url(path)
   }
 
   async getFarmName() {

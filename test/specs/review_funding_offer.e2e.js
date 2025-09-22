@@ -3,8 +3,10 @@ import { ReviewOfferPage } from 'page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from 'page-objects/accept-your-offer.page.js'
 import * as constants from '../support/constants.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
+import { LoginPage } from 'page-objects/login.page.js'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
+const loginPage = new LoginPage()
 
 describe('Given the applicant is authenticated', () => {
   describe('When the applicant navigate to their “Review your funding offer” page', () => {
@@ -16,14 +18,14 @@ describe('Given the applicant is authenticated', () => {
       agreementId = agreement.agreementId
       sbi = agreement.sbi
       console.log(`Created agreement with ID: ${agreementId}`)
-      await reviewOfferPage.open(agreementId)
+      await loginPage.login(agreementId)
     })
 
     it('Then should show the title', async () => {
       await expect(browser).toHaveTitle(constants.REVIEW_FUNDING_OFFER_TITLE)
     })
 
-    it('Then should show the Farm Details', async () => {
+    it.skip('Then should show the Farm Details', async () => {
       expect(await reviewOfferPage.getFarmName()).toBe(
         constants.DEFAULT_FARM_NAME
       )

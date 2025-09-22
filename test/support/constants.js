@@ -1,109 +1,41 @@
 export const REVIEW_FUNDING_OFFER_TITLE = 'Review your funding offer - GOV.UK'
 export const DEFAULT_ACTION_TABLE_DATA = [
   {
-    action: 'CSAM1',
-    code: 'CSAM1',
-    parcel: 'SX06799238',
+    action: 'Assess moorland and produce a written record',
+    code: 'CMOR1',
+    parcel: '8083',
     quantity: '1.23 ha'
   }
 ]
 export const DEFAULT_ACTION_TABLE_DATA_UPDATED = [
   {
-    action: 'CSAM1',
-    code: 'CSAM1',
-    parcel: 'SX06799238',
+    action: 'Assess moorland and produce a written record',
+    code: 'CMOR1',
+    parcel: '8083',
     quantity: '2.23 ha'
   }
 ]
 export const DEFAULT_PAYMENTS_DATA = [
   {
-    action: 'CSAM1',
-    code: 'CSAM1',
-    rate: '£6.00',
-    quarterlyPayment: '£1.85',
-    yearlyPayment: '£7.38'
-  }
-]
-export const ACTION_TABLE_DATA = [
-  {
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
-    parcel: 'SO3757 3159',
-    quantity: '4.5123 ha'
-  },
-  {
-    action: 'Limited livestock grazing on moorland',
-    code: 'UPL3',
-    parcel: 'SO3757 3159',
-    quantity: '3.5125 ha'
-  },
-  {
-    action: 'Keep cattle and ponies on moorland supplement (minimum 30% GLU)',
-    code: 'UPL4',
-    parcel: 'SO3757 3159',
-    quantity: '3.5125 ha'
+    rate: '£10.60 per ha',
+    quarterlyPayment: '£12.01',
+    yearlyPayment: '£48.06'
   },
   {
     action:
-      'Keep native breeds on extensively managed habitats supplement (more than 80%)',
-    code: 'SPM5',
-    parcel: 'SO3757 3159',
-    quantity: '3.5125 ha'
-  },
-  {
-    action:
-      'Shepherding livestock on moorland (remove stock for at least 8 months)',
-    code: 'UPL10',
-    parcel: 'SO3757 3159',
-    quantity: '8.3405 ha'
-  }
-]
-export const PAYMENTS_DATA = [
-  {
-    action: 'Assess moorland and produce a written record',
+      'One-off payment per agreement per year for Assess moorland and produce a written record',
     code: 'CMOR1',
-    rate: '£10.60',
-    quarterlyPayment: '£79.96',
-    yearlyPayment: '£319.84'
-  },
-  {
-    action: 'Limited livestock grazing on moorland',
-    code: 'UPL3',
-    rate: '£66.00',
-    quarterlyPayment: '£57.96',
-    yearlyPayment: '£231.84'
-  },
-  {
-    action: 'Keep cattle and ponies on moorland supplement (minimum 30% GLU)',
-    code: 'UPL4',
-    rate: '£7.00',
-    quarterlyPayment: '£6.15',
-    yearlyPayment: '£24.60'
-  },
-  {
-    action:
-      'Keep native breeds on extensively managed habitats supplement (more than 80%)',
-    code: 'SPM5',
-    rate: '£11.00',
-    quarterlyPayment: '£9.66',
-    yearlyPayment: '£38.64'
-  },
-  {
-    action:
-      'Shepherding livestock on moorland (remove stock for at least 8 months)',
-    code: 'UPL10',
-    rate: '£48.00',
-    quarterlyPayment: '£100.09',
-    yearlyPayment: '£400.34'
+    rate: '£272.00',
+    quarterlyPayment: '£68.00',
+    yearlyPayment: '£272.00'
   }
 ]
-export const DEFAULT_TOTAL_QUARTERLY_PAYMENT = '£1.85'
-export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£7.38'
-export const TOTAL_QUARTERLY_PAYMENT = '£253.82'
-export const TOTAL_YEARLY_PAYMENT = '£1,015.26'
+export const DEFAULT_TOTAL_QUARTERLY_PAYMENT = '£80.01'
+export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£320.06'
 export const ACCEPT_OFFER_TITLE = 'Accept offer - GOV.UK'
-export const DEFAULT_FARM_NAME = 'Sample Farm Ltd'
-export const FARM_NAME = 'Agile Farm'
+export const DEFAULT_FARM_NAME = 'J&S Hartley'
 export const SBI = 'Single business identifier (SBI): 999999999'
 export const DEFAULT_SBI = 'Single business identifier (SBI): '
 export const DEFAULT_FARMER_NAME = 'Diana Peart'
@@ -143,7 +75,8 @@ export const AGREEMENT_REFERENCE = 'Your agreement number is '
 export const FULL_STOP = '.'
 export const HELP_TEXT =
   'You can contact the Rural Payments Agency (RPA) by phone or email for help and support.'
-export const DEFAULT_ADDRESS = '123 Farm Lane, Farmville'
+export const DEFAULT_ADDRESS =
+  'Mason House Farm Clitheroe Rd, Bashall Eaves, Bartindale Road, Clitheroe, BB7 3DD'
 export const DEFAULT_AGREEMENT_NAME = 'Unnamed Agreement'
 export const SUB_HEADERS = [
   { element: 'introSubHeader', expected: '1. Introduction and overview' },
@@ -154,3 +87,6 @@ export const SUB_HEADERS = [
   { element: 'scheduleSubHeader', expected: '6. Payment schedule' },
   { element: 'protectionSubHeader', expected: '7. Data protection' }
 ]
+export const USERNAME = '1102838829'
+export const PASSWORD = process.env.DEFRA_ID_USER_PASSWORD
+export const FARM_NAME = 'Agile Farm agreement'

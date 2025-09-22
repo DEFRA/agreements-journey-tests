@@ -22,11 +22,11 @@ class ViewAgreementPage extends Page {
   }
 
   async getAgreementNumber() {
-    return await $('dl.dataset-info dt:nth-of-type(5)').getText()
+    return await $('dl.dataset-info dt:nth-of-type(4)').getText()
   }
 
   async getStartDate() {
-    return await $('dl.dataset-info dt:nth-of-type(6)').getText()
+    return await $('dl.dataset-info dt:nth-of-type(5)').getText()
   }
 
   // Sub-headers
