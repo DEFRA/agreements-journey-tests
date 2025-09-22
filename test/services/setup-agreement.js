@@ -18,9 +18,8 @@ export async function setupAgreement({
     data: {
       clientRef,
       code: 'frps-private-beta',
-      createdAt: '2023-10-01T12:00:00Z',
-      submittedAt: '2023-10-01T11:00:00Z',
-      agreementName,
+      createdAt: '2025-08-19T09:36:45.131Z',
+      submittedAt: '2025-08-19T09:36:44.509Z',
       identifiers: {
         sbi,
         frn,
@@ -28,20 +27,251 @@ export async function setupAgreement({
         defraId: '1234567890'
       },
       answers: {
+        hasCheckedLandIsUpToDate: true,
+        agreementName,
         scheme: 'SFI',
         year: 2025,
-        hasCheckedLandIsUpToDate: true,
         actionApplications: [
           {
-            parcelId: '9238',
-            sheetId: 'SX0679',
-            code: 'CSAM1',
+            code: 'CMOR1',
+            sheetId: 'SD6743',
+            parcelId: '8083',
             appliedFor: {
               unit: 'ha',
               quantity
             }
           }
-        ]
+        ],
+        payment: {
+          agreementStartDate: '2025-09-01',
+          agreementEndDate: '2028-09-01',
+          frequency: 'Quarterly',
+          agreementTotalPence: 96018,
+          annualTotalPence: 32006,
+          parcelItems: {
+            1: {
+              code: 'CMOR1',
+              description:
+                'CMOR1: Assess moorland and produce a written record',
+              version: 1,
+              unit: 'ha',
+              quantity: 4.53411078,
+              rateInPence: 1060,
+              annualPaymentPence: 4806,
+              sheetId: 'SD6743',
+              parcelId: '8083'
+            }
+          },
+          agreementLevelItems: {
+            1: {
+              code: 'CMOR1',
+              description:
+                'CMOR1: Assess moorland and produce a written record',
+              version: 1,
+              annualPaymentPence: 27200
+            }
+          },
+          payments: [
+            {
+              totalPaymentPence: 8007,
+              paymentDate: '2025-12-05',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2026-03-05',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2026-06-05',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2026-09-07',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2026-12-07',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2027-03-05',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2027-06-07',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2027-09-06',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2027-12-06',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2028-03-06',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2028-06-05',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            },
+            {
+              totalPaymentPence: 8001,
+              paymentDate: '2028-09-05',
+              lineItems: [
+                {
+                  parcelItemId: 1,
+                  paymentPence: 1201
+                },
+                {
+                  agreementLevelItemId: 1,
+                  paymentPence: 6800
+                }
+              ]
+            }
+          ]
+        },
+        applicant: {
+          business: {
+            name: 'J&S Hartley',
+            email: {
+              address:
+                'cliffspencetasabbeyfarmf@mrafyebbasatecnepsffilcm.com.test'
+            },
+            phone: {
+              mobile: '01234031670'
+            },
+            address: {
+              line1: 'Mason House Farm Clitheroe Rd',
+              line2: 'Bashall Eaves',
+              line3: null,
+              line4: null,
+              line5: null,
+              street: 'Bartindale Road',
+              city: 'Clitheroe',
+              postalCode: 'BB7 3DD'
+            }
+          },
+          customer: {
+            name: {
+              title: 'Mr.',
+              first: 'Edward',
+              middle: 'Paul',
+              last: 'Jones'
+            }
+          }
+        }
       }
     }
   }

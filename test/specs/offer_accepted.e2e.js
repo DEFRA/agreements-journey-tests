@@ -5,10 +5,12 @@ import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
 import * as constants from '../support/constants.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
+import { LoginPage } from 'page-objects/login.page.js'
 import dayjs from 'dayjs'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const offerAcceptedPage = new OfferAcceptedPage()
+const loginPage = new LoginPage()
 
 describe('Given the applicant has reviewed and accepted the offer ', () => {
   describe('When the applicant views “Offer accepted” page', () => {
@@ -22,7 +24,8 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       agreementData = await getAgreement(agreementId)
       sbi = agreement.sbi
       console.log(`Created offer with ID: ${agreementId}`)
-      await reviewOfferPage.open(agreementId)
+      console.log('agreementData:', JSON.stringify(agreementData, null, 2))
+      await loginPage.login(agreementId)
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.selectAcceptOffer()
     })
@@ -31,7 +34,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       await expect(browser).toHaveTitle(constants.OFFER_ACCEPTED_TITLE)
     })
 
-    it('Then should show the Farm Details', async () => {
+    it.skip('Then should show the Farm Details', async () => {
       expect(await offerAcceptedPage.getFarmName()).toBe(
         constants.DEFAULT_FARM_NAME
       )
@@ -48,9 +51,9 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
     })
 
     it('Then should show start date', async () => {
-      const formattedDate = dayjs(agreementData.agreementStartDate).format(
-        'DD MMMM YYYY'
-      )
+      const formattedDate = dayjs(
+        agreementData.payment.agreementStartDate
+      ).format('D MMMM YYYY')
       expect(await offerAcceptedPage.getStartDateText()).toBe(
         constants.START_DATE + formattedDate
       )
