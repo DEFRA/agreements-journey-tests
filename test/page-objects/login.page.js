@@ -1,4 +1,4 @@
-import { Page } from 'page-objects/page'
+import { Page } from './page.js'
 import * as constants from '../support/constants.js'
 
 class LoginPage extends Page {

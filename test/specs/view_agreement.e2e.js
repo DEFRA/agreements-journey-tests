@@ -1,12 +1,12 @@
 import { expect } from '@wdio/globals'
-import { ReviewOfferPage } from 'page-objects/review-offer.page.js'
-import { AcceptYourOfferPage } from 'page-objects/accept-your-offer.page.js'
-import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
-import { ViewAgreementPage } from 'page-objects/view-agreement.page.js'
+import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
+import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
+import { OfferAcceptedPage } from '../page-objects/offer-accepted.page.js'
+import { ViewAgreementPage } from '../page-objects/view-agreement.page.js'
 import * as constants from '../support/constants.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
-import { LoginPage } from 'page-objects/login.page.js'
+import { LoginPage } from '../page-objects/login.page.js'
 import dayjs from 'dayjs'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
