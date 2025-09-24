@@ -43,7 +43,7 @@ export const config = {
       {
         testObservability: true, // Disable if you do not want to use the browserstack test observer functionality
         testObservabilityOptions: {
-          user: process.env.BROWSERSTACK_USER,
+          user: process.env.BROWSERSTACK_USERNAME,
           key: process.env.BROWSERSTACK_KEY,
           projectName: 'agreements-journey-tests', // should match project in browserstack
           buildName: `agreements-journey-tests-${process.env.ENVIRONMENT}`
