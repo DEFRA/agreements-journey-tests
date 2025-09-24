@@ -1,20 +1,5 @@
 import fs from 'node:fs'
-import { ProxyAgent, setGlobalDispatcher } from 'undici'
-import { bootstrap } from 'global-agent'
 import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
-
-/**
- * Enable webdriver.io to use the outbound proxy.
- * This is required for the test suite to be able to talk to BrowserStack.
- */
-if (process.env.HTTP_PROXY) {
-  const dispatcher = new ProxyAgent({
-    uri: process.env.HTTP_PROXY
-  })
-  setGlobalDispatcher(dispatcher)
-  bootstrap()
-  global.GLOBAL_AGENT.HTTP_PROXY = process.env.HTTP_PROXY
-}
 
 const oneMinute = 60 * 1000
 
