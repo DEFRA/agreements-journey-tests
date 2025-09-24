@@ -3,16 +3,10 @@ import { ProxyAgent, setGlobalDispatcher } from 'undici'
 import { bootstrap } from 'global-agent'
 
 const dispatcher = new ProxyAgent({
-  uri: 'http://localhost:3128'
+  uri: process.env.HTTP_PROXY
 })
 setGlobalDispatcher(dispatcher)
 bootstrap()
-global.GLOBAL_AGENT.HTTP_PROXY = 'http://localhost:3128'
-
-browserstackConfig.services[0][1].opts = {
-  binarypath: '/root/.browserstack/BrowserStackLocal',
-  proxyHost: 'localhost',
-  proxyPort: 3128
-}
+global.GLOBAL_AGENT.HTTP_PROXY = process.env.HTTP_PROXY
 
 export const config = browserstackConfig

@@ -33,7 +33,7 @@
   "dependencies": {
     "@faker-js/faker": "9.8.0",
     "@wdio/allure-reporter": "9.9.0",
-    "@wdio/browserstack-service": "9.9.1",
+    "@wdio/browserstack-service": "9.12.2",
     "@wdio/cli": "9.9.1",
     "@wdio/globals": "9.9.1",
     "@wdio/junit-reporter": "9.9.0",
