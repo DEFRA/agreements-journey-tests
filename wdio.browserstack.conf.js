@@ -20,7 +20,7 @@ export const config = {
   proxy: '/agreement',
   // You will need to provide your own BrowserStack credentials.
   // These should be added as secrets to the test suite.
-  user: process.env.BROWSERSTACK_USERNAME,
+  user: process.env.BROWSERSTACK_USER,
   key: process.env.BROWSERSTACK_KEY,
 
   // Tests to run
@@ -43,7 +43,7 @@ export const config = {
       {
         testObservability: true, // Disable if you do not want to use the browserstack test observer functionality
         testObservabilityOptions: {
-          user: process.env.BROWSERSTACK_USERNAME,
+          user: process.env.BROWSERSTACK_USER,
           key: process.env.BROWSERSTACK_KEY,
           projectName: 'agreements-journey-tests', // should match project in browserstack
           buildName: `agreements-journey-tests-${process.env.ENVIRONMENT}`

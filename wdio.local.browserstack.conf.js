@@ -2,7 +2,7 @@ import allure from 'allure-commandline'
 import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
 
 export const config = {
-  user: process.env.BROWSERSTACK_USERNAME,
+  user: process.env.BROWSERSTACK_USER,
   key: process.env.BROWSERSTACK_KEY,
   // Local
   // baseUrl: 'http://localhost:3555',
@@ -28,10 +28,10 @@ export const config = {
       {
         testObservability: true,
         testObservabilityOptions: {
-          user: process.env.BROWSERSTACK_USERNAME,
+          user: process.env.BROWSERSTACK_USER,
           key: process.env.BROWSERSTACK_KEY,
-          projectName: 'agreements-journey-browser-tests',
-          buildName: `agreements-journey-browser-tests-local`
+          projectName: 'agreements-journey-tests',
+          buildName: 'agreements-journey-tests-local'
         },
         acceptInsecureCerts: true,
         forceLocal: true,
