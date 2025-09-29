@@ -8,25 +8,23 @@ import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
 import { LoginPage } from '../page-objects/login.page.js'
 import dayjs from 'dayjs'
+
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const offerAcceptedPage = new OfferAcceptedPage()
 const viewAgreementPage = new ViewAgreementPage()
 const loginPage = new LoginPage()
 
-describe('Given the applicant has reviewed and accepted the offer ', () => {
-  describe('When the applicant “View agreement” page', () => {
-    let agreementId
-    let sbi
-    // eslint-disable-next-line no-unused-vars
-    let agreementData
+describe('Given the applicant has reviewed and accepted the offer', () => {
+  describe('When the applicant views the “View agreement” page', () => {
+    let agreementId, sbi, agreementData
+
     before(async () => {
-      // Step 1: Create agreement
       const agreement = await createTestAgreement()
       agreementId = agreement.agreementId
       agreementData = await getAgreement(agreementId)
       sbi = agreement.sbi
-      console.log(`Created offer with ID: ${agreementId}`)
+
       await loginPage.login(agreementId)
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.selectAcceptOffer()
@@ -70,13 +68,113 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       }
     })
 
-    it('should display parcel with total area', async () => {
-      const parcelNumber = '8083'
-      const expectedArea = '4.5341'
-      const row = await viewAgreementPage.getParcelRow(parcelNumber)
-      await expect(row).toBeDisplayed()
-      const areaCell = await viewAgreementPage.getParcelArea(parcelNumber)
-      await expect(areaCell).toHaveText(expectedArea)
+    it('Then should display all expected contents links', async () => {
+      for (const link of constants.EXPECTED_CONTENTS) {
+        const element = await viewAgreementPage[link.element]
+        await expect(element).toBeDisplayed()
+        await expect(element).toHaveText(link.expected)
+      }
+    })
+
+    it('Then should show the Print this page button', async () => {
+      expect(await viewAgreementPage.getPrintButtonText()).toBe(
+        'Print this page'
+      )
+      expect(await viewAgreementPage.getPrintButtonClass()).toContain(
+        'gem-c-print-link__button'
+      )
+      expect(await viewAgreementPage.isPrintButtonClickable()).toBe(true)
+      expect(await viewAgreementPage.getPrintButtonDataModule()).toBe(
+        'print-link'
+      )
+    })
+
+    it('Then should display - Land covered by the agreement', async () => {
+      const parcelCell = await viewAgreementPage.getTableCell('landTable', 0, 0)
+      const areaCell = await viewAgreementPage.getTableCell('landTable', 0, 1)
+
+      await expect(parcelCell).toBeDisplayed()
+      await expect(parcelCell).toHaveText(constants.EXPECTED_PARCEL)
+
+      await expect(areaCell).toBeDisplayed()
+      await expect(areaCell).toHaveText(constants.EXPECTED_AREA)
+    })
+
+    it('Then should display - Summary of actions', async () => {
+      const expectedValues = [
+        'SD6743 8083',
+        'CMOR1',
+        'Assess moorland and produce a written record',
+        '4.53411078',
+        '01/09/2025',
+        '01/09/2028'
+      ]
+
+      for (let col = 0; col < expectedValues.length; col++) {
+        const element = await viewAgreementPage.getTableCell(
+          'actionsTable',
+          0,
+          col
+        )
+        await expect(element).toBeDisplayed()
+        await expect(element).toHaveText(expectedValues[col])
+      }
+    })
+
+    it('Then should display - Summary of payments', async () => {
+      const expectedRows = [
+        [
+          'CMOR1',
+          'CMOR1: Assess moorland and produce a written record',
+          '4.5341',
+          '£10.60 per ha',
+          '£12.01',
+          '£12.01',
+          '£48.06'
+        ],
+        [
+          'CMOR1',
+          'One-off payment per agreement per year for Assess moorland and produce a written record',
+          '',
+          '',
+          '£68.00',
+          '£68.00',
+          '£272.00'
+        ]
+      ]
+
+      for (let rowIndex = 0; rowIndex < expectedRows.length; rowIndex++) {
+        const row = expectedRows[rowIndex]
+        for (let colIndex = 0; colIndex < row.length; colIndex++) {
+          const element = await viewAgreementPage.getTableCell(
+            'paymentsTable',
+            rowIndex,
+            colIndex
+          )
+          await expect(element).toBeDisplayed()
+          await expect(element).toHaveText(row[colIndex])
+        }
+      }
+    })
+
+    it('Then should display - Payment schedule', async () => {
+      const expectedRows = [
+        ['CMOR1', '£80.01', '£320.04', '£320.04', '£240.03', '£960.12'],
+        ['Total', '£80.01', '£320.04', '£320.04', '£240.03', '£960.12']
+      ]
+
+      for (let rowIndex = 0; rowIndex < expectedRows.length; rowIndex++) {
+        const row = expectedRows[rowIndex]
+        for (let colIndex = 0; colIndex < row.length; colIndex++) {
+          const element = await viewAgreementPage.getTableCell(
+            'scheduleTable',
+            rowIndex,
+            colIndex
+          )
+          await expect(element).toBeDisplayed()
+          await expect(element).toHaveText(row[colIndex])
+        }
+      }
     })
   })
 })

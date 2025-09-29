@@ -13,7 +13,7 @@ export async function setupAgreement({
     id: randomUUID(),
     source: 'fg-gas-backend',
     specVersion: '1.0',
-    type: 'cloud.defra.dev.fg-gas-backend.application.approved',
+    type: 'cloud.defra.test.fg-gas-backend.agreement.create',
     datacontenttype: 'application/json',
     data: {
       clientRef,
@@ -287,12 +287,16 @@ export async function setupAgreement({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestBody)
     })
-    const responseBody = await response.body.json()
-    console.debug('Create agreement response status:', response.statusCode)
-    console.debug(
-      'Create agreement response body:',
-      JSON.stringify(responseBody, null, 2)
-    )
+    const raw = await response.body.text()
+    console.debug('Raw response:', raw)
+
+    let responseBody
+    try {
+      responseBody = JSON.parse(raw)
+    } catch {
+      console.error('Response was not JSON, raw body:', raw)
+      throw new Error(`Expected JSON but got: ${raw.slice(0, 200)}`)
+    }
     if (response.statusCode !== 200) {
       console.error('Create agreement failed with non-200 status')
       throw new Error(

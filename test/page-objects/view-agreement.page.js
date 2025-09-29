@@ -1,32 +1,33 @@
 import { Page } from './page.js'
 
 class ViewAgreementPage extends Page {
+  // Header fields
   async getHeading() {
-    return await $('h1.govuk-heading-xl').getText()
+    return $('h1.govuk-heading-xl').getText()
   }
 
   async getAgreementHolder() {
-    return await $('dl.dataset-info dt:nth-of-type(1)').getText()
+    return $('dl.dataset-info dt:nth-of-type(1)').getText()
   }
 
   async getSBIValue() {
-    return await $('dl.dataset-info dt:nth-of-type(2)').getText()
+    return $('dl.dataset-info dt:nth-of-type(2)').getText()
   }
 
   async getAddress() {
-    return await $('dl.dataset-info dt:nth-of-type(3)').getText()
+    return $('dl.dataset-info dt:nth-of-type(3)').getText()
   }
 
   async getAgreementName() {
-    return await $('dl.dataset-info dt:nth-of-type(4)').getText()
+    return $('dl.dataset-info dt:nth-of-type(4)').getText()
   }
 
   async getAgreementNumber() {
-    return await $('dl.dataset-info dt:nth-of-type(5)').getText()
+    return $('dl.dataset-info dt:nth-of-type(5)').getText()
   }
 
   async getStartDate() {
-    return await $('dl.dataset-info dt:nth-of-type(6)').getText()
+    return $('dl.dataset-info dt:nth-of-type(6)').getText()
   }
 
   // Sub-headers
@@ -58,27 +59,65 @@ class ViewAgreementPage extends Page {
     return $('#protection')
   }
 
-  getParcelRow(parcelNumber) {
+  // Contents links
+  get contentsIntroLink() {
+    return $('[data-test-id="contentsIntroLink"] a')
+  }
+
+  get contentsPartiesLink() {
+    return $('[data-test-id="contentsPartiesLink"] a')
+  }
+
+  get contentsLandLink() {
+    return $('[data-test-id="contentsLandLink"] a')
+  }
+
+  get contentsActionsLink() {
+    return $('[data-test-id="contentsActionsLink"] a')
+  }
+
+  get contentsPaymentLink() {
+    return $('[data-test-id="contentsPaymentLink"] a')
+  }
+
+  get contentsScheduleLink() {
+    return $('[data-test-id="contentsScheduleLink"] a')
+  }
+
+  get contentsProtectionLink() {
+    return $('[data-test-id="contentsProtectionLink"] a')
+  }
+
+  // Generic method to get any table cell by table type, row and column
+  getTableCell(tableType, rowIndex, columnIndex) {
     return $(
-      `//*[contains(@class, 'govuk-table')]//tr[td[contains(text(), '${parcelNumber}')]]`
+      `table[data-test-id="${tableType}"] tr[data-test-id="${tableType}Row${rowIndex + 1}"] td[data-test-id="${tableType}Cell${columnIndex + 1}_${columnIndex}"]`
     )
   }
 
-  // Gets the cell with area (2nd column) for a parcel
-  async getParcelArea(parcelNumber) {
-    const row = await this.getParcelRow(parcelNumber)
-    return row.$('td:nth-of-type(2)')
+  // Selector for the Print button
+  get printButton() {
+    return $('button.govuk-link.govuk-body-s.gem-c-print-link__button')
   }
 
-  getParcelActionRow(parcelNumber) {
-    return $(
-      `//table[contains(@class, 'govuk-table')]//tr[td[1][normalize-space(text())='${parcelNumber}']]`
-    )
+  // Method to get the text of the Print button
+  async getPrintButtonText() {
+    return await this.printButton.getText()
   }
 
-  async getParcelActionCell(parcelNumber, columnIndex) {
-    const row = await this.getParcelActionRow(parcelNumber)
-    return row.$(`td:nth-of-type(${columnIndex})`)
+  // Method to get the class attribute of the Print button
+  async getPrintButtonClass() {
+    return await this.printButton.getAttribute('class')
+  }
+
+  // Method to check if the Print button is clickable
+  async isPrintButtonClickable() {
+    return await this.printButton.isClickable()
+  }
+
+  // Optional: get data-module attribute
+  async getPrintButtonDataModule() {
+    return await this.printButton.getAttribute('data-module')
   }
 }
 

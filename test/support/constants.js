@@ -1,4 +1,6 @@
 export const REVIEW_FUNDING_OFFER_TITLE = 'Review your funding offer - GOV.UK'
+export const EXPECTED_PARCEL = 'SD6743 8083'
+export const EXPECTED_AREA = '4.5341'
 export const DEFAULT_ACTION_TABLE_DATA = [
   {
     action: 'Assess moorland and produce a written record',
@@ -90,6 +92,25 @@ export const SUB_HEADERS = [
   { element: 'scheduleSubHeader', expected: '6. Payment schedule' },
   { element: 'protectionSubHeader', expected: '7. Data protection' }
 ]
+export const EXPECTED_CONTENTS = [
+  {
+    element: 'contentsIntroLink',
+    expected: '1. Introduction and overview'
+  },
+  {
+    element: 'contentsPartiesLink',
+    expected: '2. Parties to the agreement'
+  },
+  {
+    element: 'contentsLandLink',
+    expected: '3. Land covered by the agreement'
+  },
+  { element: 'contentsActionsLink', expected: '4. Summary of actions' },
+  { element: 'contentsPaymentLink', expected: '5. Summary of payments' },
+  { element: 'contentsScheduleLink', expected: '6. Payment schedule' },
+  { element: 'contentsProtectionLink', expected: '7. Data protection' }
+]
+
 export const USERNAME = '1102838829'
 export const PASSWORD = process.env.DEFRA_ID_USER_PASSWORD
 export const FARM_NAME = 'E2E Agreement Test Farm'
