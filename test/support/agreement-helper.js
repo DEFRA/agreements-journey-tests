@@ -27,3 +27,7 @@ export async function updateTestAgreement(frn) {
   })
   return { agreementId, sbi, frn, clientRef, agreementName }
 }
+
+export function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
