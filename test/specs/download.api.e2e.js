@@ -21,7 +21,7 @@ describe('Download API validation', function () {
     await acceptYourOfferPage.selectAcceptOffer()
   })
 
-  it.skip('should return a valid file with correct headers', async function () {
+  it('should return a valid file with correct headers', async function () {
     // eslint-disable-next-line wdio/no-pause
     await browser.pause(60000)
 
