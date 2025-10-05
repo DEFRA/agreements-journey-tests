@@ -30,9 +30,9 @@ describe('Given the applicant has reviewed the offer', () => {
     })
 
     it('Then should show the Farm Details', async () => {
-      expect(await reviewOfferPage.getFarmName()).toBe(
-        constants.DEFAULT_FARM_NAME
-      )
+      const text = await reviewOfferPage.getFarmName()
+      expect(text).toContain(constants.DEFAULT_FARM_NAME)
+      expect(text).toContain(constants.SBI)
       expect(await reviewOfferPage.getSBI()).toBe(sbi)
       expect(await reviewOfferPage.getFarmerName()).toBe(
         constants.DEFAULT_FARMER_NAME

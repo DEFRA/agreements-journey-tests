@@ -1,10 +1,14 @@
 import { faker } from '@faker-js/faker'
 import { setupAgreement } from '../services/setup-agreement.js'
+import { sendWithdrawnOffer } from '../services/withdraw-offer.js'
 
-export async function createTestAgreement() {
+export async function withdrawOffer(clientRef) {
+  await sendWithdrawnOffer(clientRef)
+}
+
+export async function createTestAgreement(clientRef = 'ref-e2e-001') {
   const sbi = '106284736' // fixed to hardcode sbi for auth verification- faker.string.numeric(10)
   const frn = faker.string.numeric(10)
-  const clientRef = 'ref-e2e-001'
   const agreementName = 'E2E Agreement Test Farm'
   const agreementId = await setupAgreement({
     sbi,
