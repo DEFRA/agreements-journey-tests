@@ -35,9 +35,9 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
     })
 
     it('Then should show the Farm Details', async () => {
-      expect(await offerAcceptedPage.getFarmName()).toBe(
-        constants.DEFAULT_FARM_NAME
-      )
+      const text = await offerAcceptedPage.getFarmName()
+      expect(text).toContain(constants.DEFAULT_FARM_NAME)
+      expect(text).toContain(constants.SBI)
       expect(await offerAcceptedPage.getSBI()).toBe(sbi)
       expect(await offerAcceptedPage.getFarmerName()).toBe(
         constants.DEFAULT_FARMER_NAME
@@ -55,7 +55,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
         agreementData.payment.agreementStartDate
       ).format('D MMMM YYYY')
       expect(await offerAcceptedPage.getStartDateText()).toBe(
-        constants.START_DATE + formattedDate
+        `${constants.START_DATE}\n${formattedDate}`
       )
     })
 

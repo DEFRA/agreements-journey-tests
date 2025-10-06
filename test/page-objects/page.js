@@ -10,15 +10,15 @@ class Page {
   }
 
   async getFarmName() {
-    return await $(`#farmName`).getText()
+    return await $(`[data-testid="farmName"]`).getText()
   }
 
   async getSBI() {
-    return await $(`#sbi`).getText()
+    return await $(`[data-testid="sbi"]`).getText()
   }
 
   async getFarmerName() {
-    return await $(`#farmerName`).getText()
+    return await $(`[data-testid="farmerName"]`).getText()
   }
 
   async getPageHeader() {

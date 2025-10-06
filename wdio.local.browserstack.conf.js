@@ -5,14 +5,14 @@ export const config = {
   user: process.env.BROWSERSTACK_USER,
   key: process.env.BROWSERSTACK_KEY,
   // Local
-  // baseUrl: 'http://localhost:3555',
-  // testAPIEndPointUrl: 'http://localhost:3555',
-  // proxy: '',
+  baseUrl: 'http://localhost:3555',
+  testAPIEndPointUrl: 'http://localhost:3555',
+  proxy: '',
   // DEV URL
-  baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
-  testAPIEndPointUrl:
-    'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
-  proxy: '/agreement',
+  // baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
+  // testAPIEndPointUrl:
+  //   'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
+  // proxy: '/agreement',
   // TEST URL
   // baseUrl: 'https://grants-ui.test.cdp-int.defra.cloud',
   // testAPIEndPointUrl:
