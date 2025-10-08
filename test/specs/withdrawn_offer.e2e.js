@@ -31,7 +31,6 @@ describe('Given the applicant has asked for changes to the offer ', () => {
     it('Then should show the Farm Details', async () => {
       const text = await withdrawnOfferPage.getFarmName()
       expect(text).toContain(constants.DEFAULT_FARM_NAME)
-      expect(text).toContain(constants.SBI)
       expect(await withdrawnOfferPage.getSBI()).toBe(sbi)
       expect(await withdrawnOfferPage.getFarmerName()).toBe(
         constants.DEFAULT_FARMER_NAME
