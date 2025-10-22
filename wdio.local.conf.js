@@ -119,7 +119,7 @@ export const config = {
   // DEV URL
   baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
   testAPIEndPointUrl:
-    'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
+    'https://ephemeral-protected.api.dev.cdp-int.defra.cloud/farming-grants-agreements-api',
   proxy: '/agreement',
   // TEST URL
   // baseUrl: 'https://grants-ui.test.cdp-int.defra.cloud',

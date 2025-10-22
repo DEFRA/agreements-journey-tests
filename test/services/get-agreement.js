@@ -4,11 +4,16 @@ import { browser } from '@wdio/globals'
 export async function getAgreement(agreementId) {
   const url = `${browser.options.testAPIEndPointUrl}/api/test/agreement?id=${agreementId}`
   console.debug('Get agreement request URL:', url)
+  const headers = {
+    Accept: 'application/json',
+    'Accept-Encoding': '*'
+  }
+  if (process.env.USER_TOKEN) {
+    headers['x-api-key'] = process.env.USER_TOKEN
+  }
   const requestOptions = {
     method: 'GET',
-    headers: {
-      Accept: 'application/json'
-    }
+    headers
   }
   console.debug(
     'Get agreement request options:',

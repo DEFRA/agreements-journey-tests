@@ -4,11 +4,16 @@ import { browser } from '@wdio/globals'
 export async function unacceptAgreement(agreementId) {
   const url = `${browser.options.testAPIEndPointUrl}/api/test/unaccept-offer/${agreementId}`
   console.debug('Unaccept agreement request URL:', url)
+  const headers = {
+    Accept: 'application/json',
+    'Accept-Encoding': '*'
+  }
+  if (process.env.USER_TOKEN) {
+    headers['x-api-key'] = process.env.USER_TOKEN
+  }
   const requestOptions = {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }
+    headers
   }
   console.debug(
     'Unaccept agreement request options:',

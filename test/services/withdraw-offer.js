@@ -4,7 +4,13 @@ import { browser } from '@wdio/globals'
 export async function sendWithdrawnOffer(clientRef) {
   const url = `${browser.options.testAPIEndPointUrl}/api/test/queue-message/gas_application_status_updated`
   console.debug('Send GAS application status update request URL:', url)
-
+  const headers = {
+    Accept: 'application/json',
+    'Accept-Encoding': '*'
+  }
+  if (process.env.USER_TOKEN) {
+    headers['x-api-key'] = process.env.USER_TOKEN
+  }
   const payload = {
     id: '12-34-56-78-90',
     source: 'fg-gas-backend',
@@ -22,9 +28,7 @@ export async function sendWithdrawnOffer(clientRef) {
 
   const requestOptions = {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers,
     body: JSON.stringify(payload)
   }
 
