@@ -275,6 +275,13 @@ export async function setupAgreement({
       }
     }
   }
+  const headers = {
+    Accept: 'application/json',
+    'Accept-Encoding': '*'
+  }
+  if (process.env.USER_TOKEN) {
+    headers['x-api-key'] = process.env.USER_TOKEN
+  }
   const url = `${browser.options.testAPIEndPointUrl}/api/test/queue-message`
   console.debug('Create agreement request URL:', url)
   console.debug(
@@ -284,7 +291,7 @@ export async function setupAgreement({
   try {
     const response = await request(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify(requestBody)
     })
     const raw = await response.body.text()

@@ -33,10 +33,18 @@ describe('Download API validation', function () {
 
     console.log(`Downloading from URL: ${downloadUrl}`)
     console.log(`Using token: ${token}`)
+    const headers = {
+      Accept: 'application/json',
+      'Accept-Encoding': '*',
+      'x-encrypted-auth': token
+    }
+    if (process.env.USER_TOKEN) {
+      headers['x-api-key'] = process.env.USER_TOKEN
+    }
 
     const resp = await fetch(downloadUrl, {
       method: 'GET',
-      headers: { 'x-encrypted-auth': token }
+      headers
     })
     expect(resp.status).toBe(200)
     const contentType = resp.headers.get('content-type')

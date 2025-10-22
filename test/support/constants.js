@@ -23,7 +23,7 @@ export const DEFAULT_PAYMENTS_DATA = [
   {
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
-    rate: '£10.60 per ha',
+    rate: '£10.60  per ha',
     firstPayment: '£12.01',
     subsequentPayments: '£12.01',
     yearlyPayment: '£48.06'
@@ -41,7 +41,7 @@ export const DEFAULT_PAYMENTS_DATA = [
 export const DEFAULT_TOTAL_FIRST_PAYMENT = '£80.01'
 export const DEFAULT_TOTAL_SUBSEQUENT_PAYMENT = '£80.01'
 export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£320.06'
-export const ACCEPT_OFFER_TITLE = 'Accept offer - GOV.UK'
+export const ACCEPT_OFFER_TITLE = 'Accept your offer - GOV.UK'
 export const DEFAULT_FARM_NAME = 'J&S Hartley'
 export const SBI = 'Single business identifier (SBI):'
 export const DEFAULT_SBI = 'Single business identifier (SBI): '
