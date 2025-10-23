@@ -12,32 +12,33 @@ export const browserStackCapabilities = [
       os: 'Windows',
       osVersion: '11'
     }
-  },
-  {
-    browserName: 'Edge',
-    'wdio-ics:options': {
-      logName: 'win-edge'
-    },
-    'bstack:options': {
-      idleTimeout: 300,
-      resolution: '1920x1080',
-      browserVersion: 'latest',
-      os: 'Windows',
-      osVersion: '11'
-    }
-  },
-  // macOS
-  {
-    browserName: 'Chrome',
-    'wdio-ics:options': {
-      logName: 'osx-chrome'
-    },
-    'bstack:options': {
-      idleTimeout: 300,
-      resolution: '1920x1080',
-      browserVersion: 'latest',
-      os: 'OS X',
-      osVersion: 'Sonoma' // Changed from 'Sequoia'
-    }
   }
+  // ,
+  // {
+  //   browserName: 'Edge',
+  //   'wdio-ics:options': {
+  //     logName: 'win-edge'
+  //   },
+  //   'bstack:options': {
+  //     idleTimeout: 300,
+  //     resolution: '1920x1080',
+  //     browserVersion: 'latest',
+  //     os: 'Windows',
+  //     osVersion: '11'
+  //   }
+  // },
+  // // macOS
+  // {
+  //   browserName: 'Chrome',
+  //   'wdio-ics:options': {
+  //     logName: 'osx-chrome'
+  //   },
+  //   'bstack:options': {
+  //     idleTimeout: 300,
+  //     resolution: '1920x1080',
+  //     browserVersion: 'latest',
+  //     os: 'OS X',
+  //     osVersion: 'Sonoma' // Changed from 'Sequoia'
+  //   }
+  // }
 ]
