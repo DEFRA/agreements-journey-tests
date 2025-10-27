@@ -10,7 +10,8 @@ class AcceptYourOfferPage extends Page {
   }
 
   async selectAcceptOffer(selector) {
-    await $('.govuk-button').click()
+    const button = await $('button[value="accept-offer"]')
+    await button.click()
   }
 
   async toggleGuidanceDetails() {
