@@ -1,7 +1,13 @@
 #!/bin/sh
 
 echo "run_id: $RUN_ID"
-npm run test:cdp:browserstack
+if [ "$REMOTE_CHROME" = "true" ]; then
+  echo "Running tests on remote Chrome "
+  npm run test
+else
+  echo "Running tests on BrowserStack"
+  npm run test:cdp:browserstack
+fi
 
 npm run report:publish
 publish_exit_code=$?
