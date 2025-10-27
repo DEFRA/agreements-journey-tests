@@ -62,7 +62,8 @@ class ReviewOfferPage extends Page {
   }
 
   async selectContinue(selector) {
-    await $('.govuk-button').click()
+    const button = await $('button[value="display-accept"]')
+    await button.click()
   }
 }
 
