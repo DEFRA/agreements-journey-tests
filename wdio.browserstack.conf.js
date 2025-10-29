@@ -113,6 +113,11 @@ export const config = {
     }
   },
 
+  beforeSession: function (config, capabilities) {
+    capabilities['bstack:options'].sessionName =
+      `Run - ${capabilities['wdio-ics:options'].logName}`
+  },
+
   onComplete: function (exitCode, config, capabilities, results) {
     // !Do Not Remove! Required for test status to show correctly in portal.
     if (results?.failed && results.failed > 0) {
