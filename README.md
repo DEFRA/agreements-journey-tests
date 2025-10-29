@@ -118,6 +118,50 @@ wdio configuration files are provided to help run the tests using BrowserStack i
 They can be run from npm using the `npm run test:browserstack` (for running via portal).
 See the CDP Documentation for more details.
 
+## Desktop Browsers
+
+---
+
+### Windows 11
+
+| Browser | Log Name      | Resolution | Browser Version | Idle Timeout |
+| ------- | ------------- | ---------- | --------------- | ------------ |
+| Chrome  | `win-chrome`  | 1920×1080  | latest          | 300s         |
+| Edge    | `win-edge`    | 1920×1080  | latest          | 300s         |
+| Firefox | `win-firefox` | 1920×1080  | latest          | 300s         |
+
+---
+
+### macOS (Sequoia)
+
+| Browser | Log Name      | Resolution | Browser Version | Idle Timeout |
+| ------- | ------------- | ---------- | --------------- | ------------ |
+| Chrome  | `osx-chrome`  | 1920×1080  | latest          | 300s         |
+| Safari  | `osx-safari`  | 1920×1080  | latest          | 300s         |
+| Firefox | `osx-firefox` | 1920×1080  | latest          | 300s         |
+
+---
+
+## Mobile Browsers
+
+### iOS Devices
+
+| Device    | Browser | Log Name     | OS Version | Real Device | Browser Version | Idle Timeout |
+| --------- | ------- | ------------ | ---------- | ----------- | --------------- | ------------ |
+| iPhone 14 | Safari  | `ios-safari` | 16         | Yes         | latest          | 300s         |
+| iPhone 15 | Chrome  | `ios-chrome` | 16         | Yes         | latest          | 300s         |
+
+---
+
+### Android Devices
+
+| Device             | Browser          | Log Name                   | OS Version | Real Device | Browser Version | Idle Timeout |
+| ------------------ | ---------------- | -------------------------- | ---------- | ----------- | --------------- | ------------ |
+| Samsung Galaxy S23 | Chrome           | `android-chrome`           | 13.0       | Yes         | latest          | 300s         |
+| Samsung Galaxy S23 | Samsung Internet | `android-samsung-internet` | 13.0       | Yes         | latest          | 300s         |
+
+---
+
 ## Licence
 
 THIS INFORMATION IS LICENSED UNDER THE CONDITIONS OF THE OPEN GOVERNMENT LICENCE found at:
