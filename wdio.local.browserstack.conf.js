@@ -5,25 +5,22 @@ export const config = {
   user: process.env.BROWSERSTACK_USER,
   key: process.env.BROWSERSTACK_KEY,
   // Local
-  baseUrl: 'http://localhost:3555',
-  testAPIEndPointUrl: 'http://localhost:3555',
-  proxy: '',
+  // baseUrl: 'http://localhost:3555',
+  // testAPIEndPointUrl: 'http://localhost:3555',
+  // proxy: '',
   // DEV URL
-  // baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
-  // testAPIEndPointUrl:
-  //   'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
-  // proxy: '/agreement',
+  baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
+  testAPIEndPointUrl:
+    'https://ephemeral-protected.api.dev.cdp-int.defra.cloud/farming-grants-agreements-api',
+  proxy: '/agreement',
   // TEST URL
   // baseUrl: 'https://grants-ui.test.cdp-int.defra.cloud',
   // testAPIEndPointUrl:
   //   'https://farming-grants-agreements-api.test.cdp-int.defra.cloud',
   runner: 'local',
   specs: ['./test/specs/*.js'],
-  specFileRetries: 1,
-  specFileRetriesDelay: 10,
-  specFileRetriesDeferred: false,
   exclude: [],
-  maxInstances: 10,
+  maxInstances: 1,
   capabilities: browserStackCapabilities,
   services: [
     [
@@ -60,8 +57,7 @@ export const config = {
   ],
   mochaOpts: {
     ui: 'bdd',
-    timeout: 600000,
-    retries: 2
+    timeout: 600000
   },
   afterTest: async function (
     test,

@@ -27,8 +27,7 @@ export const config = {
   specs: ['./test/specs/**/*.js'],
   // Tests to exclude
   exclude: [],
-  maxInstances: 10,
-
+  maxInstances: 1,
   commonCapabilities: {
     'bstack:options': {
       buildName: `agreements-journey-tests-${process.env.ENVIRONMENT}` // configure as required
