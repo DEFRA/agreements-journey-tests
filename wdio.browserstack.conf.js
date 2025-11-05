@@ -25,9 +25,6 @@ export const config = {
 
   // Tests to run
   specs: ['./test/specs/**/*.js'],
-  specFileRetries: 1,
-  specFileRetriesDelay: 10,
-  specFileRetriesDeferred: false,
   // Tests to exclude
   exclude: [],
   maxInstances: 10,
@@ -98,7 +95,6 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    retries: 2,
     timeout: oneMinute * 10
   },
 
