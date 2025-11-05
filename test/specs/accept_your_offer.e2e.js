@@ -12,7 +12,7 @@ const offerAcceptedPage = new OfferAcceptedPage()
 const loginPage = new LoginPage()
 
 describe('Given the applicant has reviewed the offer', () => {
-  describe('When the applicant navigate to “Accept your offer” page', () => {
+  describe('When the applicant navigate to "Accept your offer" page', () => {
     let agreementId
     let sbi
     before(async () => {
@@ -46,8 +46,6 @@ describe('Given the applicant has reviewed the offer', () => {
 
     it('should return to the Review Offer page when clicking Back', async () => {
       await acceptYourOfferPage.clickBackLink()
-      const url = await browser.getUrl()
-      expect(url).toContain(`/${agreementId}`)
       expect(await reviewOfferPage.getPageHeader()).toBe(
         constants.REVIEW_OFFER_HEADER
       )

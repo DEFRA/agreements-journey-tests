@@ -1,10 +1,9 @@
 import { Page } from './page.js'
 
 class ReviewOfferPage extends Page {
-  open(id) {
+  open() {
     const proxy = `${browser.options.proxy}`
-    const path = id ? `/${id}` : '/SFI123456789'
-    return super.open(proxy + path)
+    return super.open(proxy)
   }
 
   async getActionTableRowData(rowIndex) {

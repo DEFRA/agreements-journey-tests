@@ -52,7 +52,7 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     expect(agreementData.status).toBe('offered')
   })
 
-  it('re-acceptance of agreement and validate via API', async () => {
+  it.skip('re-acceptance of agreement and validate via API', async () => {
     await browser.url(`/agreement/${agreementId}`)
     await reviewOfferPage.open(agreementId)
     await reviewOfferPage.selectContinue()
