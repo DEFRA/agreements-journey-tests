@@ -52,9 +52,8 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     expect(agreementData.status).toBe('offered')
   })
 
-  it.skip('re-acceptance of agreement and validate via API', async () => {
-    await browser.url(`/agreement/${agreementId}`)
-    await reviewOfferPage.open(agreementId)
+  it('re-acceptance of agreement and validate via API', async () => {
+    await reviewOfferPage.open()
     await reviewOfferPage.selectContinue()
     await acceptYourOfferPage.selectAcceptOffer()
     const confirmationText = await offerAcceptedPage.getConfirmationText()
