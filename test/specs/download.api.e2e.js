@@ -32,7 +32,6 @@ describe('Download API validation', function () {
       throw new Error('Missing TOKEN_SECRET_KEY in environment variables')
 
     console.log(`Downloading from URL: ${downloadUrl}`)
-    console.log(`Using token: ${token}`)
     const headers = {
       Accept: 'application/json',
       'Accept-Encoding': '*',
