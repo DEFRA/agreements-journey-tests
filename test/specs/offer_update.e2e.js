@@ -42,6 +42,7 @@ describe('Given the applicant has asked for changes to the offer ', () => {
           constants.DEFAULT_ACTION_TABLE_DATA_UPDATED[i].quantity
         )
         await reviewOfferPage.selectContinue()
+        await acceptYourOfferPage.clickConfirmCheckbox()
         await acceptYourOfferPage.selectAcceptOffer()
         await expect(browser).toHaveTitle(constants.OFFER_ACCEPTED_TITLE)
       }

@@ -27,6 +27,7 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
 
       await loginPage.login(agreementId)
       await reviewOfferPage.selectContinue()
+      await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
       await offerAcceptedPage.clickViewAgreementLink()
     })

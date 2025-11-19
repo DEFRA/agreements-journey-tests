@@ -18,10 +18,6 @@ class AcceptYourOfferPage extends Page {
     return $('summary=If you need to make an update').click()
   }
 
-  getConfirmationChecklist() {
-    return $$('ul.govuk-list--bullet li').map((el) => el.getText())
-  }
-
   async getGuidanceDetailsText() {
     const details = await $('summary=If you need to make an update')
     const parent = await details.parentElement()
@@ -38,6 +34,21 @@ class AcceptYourOfferPage extends Page {
 
   async getFundingLink() {
     return await this.getLinkByPartialText('funding for land or farms')
+  }
+
+  async clickConfirmCheckbox() {
+    const checkbox = await $('#confirm')
+    await checkbox.scrollIntoView()
+    await checkbox.click()
+    await browser.waitUntil(
+      async () => {
+        return (await checkbox.isSelected()) === true
+      },
+      {
+        timeout: 2000,
+        timeoutMsg: 'Checkbox #confirm was not selected'
+      }
+    )
   }
 }
 export { AcceptYourOfferPage }

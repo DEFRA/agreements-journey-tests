@@ -21,6 +21,10 @@ describe('Given the farmer is authenticated', () => {
       await loginPage.login(agreementId)
     })
 
+    it('Then should show Beta phase banner', async () => {
+      expect(await reviewOfferPage.isBetaBannerPresent()).toBe(true)
+    })
+
     it('Then should show the title', async () => {
       await expect(browser).toHaveTitle(constants.REVIEW_FUNDING_OFFER_TITLE)
     })
