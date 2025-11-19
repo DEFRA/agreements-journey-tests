@@ -8,8 +8,8 @@ const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const loginPage = new LoginPage()
 
-describe('Given the applicant is authenticated', () => {
-  describe('When the applicant navigate to their “Review your funding offer” page', () => {
+describe('Given the farmer is authenticated', () => {
+  describe('When the farmer navigates to “Review your funding offer” page', () => {
     let agreementId
     let sbi
     before(async () => {
@@ -19,6 +19,10 @@ describe('Given the applicant is authenticated', () => {
       sbi = agreement.sbi
       console.log(`Created agreement with ID: ${agreementId}`)
       await loginPage.login(agreementId)
+    })
+
+    it('Then should show Beta phase banner', async () => {
+      expect(await reviewOfferPage.isBetaBannerPresent()).toBe(true)
     })
 
     it('Then should show the title', async () => {

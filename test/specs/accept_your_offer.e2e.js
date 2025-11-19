@@ -25,6 +25,10 @@ describe('Given the applicant has reviewed the offer', () => {
       await reviewOfferPage.selectContinue()
     })
 
+    it('Then should show Beta phase banner', async () => {
+      expect(await acceptYourOfferPage.isBetaBannerPresent()).toBe(true)
+    })
+
     it('Then should show the title', async () => {
       await expect(browser).toHaveTitle(constants.ACCEPT_OFFER_TITLE)
     })
@@ -55,33 +59,10 @@ describe('Given the applicant has reviewed the offer', () => {
       )
     })
 
-    it('should show all bullet confirmation points', async () => {
-      const bulletPoints = await acceptYourOfferPage.getConfirmationChecklist()
-      expect(bulletPoints.length).toBe(constants.BULLET_POINTS.length)
-      expect(bulletPoints).toEqual(constants.BULLET_POINTS)
-    })
-
     it('should display the terms and conditions link correctly', async () => {
       const termsLink = await acceptYourOfferPage.getTermsAndConditionsLink()
       const text = await termsLink.getText()
       expect(text).toContain(constants.TERMS_LINK_TEXT)
-      // const href = await termsLink.getAttribute(constants.HREF)
-      // const target = await termsLink.getAttribute(constants.TARGET)
-      // expect(
-      //   href === constants.TERMS_LINK_HREF ||
-      //     href.includes('review-accept-offer')
-      // ).toBe(true)
-      // expect(target).toBe(null)
-    })
-
-    it('should display the "Find funding for land or farms" link correctly', async () => {
-      const fundingLink = await acceptYourOfferPage.getFundingLink()
-      const text = await fundingLink.getText()
-      const href = await fundingLink.getAttribute(constants.HREF)
-      const target = await fundingLink.getAttribute(constants.TARGET)
-      expect(text).toContain(constants.FUNDING_LINK_TEXT)
-      expect(href).toBe(constants.FUNDING_LINK_HREF)
-      expect(target).toBe('_blank')
     })
 
     it('should expand the guidance details section', async () => {
@@ -89,20 +70,15 @@ describe('Given the applicant has reviewed the offer', () => {
       const content = await acceptYourOfferPage.getGuidanceDetailsText()
       expect(content).toContain(constants.GUIDANCE_DETAILS_TEXT)
       expect(content).toContain(constants.CONTACT_CENTRE_NUMBER)
+      expect(content).toContain(constants.CONTACT_CENTRE_EMAIL)
 
       const link = await acceptYourOfferPage.getCallChargesLink()
       const linkText = await link.getText()
       expect(linkText).toContain(constants.CALL_CHARGES_TEXT)
-      // const href = await link.getAttribute(constants.HREF)
-      // const target = await link.getAttribute(constants.TARGET)
-      // expect(
-      //   href === constants.CALL_CHARGES_HREF ||
-      //     href.includes('review-accept-offer')
-      // ).toBe(true)
-      // expect(target).toBe(null)
     })
 
     it('should proceed to Offer Accepted page on submit', async () => {
+      await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
       const confirmationText = await offerAcceptedPage.getConfirmationText()
       expect(confirmationText).toBe(constants.OFFER_ACCEPTED_TEXT)

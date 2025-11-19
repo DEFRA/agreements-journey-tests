@@ -7,27 +7,27 @@ class ViewAgreementPage extends Page {
   }
 
   async getAgreementHolder() {
-    return $('dl.dataset-info dt:nth-of-type(1)').getText()
+    return $('dl.dataset-info dd:nth-of-type(1)').getText()
   }
 
   async getSBIValue() {
-    return $('dl.dataset-info dt:nth-of-type(2)').getText()
+    return $('dl.dataset-info dd:nth-of-type(2)').getText()
   }
 
   async getAddress() {
-    return $('dl.dataset-info dt:nth-of-type(3)').getText()
+    return $('dl.dataset-info dd:nth-of-type(3)').getText()
   }
 
   async getAgreementName() {
-    return $('dl.dataset-info dt:nth-of-type(4)').getText()
+    return $('dl.dataset-info dd:nth-of-type(4)').getText()
   }
 
   async getAgreementNumber() {
-    return $('dl.dataset-info dt:nth-of-type(5)').getText()
+    return $('dl.dataset-info dd:nth-of-type(5)').getText()
   }
 
   async getStartDate() {
-    return $('dl.dataset-info dt:nth-of-type(6)').getText()
+    return $('dl.dataset-info dd:nth-of-type(6)').getText()
   }
 
   // Sub-headers

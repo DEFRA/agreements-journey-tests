@@ -27,6 +27,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       console.log('agreementData:', JSON.stringify(agreementData, null, 2))
       await loginPage.login(agreementId)
       await reviewOfferPage.selectContinue()
+      await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
     })
 

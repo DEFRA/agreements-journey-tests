@@ -34,9 +34,6 @@ export const config = {
   // will be called from there.
   //
   specs: ['./test/specs/**/*.e2e.js'],
-  specFileRetries: 1,
-  specFileRetriesDelay: 10,
-  specFileRetriesDeferred: false,
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -186,7 +183,6 @@ export const config = {
   // See the full list at http://mochajs.org/
   mochaOpts: {
     ui: 'bdd',
-    retries: 2,
     timeout: debug ? oneHour : 60000
   },
   //

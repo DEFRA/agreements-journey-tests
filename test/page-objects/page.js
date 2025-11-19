@@ -36,6 +36,20 @@ class Page {
     }
     throw new Error(`Link containing "${partialText}" not found`)
   }
+
+  get phaseTag() {
+    return $('.govuk-phase-banner__content__tag')
+  }
+
+  get phaseMessage() {
+    return $('.govuk-phase-banner__text')
+  }
+
+  async isBetaBannerPresent() {
+    const tag = await this.phaseTag.getText()
+    const msg = await this.phaseMessage.getText()
+    return tag.includes('Beta') && msg.includes('This is a new service.')
+  }
 }
 
 export { Page }

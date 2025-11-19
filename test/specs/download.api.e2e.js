@@ -18,6 +18,7 @@ describe('Download API validation', function () {
     console.log(`Created offer with ID: ${agreementId}`)
     await loginPage.login(agreementId)
     await reviewOfferPage.selectContinue()
+    await acceptYourOfferPage.clickConfirmCheckbox()
     await acceptYourOfferPage.selectAcceptOffer()
   })
 

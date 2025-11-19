@@ -24,9 +24,10 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
 
   it('should accept the agreement', async () => {
     await reviewOfferPage.selectContinue()
+    await acceptYourOfferPage.clickConfirmCheckbox()
     await acceptYourOfferPage.selectAcceptOffer()
     const confirmationText = await offerAcceptedPage.getConfirmationText()
-    expect(confirmationText).toBe('Offer accepted')
+    expect(confirmationText).toBe('Agreement offer accepted')
   })
 
   it('should validate agreement is accepted along with invoice details via API', async () => {
@@ -55,6 +56,7 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
   it('re-acceptance of agreement and validate via API', async () => {
     await reviewOfferPage.open()
     await reviewOfferPage.selectContinue()
+    await acceptYourOfferPage.clickConfirmCheckbox()
     await acceptYourOfferPage.selectAcceptOffer()
     const confirmationText = await offerAcceptedPage.getConfirmationText()
     expect(confirmationText).toBe(constants.OFFER_ACCEPTED_HEADER)

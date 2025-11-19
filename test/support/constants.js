@@ -1,4 +1,4 @@
-export const REVIEW_FUNDING_OFFER_TITLE = 'Review your funding offer - GOV.UK'
+export const REVIEW_FUNDING_OFFER_TITLE = 'Review your agreement offer - GOV.UK'
 export const WITHDRAW_OFFER_TITLE =
   'You have requested an update to your offer - GOV.UK'
 export const EXPECTED_PARCEL = 'SD6743 8083'
@@ -8,7 +8,7 @@ export const DEFAULT_ACTION_TABLE_DATA = [
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
     parcel: 'SD6743 8083',
-    quantity: '1.23 ha'
+    quantity: '1.23'
   }
 ]
 export const DEFAULT_ACTION_TABLE_DATA_UPDATED = [
@@ -16,7 +16,7 @@ export const DEFAULT_ACTION_TABLE_DATA_UPDATED = [
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
     parcel: '8083',
-    quantity: '2.23 ha'
+    quantity: '2.23'
   }
 ]
 export const DEFAULT_PAYMENTS_DATA = [
@@ -41,15 +41,15 @@ export const DEFAULT_PAYMENTS_DATA = [
 export const DEFAULT_TOTAL_FIRST_PAYMENT = '£80.01'
 export const DEFAULT_TOTAL_SUBSEQUENT_PAYMENT = '£80.01'
 export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£320.06'
-export const ACCEPT_OFFER_TITLE = 'Accept your offer - GOV.UK'
+export const ACCEPT_OFFER_TITLE = 'Accept your agreement offer - GOV.UK'
 export const DEFAULT_FARM_NAME = 'J&S Hartley'
 export const SBI = 'Single business identifier (SBI):'
 export const DEFAULT_SBI = 'Single business identifier (SBI): '
 export const DEFAULT_FARMER_NAME = 'Edward Jones'
 export const FARMER_NAME = 'Alfred Waldron'
-export const ACCEPT_OFFER_HEADER = 'Accept your offer'
-export const REVIEW_OFFER_HEADER = 'Review your funding offer'
-export const OFFER_ACCEPTED_TEXT = 'Offer accepted'
+export const ACCEPT_OFFER_HEADER = 'Accept your agreement offer'
+export const REVIEW_OFFER_HEADER = 'Review your agreement offer'
+export const OFFER_ACCEPTED_TEXT = 'Agreement offer accepted'
 export const BULLET_POINTS = [
   'you are entering into a legally binding agreement with Defra',
   'you and your land will remain eligible for the duration of the actions you have selected',
@@ -68,16 +68,17 @@ export const FUNDING_LINK_TEXT = 'funding for land or farms (opens in new tab)'
 export const FUNDING_LINK_HREF =
   'https://www.gov.uk/find-funding-for-land-or-farms'
 export const GUIDANCE_DETAILS_TEXT =
-  'Contact the Rural Payments Agency to update your offer'
-export const CONTACT_CENTRE_NUMBER = '03000 200 301'
+  'Contact the Rural Payments Agency (RPA) by phone or email for help and support.'
+export const CONTACT_CENTRE_NUMBER = '020 8026 2395'
+export const CONTACT_CENTRE_EMAIL = 'farmpayments@rpa.gov.uk'
 export const CALL_CHARGES_TEXT = 'Find out about call charges'
 export const CALL_CHARGES_HREF = '#'
 export const HREF = 'href'
 export const TARGET = 'target'
 export const DEFAULT_AGREEMENT_ID = 'SFI999999999'
 export const OFFER_ACCEPTED_TITLE = 'Offer accepted - GOV.UK'
-export const OFFER_ACCEPTED_HEADER = 'Offer accepted'
-export const START_DATE = 'The start date for these actions is'
+export const OFFER_ACCEPTED_HEADER = 'Agreement offer accepted'
+export const START_DATE = 'The start date for this agreement is'
 export const AGREEMENT_REFERENCE = 'Your agreement number is '
 export const FULL_STOP = '.'
 export const HELP_TEXT =
