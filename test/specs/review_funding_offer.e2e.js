@@ -9,7 +9,7 @@ const acceptYourOfferPage = new AcceptYourOfferPage()
 const loginPage = new LoginPage()
 
 describe('Given the farmer is authenticated', () => {
-  describe('When the farmer navigate to “Review your funding offer” page', () => {
+  describe('When the farmer navigates to “Review your funding offer” page', () => {
     let agreementId
     let sbi
     before(async () => {
