@@ -21,7 +21,7 @@ describe('Given the applicant has reviewed the offer', () => {
       agreementId = agreement.agreementId
       sbi = agreement.sbi
       console.log(`Created agreement with ID: ${agreementId}`)
-      await loginPage.login(agreementId)
+      await loginPage.login()
       await reviewOfferPage.selectContinue()
     })
 

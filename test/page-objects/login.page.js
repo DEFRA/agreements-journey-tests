@@ -4,7 +4,6 @@ import * as constants from '../support/constants.js'
 class LoginPage extends Page {
   async login(id) {
     const proxy = `${browser.options.proxy}`
-    // const path = id ? `/${id}` : '/SFI123456789'
     this.open(proxy)
     const usernameInput = await $('#crn')
     const passwordInput = await $('#password')

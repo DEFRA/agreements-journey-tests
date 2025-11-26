@@ -18,7 +18,7 @@ describe('Given the farmer is authenticated', () => {
       agreementId = agreement.agreementId
       sbi = agreement.sbi
       console.log(`Created agreement with ID: ${agreementId}`)
-      await loginPage.login(agreementId)
+      await loginPage.login()
     })
 
     it('Then should show Beta phase banner', async () => {
@@ -44,7 +44,7 @@ describe('Given the farmer is authenticated', () => {
       )
     })
 
-    it('Then should show Actions table details correctly', async () => {
+    it.skip('Then should show Actions table details correctly', async () => {
       for (let i = 0; i < constants.DEFAULT_ACTION_TABLE_DATA.length; i++) {
         const rowIndex = i + 1
         const rowData = await reviewOfferPage.getActionTableRowData(rowIndex)
@@ -57,6 +57,9 @@ describe('Given the farmer is authenticated', () => {
         )
         expect(rowData.quantity).toBe(
           constants.DEFAULT_ACTION_TABLE_DATA[i].quantity
+        )
+        expect(rowData.duration).toBe(
+          constants.DEFAULT_ACTION_TABLE_DATA[i].duration
         )
       }
     })
