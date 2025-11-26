@@ -10,7 +10,7 @@ export async function setupAgreement({
   quantity = 1.23
 }) {
   const requestBody = {
-    id: '3a877fc7-923e-42a9-b751-6e1a0add2235',
+    id: randomUUID(),
     source: 'fg-gas-backend',
     specversion: '1.0',
     datacontenttype: 'application/json',

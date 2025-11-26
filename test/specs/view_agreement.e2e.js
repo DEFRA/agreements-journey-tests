@@ -8,7 +8,6 @@ import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
 import { LoginPage } from '../page-objects/login.page.js'
 import dayjs from 'dayjs'
-import { AGREEMENT_NAME } from '../support/constants.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
@@ -24,6 +23,7 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       const agreement = await createTestAgreement()
       agreementId = agreement.agreementId
       agreementData = await getAgreement(agreementId)
+      console.log('agreementData', agreementData)
       sbi = agreement.sbi
 
       await loginPage.login()
