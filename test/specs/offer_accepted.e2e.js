@@ -25,7 +25,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       sbi = agreement.sbi
       console.log(`Created offer with ID: ${agreementId}`)
       console.log('agreementData:', JSON.stringify(agreementData, null, 2))
-      await loginPage.login(agreementId)
+      await loginPage.login()
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
@@ -51,9 +51,11 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
     })
 
     it('Then should show start date', async () => {
-      const formattedDate = dayjs(
-        agreementData.payment.agreementStartDate
-      ).format('D MMMM YYYY')
+      const startDateNextMonth = dayjs()
+        .add(1, 'month')
+        .startOf('month')
+        .toISOString()
+      const formattedDate = dayjs(startDateNextMonth).format('D MMMM YYYY')
       expect(await offerAcceptedPage.getStartDateText()).toBe(
         `${constants.START_DATE}\n${formattedDate}`
       )

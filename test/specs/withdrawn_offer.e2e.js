@@ -21,7 +21,7 @@ describe('Given the applicant has asked for changes to the offer ', () => {
       sbi = agreement.sbi
       console.log(`Created test agreement with ID: ${agreementId}`)
       await withdrawOffer(clientRef)
-      await loginPage.login(agreementId)
+      await loginPage.login()
     })
 
     it('Then should show the title', async () => {

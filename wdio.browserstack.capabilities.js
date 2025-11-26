@@ -1,9 +1,22 @@
 export const browserStackCapabilities = [
   // windows
+  // {
+  //   browserName: 'Chrome',
+  //   'wdio-ics:options': {
+  //     logName: 'win-chrome'
+  //   },
+  //   'bstack:options': {
+  //     idleTimeout: 300,
+  //     resolution: '1920x1080',
+  //     browserVersion: 'latest',
+  //     os: 'Windows',
+  //     osVersion: '11'
+  //   }
+  // },
   {
-    browserName: 'Chrome',
+    browserName: 'Edge',
     'wdio-ics:options': {
-      logName: 'win-chrome'
+      logName: 'win-edge'
     },
     'bstack:options': {
       idleTimeout: 300,
@@ -14,19 +27,6 @@ export const browserStackCapabilities = [
     }
   }
   // ,
-  // {
-  //   browserName: 'Edge',
-  //   'wdio-ics:options': {
-  //     logName: 'win-edge'
-  //   },
-  //   'bstack:options': {
-  //     idleTimeout: 300,
-  //     resolution: '1920x1080',
-  //     browserVersion: 'latest',
-  //     os: 'Windows',
-  //     osVersion: '11'
-  //   }
-  // },
   // {
   //   browserName: 'Firefox',
   //   'wdio-ics:options': {

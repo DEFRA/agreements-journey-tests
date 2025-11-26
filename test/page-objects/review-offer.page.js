@@ -11,11 +11,12 @@ class ReviewOfferPage extends Page {
     const code = await $(`#actionTableCodeRow${rowIndex}`).getText()
     const parcel = await $(`#actionTableLandParcelRow${rowIndex}`).getText()
     const quantity = await $(`#actionTableQuantityRow${rowIndex}`).getText()
+    const duration = await $(`#actionTableDurationRow${rowIndex}`).getText()
 
     console.log(
-      `Row ${rowIndex} - Action: ${action}, Code: ${code}, Parcel: ${parcel}, Quantity: ${quantity}`
+      `Row ${rowIndex} - Action: ${action}, Code: ${code}, Parcel: ${parcel}, Quantity: ${quantity} , Duration: ${duration}`
     )
-    return { action, code, parcel, quantity }
+    return { action, code, parcel, quantity, duration }
   }
 
   async getPaymentsTableRowData(rowIndex) {

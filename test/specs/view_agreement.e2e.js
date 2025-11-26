@@ -8,6 +8,7 @@ import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
 import { LoginPage } from '../page-objects/login.page.js'
 import dayjs from 'dayjs'
+import { AGREEMENT_NAME } from '../support/constants.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
@@ -25,7 +26,7 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       agreementData = await getAgreement(agreementId)
       sbi = agreement.sbi
 
-      await loginPage.login(agreementId)
+      await loginPage.login()
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
@@ -42,7 +43,9 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
     })
 
     it('Then should show Header', async () => {
-      expect(await viewAgreementPage.getHeading()).toBe(constants.FARM_NAME)
+      expect(await viewAgreementPage.getHeading()).toBe(
+        constants.AGREEMENT_NAME
+      )
       expect(await viewAgreementPage.getAgreementHolder()).toBe(
         constants.DEFAULT_FARM_NAME
       )
@@ -54,9 +57,11 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
         constants.DEFAULT_AGREEMENT_NAME
       )
       expect(await viewAgreementPage.getAgreementNumber()).toBe(agreementId)
-      const formattedDate = dayjs(
-        agreementData.payment.agreementStartDate
-      ).format('D MMMM YYYY')
+      const startDateNextMonth = dayjs()
+        .add(1, 'month')
+        .startOf('month')
+        .toISOString()
+      const formattedDate = dayjs(startDateNextMonth).format('D MMMM YYYY')
       expect(await viewAgreementPage.getStartDate()).toBe(formattedDate)
     })
 
@@ -90,34 +95,92 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
     })
 
     it('Then should display - Land covered by the agreement', async () => {
-      const parcelCell = await viewAgreementPage.getTableCell('landTable', 0, 0)
-      const areaCell = await viewAgreementPage.getTableCell('landTable', 0, 1)
+      const parcelCellOne = await viewAgreementPage.getTableCell(
+        'landTable',
+        0,
+        0
+      )
+      const areaCellOne = await viewAgreementPage.getTableCell(
+        'landTable',
+        0,
+        1
+      )
+      const parcelCellTwo = await viewAgreementPage.getTableCell(
+        'landTable',
+        1,
+        0
+      )
+      const areaCellTwo = await viewAgreementPage.getTableCell(
+        'landTable',
+        1,
+        1
+      )
 
-      await expect(parcelCell).toBeDisplayed()
-      await expect(parcelCell).toHaveText(constants.EXPECTED_PARCEL)
+      await expect(parcelCellOne).toBeDisplayed()
+      await expect(parcelCellOne).toHaveText(constants.EXPECTED_PARCEL)
 
-      await expect(areaCell).toBeDisplayed()
-      await expect(areaCell).toHaveText(constants.EXPECTED_AREA)
+      await expect(areaCellOne).toBeDisplayed()
+      await expect(areaCellOne).toHaveText(constants.EXPECTED_AREA)
+
+      await expect(parcelCellTwo).toBeDisplayed()
+      await expect(parcelCellTwo).toHaveText(constants.EXPECTED_PARCEL_TWO)
+
+      await expect(areaCellTwo).toBeDisplayed()
+      await expect(areaCellTwo).toHaveText(constants.EXPECTED_AREA_TWO)
     })
 
     it('Then should display - Summary of actions', async () => {
+      const now = new Date()
+      const startDate = new Date(now.getFullYear(), now.getMonth() + 1, 1)
+      const endDate = new Date(startDate)
+      endDate.setFullYear(endDate.getFullYear() + 3)
+      const format = (d) => d.toLocaleDateString('en-GB')
+
       const expectedValues = [
-        'SD6743 8083',
-        'CMOR1',
-        'Assess moorland and produce a written record',
-        '4.53411078',
-        '01/09/2025',
-        '01/09/2028'
+        [
+          'SK0971 7555',
+          'CMOR1',
+          'Assess moorland and produce a written record',
+          '4.7575',
+          format(startDate),
+          format(endDate)
+        ],
+        [
+          'SK0971 7555',
+          'UPL3',
+          'Limited livestock grazing on moorland',
+          '4.7575',
+          format(startDate),
+          format(endDate)
+        ],
+        [
+          'SK0971 9194',
+          'CMOR1',
+          'Assess moorland and produce a written record',
+          '2.1705',
+          format(startDate),
+          format(endDate)
+        ],
+        [
+          'SK0971 9194',
+          'UPL1',
+          'Moderate livestock grazing on moorland',
+          '2.1705',
+          format(startDate),
+          format(endDate)
+        ]
       ]
 
-      for (let col = 0; col < expectedValues.length; col++) {
-        const element = await viewAgreementPage.getTableCell(
-          'actionsTable',
-          0,
-          col
-        )
-        await expect(element).toBeDisplayed()
-        await expect(element).toHaveText(expectedValues[col])
+      for (let row = 0; row < expectedValues.length; row++) {
+        for (let col = 0; col < expectedValues[row].length; col++) {
+          const element = await viewAgreementPage.getTableCell(
+            'actionsTable',
+            row,
+            col
+          )
+          await expect(element).toBeDisplayed()
+          await expect(element).toHaveText(expectedValues[row][col])
+        }
       }
     })
 
@@ -125,12 +188,21 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       const expectedRows = [
         [
           'CMOR1',
-          'CMOR1: Assess moorland and produce a written record',
-          '4.5341',
+          'Assess moorland and produce a written record',
+          '4.7575',
           '£10.60 per ha',
-          '£12.01',
-          '£12.01',
-          '£48.06'
+          '£12.60',
+          '£12.60',
+          '£50.42'
+        ],
+        [
+          'CMOR1',
+          'Assess moorland and produce a written record',
+          '2.1705',
+          '£10.60 per ha',
+          '£5.75',
+          '£5.75',
+          '£23.00'
         ],
         [
           'CMOR1',
@@ -140,6 +212,24 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
           '£68.00',
           '£68.00',
           '£272.00'
+        ],
+        [
+          'UPL1',
+          'Moderate livestock grazing on moorland',
+          '2.1705',
+          '£20.00 per ha',
+          '£10.85',
+          '£10.85',
+          '£43.41'
+        ],
+        [
+          'UPL3',
+          'Limited livestock grazing on moorland',
+          '4.7575',
+          '£66.00 per ha',
+          '£78.49',
+          '£78.49',
+          '£313.99'
         ]
       ]
 
@@ -159,8 +249,10 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
 
     it('Then should display - Payment schedule', async () => {
       const expectedRows = [
-        ['CMOR1', '£80.01', '£320.04', '£320.04', '£240.03', '£960.12'],
-        ['Total', '£80.01', '£320.04', '£320.04', '£240.03', '£960.12']
+        ['CMOR1', '£345.40', '£345.40', '£345.40', '£1,036.20'],
+        ['UPL1', '£43.40', '£43.40', '£43.40', '£130.20'],
+        ['UPL3', '£313.96', '£313.96', '£313.96', '£941.88'],
+        ['Total', '£702.76', '£702.76', '£702.76', '£2,108.28']
       ]
 
       for (let rowIndex = 0; rowIndex < expectedRows.length; rowIndex++) {

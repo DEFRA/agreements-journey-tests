@@ -1,14 +1,17 @@
 export const REVIEW_FUNDING_OFFER_TITLE = 'Review your agreement offer - GOV.UK'
 export const WITHDRAW_OFFER_TITLE =
   'You have requested an update to your offer - GOV.UK'
-export const EXPECTED_PARCEL = 'SD6743 8083'
-export const EXPECTED_AREA = '4.5341'
+export const EXPECTED_PARCEL = 'SK0971 7555'
+export const EXPECTED_AREA = '4.7575'
+export const EXPECTED_PARCEL_TWO = 'SK0971 9194'
+export const EXPECTED_AREA_TWO = '2.1705'
 export const DEFAULT_ACTION_TABLE_DATA = [
   {
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
     parcel: 'SD6743 8083',
-    quantity: '1.23'
+    quantity: '1.23',
+    duration: '3 years'
   }
 ]
 export const DEFAULT_ACTION_TABLE_DATA_UPDATED = [
@@ -16,7 +19,8 @@ export const DEFAULT_ACTION_TABLE_DATA_UPDATED = [
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
     parcel: '8083',
-    quantity: '2.23'
+    quantity: '2.23',
+    duration: '3 years'
   }
 ]
 export const DEFAULT_PAYMENTS_DATA = [
@@ -24,9 +28,17 @@ export const DEFAULT_PAYMENTS_DATA = [
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
     rate: '£10.60  per ha',
-    firstPayment: '£12.01',
-    subsequentPayments: '£12.01',
-    yearlyPayment: '£48.06'
+    firstPayment: '£12.60',
+    subsequentPayments: '£12.60',
+    yearlyPayment: '£50.42'
+  },
+  {
+    action: 'Assess moorland and produce a written record',
+    code: 'CMOR1',
+    rate: '£10.60  per ha',
+    firstPayment: '£5.75',
+    subsequentPayments: '£5.75',
+    yearlyPayment: '£23.00'
   },
   {
     action:
@@ -36,16 +48,32 @@ export const DEFAULT_PAYMENTS_DATA = [
     firstPayment: '£68.00',
     subsequentPayments: '£68.00',
     yearlyPayment: '£272.00'
+  },
+  {
+    action: 'Moderate livestock grazing on moorland',
+    code: 'UPL1',
+    rate: '£20.00  per ha',
+    firstPayment: '£10.85',
+    subsequentPayments: '£10.85',
+    yearlyPayment: '£43.41'
+  },
+  {
+    action: 'Limited livestock grazing on moorland',
+    code: 'UPL3',
+    rate: '£66.00  per ha',
+    firstPayment: '£78.49',
+    subsequentPayments: '£78.49',
+    yearlyPayment: '£313.99'
   }
 ]
-export const DEFAULT_TOTAL_FIRST_PAYMENT = '£80.01'
-export const DEFAULT_TOTAL_SUBSEQUENT_PAYMENT = '£80.01'
-export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£320.06'
+export const DEFAULT_TOTAL_FIRST_PAYMENT = '£175.69'
+export const DEFAULT_TOTAL_SUBSEQUENT_PAYMENT = '£175.69'
+export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£702.82'
 export const ACCEPT_OFFER_TITLE = 'Accept your agreement offer - GOV.UK'
-export const DEFAULT_FARM_NAME = 'J&S Hartley'
+export const DEFAULT_FARM_NAME = 'Texels Hire & Contracting'
 export const SBI = 'Single business identifier (SBI):'
 export const DEFAULT_SBI = 'Single business identifier (SBI): '
-export const DEFAULT_FARMER_NAME = 'Edward Jones'
+export const DEFAULT_FARMER_NAME = 'Graham Gilfoyle'
 export const FARMER_NAME = 'Alfred Waldron'
 export const ACCEPT_OFFER_HEADER = 'Accept your agreement offer'
 export const REVIEW_OFFER_HEADER = 'Review your agreement offer'
@@ -84,8 +112,8 @@ export const FULL_STOP = '.'
 export const HELP_TEXT =
   'You can contact the Rural Payments Agency (RPA) by phone or email for help and support.'
 export const DEFAULT_ADDRESS =
-  'Mason House Farm Clitheroe Rd, Bashall Eaves, Bartindale Road, Clitheroe, BB7 3DD'
-export const DEFAULT_AGREEMENT_NAME = 'E2E Agreement Test Farm'
+  'Benbrigge House, ALBRIGHTON, BRIDGE ROAD, GRIMSBY, DY13 0UY'
+export const DEFAULT_AGREEMENT_NAME = 'Sustainable Farming Incentive agreement'
 export const SUB_HEADERS = [
   { element: 'introSubHeader', expected: '1. Introduction and overview' },
   { element: 'partiesSubHeader', expected: '2. Parties to the agreement' },
@@ -116,4 +144,4 @@ export const EXPECTED_CONTENTS = [
 
 export const USERNAME = '1102838829'
 export const PASSWORD = process.env.DEFRA_ID_USER_PASSWORD
-export const FARM_NAME = 'E2E Agreement Test Farm'
+export const AGREEMENT_NAME = 'Sustainable Farming Incentive agreement'
