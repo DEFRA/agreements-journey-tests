@@ -7,7 +7,7 @@ export async function setupAgreement({
   frn,
   agreementName,
   clientRef,
-  quantity = 1.23
+  postalCode = 'DY13 0UY'
 }) {
   const requestBody = {
     id: randomUUID(),
@@ -52,7 +52,7 @@ export async function setupAgreement({
               line5: null,
               street: 'BRIDGE ROAD',
               city: 'GRIMSBY',
-              postalCode: 'DY13 0UY'
+              postalCode
             }
           },
           customer: {

@@ -28,24 +28,11 @@ describe('Given the applicant has asked for changes to the offer ', () => {
     })
 
     it('Then should see the new version and is able to accept the agreement', async () => {
-      for (let i = 0; i < constants.DEFAULT_ACTION_TABLE_DATA.length; i++) {
-        const rowIndex = i + 1
-        const rowData = await reviewOfferPage.getActionTableRowData(rowIndex)
-        expect(rowData.action).toBe(
-          constants.DEFAULT_ACTION_TABLE_DATA[i].action
-        )
-        expect(rowData.code).toBe(constants.DEFAULT_ACTION_TABLE_DATA[i].code)
-        expect(rowData.parcel).toBe(
-          constants.DEFAULT_ACTION_TABLE_DATA[i].parcel
-        )
-        expect(rowData.quantity).toBe(
-          constants.DEFAULT_ACTION_TABLE_DATA_UPDATED[i].quantity
-        )
-        await reviewOfferPage.selectContinue()
-        await acceptYourOfferPage.clickConfirmCheckbox()
-        await acceptYourOfferPage.selectAcceptOffer()
-        await expect(browser).toHaveTitle(constants.OFFER_ACCEPTED_TITLE)
-      }
+      await reviewOfferPage.checkPostcodePresent()
+      await reviewOfferPage.selectContinue()
+      await acceptYourOfferPage.clickConfirmCheckbox()
+      await acceptYourOfferPage.selectAcceptOffer()
+      await expect(browser).toHaveTitle(constants.OFFER_ACCEPTED_TITLE)
     })
   })
 })

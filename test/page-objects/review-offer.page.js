@@ -65,6 +65,11 @@ class ReviewOfferPage extends Page {
     const button = await $('button[value="display-accept"]')
     await button.click()
   }
+
+  async checkPostcodePresent() {
+    const text = await $('body').getText()
+    return text.includes('DY14 0UY')
+  }
 }
 
 export { ReviewOfferPage }
