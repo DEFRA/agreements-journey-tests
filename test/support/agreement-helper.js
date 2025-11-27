@@ -27,7 +27,7 @@ export async function updateTestAgreement(frn) {
     frn,
     agreementName,
     clientRef,
-    quantity: 2.23
+    postalCode: 'DY14 0UY'
   })
   return { agreementId, sbi, frn, clientRef, agreementName }
 }

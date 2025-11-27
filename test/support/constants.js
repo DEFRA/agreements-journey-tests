@@ -9,8 +9,29 @@ export const DEFAULT_ACTION_TABLE_DATA = [
   {
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
-    parcel: 'SD6743 8083',
-    quantity: '1.23',
+    parcel: 'SK0971 7555',
+    quantity: '4.7575',
+    duration: '3 years'
+  },
+  {
+    action: 'Limited livestock grazing on moorland',
+    code: 'UPL3',
+    parcel: 'SK0971 7555',
+    quantity: '4.7575',
+    duration: '3 years'
+  },
+  {
+    action: 'Assess moorland and produce a written record',
+    code: 'CMOR1',
+    parcel: 'SK0971 9194',
+    quantity: '2.1705',
+    duration: '3 years'
+  },
+  {
+    action: 'Moderate livestock grazing on moorland',
+    code: 'UPL1',
+    parcel: 'SK0971 9194',
+    quantity: '2.1705',
     duration: '3 years'
   }
 ]

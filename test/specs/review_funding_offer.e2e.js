@@ -44,7 +44,7 @@ describe('Given the farmer is authenticated', () => {
       )
     })
 
-    it.skip('Then should show Actions table details correctly', async () => {
+    it('Then should show Actions table details correctly', async () => {
       for (let i = 0; i < constants.DEFAULT_ACTION_TABLE_DATA.length; i++) {
         const rowIndex = i + 1
         const rowData = await reviewOfferPage.getActionTableRowData(rowIndex)
