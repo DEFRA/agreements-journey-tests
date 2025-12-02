@@ -117,15 +117,15 @@ export const config = {
   // testAPIEndPointUrl: 'http://localhost:3555',
   // proxy: '',
   // DEV URL
-  baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
-  testAPIEndPointUrl:
-    'https://ephemeral-protected.api.dev.cdp-int.defra.cloud/farming-grants-agreements-api',
-  proxy: '/agreement',
-  // TEST URL
-  // baseUrl: 'https://grants-ui.test.cdp-int.defra.cloud',
+  // baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
   // testAPIEndPointUrl:
-  //   'https://farming-grants-agreements-api.test.cdp-int.defra.cloud',
+  //   'https://ephemeral-protected.api.dev.cdp-int.defra.cloud/farming-grants-agreements-api',
   // proxy: '/agreement',
+  // TEST URL
+  baseUrl: 'https://grants-ui.test.cdp-int.defra.cloud',
+  testAPIEndPointUrl:
+    'https://ephemeral-protected.api.test.cdp-int.defra.cloud/farming-grants-agreements-api',
+  proxy: '/agreement',
   // DEV AGREEMENTS DIRECT URL
   // baseUrl: 'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
   // testAPIEndPointUrl:
