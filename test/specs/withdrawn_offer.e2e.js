@@ -9,8 +9,7 @@ import * as constants from '../support/constants.js'
 const loginPage = new LoginPage()
 const withdrawnOfferPage = new WithdrawnOfferPage()
 
-// withdraw offer is fast follower and will be tested when Case Working is ready , skip testing for now
-describe.skip('Given the applicant has asked for changes to the offer ', () => {
+describe('Given the applicant has asked for changes to the offer ', () => {
   describe('When the CW withdraws the offer', () => {
     let agreementId
     let sbi
