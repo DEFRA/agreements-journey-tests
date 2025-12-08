@@ -10,7 +10,7 @@ class AcceptYourOfferPage extends Page {
   }
 
   async selectAcceptOffer(selector) {
-    const button = await $('button[value="accept-offer"]')
+    const button = await $('button[id="accept-offer-button"]')
     await button.click()
   }
 
