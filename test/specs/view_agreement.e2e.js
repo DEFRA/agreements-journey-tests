@@ -191,18 +191,18 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
           'Assess moorland and produce a written record',
           '4.7575',
           '£10.60 per ha',
+          '£12.69',
           '£12.60',
-          '£12.60',
-          '£50.42'
+          '£50.43'
         ],
         [
           'CMOR1',
           'Assess moorland and produce a written record',
           '2.1705',
           '£10.60 per ha',
+          '£5.78',
           '£5.75',
-          '£5.75',
-          '£23.00'
+          '£23.01'
         ],
         [
           'CMOR1',
@@ -218,7 +218,7 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
           'Moderate livestock grazing on moorland',
           '2.1705',
           '£20.00 per ha',
-          '£10.85',
+          '£10.88',
           '£10.85',
           '£43.41'
         ],
@@ -227,12 +227,11 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
           'Limited livestock grazing on moorland',
           '4.7575',
           '£66.00 per ha',
-          '£78.49',
-          '£78.49',
-          '£313.99'
+          '£78.50',
+          '£78.50',
+          '£314.00'
         ]
       ]
-
       for (let rowIndex = 0; rowIndex < expectedRows.length; rowIndex++) {
         const row = expectedRows[rowIndex]
         for (let colIndex = 0; colIndex < row.length; colIndex++) {
@@ -249,10 +248,10 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
 
     it('Then should display - Payment schedule', async () => {
       const expectedRows = [
-        ['CMOR1', '£259.05', '£345.40', '£345.40', '£86.35', '£1,036.20'],
-        ['UPL1', '£32.55', '£43.40', '£43.40', '£10.85', '£130.20'],
-        ['UPL3', '£235.47', '£313.96', '£313.96', '£78.49', '£941.88'],
-        ['Total', '£527.07', '£702.76', '£702.76', '£175.69', '£2,108.28']
+        ['CMOR1', '£259.17', '£345.40', '£345.40', '£86.35', '£1,036.32'],
+        ['UPL1', '£32.58', '£43.40', '£43.40', '£10.85', '£130.23'],
+        ['UPL3', '£235.50', '£314.00', '£314.00', '£78.50', '£942.00'],
+        ['Total', '£527.25', '£702.80', '£702.80', '£175.70', '£2,108.55']
       ]
 
       for (let rowIndex = 0; rowIndex < expectedRows.length; rowIndex++) {
