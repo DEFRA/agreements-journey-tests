@@ -11,17 +11,20 @@ const withdrawnOfferPage = new WithdrawnOfferPage()
 
 describe('Given the applicant has asked for changes to the offer ', () => {
   describe('When the CW withdraws the offer', () => {
-    let agreementId
+    let agreementNumber
     let sbi
     const clientRef = 'ref-e2e-002'
-    before(async () => {
+    before(async function () {
       // Step 1: Create agreement
       const agreement = await createTestAgreement(clientRef)
-      agreementId = agreement.agreementId
+      agreementNumber = agreement.agreementId
       sbi = agreement.sbi
-      console.log(`Created test agreement with ID: ${agreementId}`)
-      await withdrawOffer(clientRef)
+      console.log(`Created test agreement with ID: ${agreementNumber}`)
+      await withdrawOffer(clientRef, agreementNumber)
+      this.timeout(30000)
       await loginPage.login()
+      // eslint-disable-next-line wdio/no-pause
+      // await browser.pause(20000)
     })
 
     it('Then should show the title', async () => {

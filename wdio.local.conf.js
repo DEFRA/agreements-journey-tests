@@ -130,7 +130,7 @@ export const config = {
   // baseUrl: 'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
   // testAPIEndPointUrl:
   //   'https://farming-grants-agreements-api.dev.cdp-int.defra.cloud',
-  // proxy: '',
+  // proxy: '/',
   // Default timeout for all waitFor* commands.
   waitforTimeout: 10000,
   waitforInterval: 200,

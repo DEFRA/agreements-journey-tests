@@ -2,8 +2,8 @@ import { faker } from '@faker-js/faker'
 import { setupAgreement } from '../services/setup-agreement.js'
 import { sendWithdrawnOffer } from '../services/withdraw-offer.js'
 
-export async function withdrawOffer(clientRef) {
-  await sendWithdrawnOffer(clientRef)
+export async function withdrawOffer(clientRef, agreementNumber) {
+  await sendWithdrawnOffer(clientRef, agreementNumber)
 }
 
 export async function createTestAgreement(clientRef = 'ref-e2e-001') {
