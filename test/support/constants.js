@@ -62,10 +62,9 @@ export const DEFAULT_PAYMENTS_DATA = [
     yearlyPayment: '£23.01'
   },
   {
-    action:
-      'One-off payment per agreement per year for Assess moorland and produce a written record',
+    action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
-    rate: '£272.00',
+    rate: '£272.00 per agreement',
     firstPayment: '£68.00',
     subsequentPayments: '£68.00',
     yearlyPayment: '£272.00'
