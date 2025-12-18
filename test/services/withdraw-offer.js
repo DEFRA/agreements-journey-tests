@@ -1,7 +1,7 @@
 import { request } from 'undici'
 import { browser } from '@wdio/globals'
 
-export async function sendWithdrawnOffer(clientRef) {
+export async function sendWithdrawnOffer(clientRef, agreementNumber) {
   const url = `${browser.options.testAPIEndPointUrl}/api/test/queue-message/update_agreement`
   console.debug('Send GAS application status update request URL:', url)
   const headers = {
@@ -19,8 +19,9 @@ export async function sendWithdrawnOffer(clientRef) {
     datacontenttype: 'application/json',
     data: {
       clientRef,
+      agreementNumber,
       id: '123e4567-e89b-12d3-a456-426614174000',
-      status: 'PRE_AWARD:APPLICATION:APPLICATION_WITHDRAWN',
+      status: 'withdrawn',
       withdrawnBy: 'Caseworker_ID_123',
       withdrawnAt: '2025-03-27T14:30:00Z'
     }

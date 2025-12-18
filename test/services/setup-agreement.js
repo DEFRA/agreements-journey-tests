@@ -78,7 +78,7 @@ export async function setupAgreement({
                 {
                   code: 'CMOR1',
                   version: 1,
-                  durationYears: 3,
+                  durationYears: 1,
                   appliedFor: {
                     unit: 'ha',
                     quantity: 4.7575
@@ -87,7 +87,7 @@ export async function setupAgreement({
                 {
                   code: 'UPL3',
                   version: 1,
-                  durationYears: 3,
+                  durationYears: 1,
                   appliedFor: {
                     unit: 'ha',
                     quantity: 4.7575
@@ -106,7 +106,7 @@ export async function setupAgreement({
                 {
                   code: 'CMOR1',
                   version: 1,
-                  durationYears: 3,
+                  durationYears: 1,
                   appliedFor: {
                     unit: 'ha',
                     quantity: 2.1705
@@ -115,7 +115,7 @@ export async function setupAgreement({
                 {
                   code: 'UPL1',
                   version: 1,
-                  durationYears: 3,
+                  durationYears: 1,
                   appliedFor: {
                     unit: 'ha',
                     quantity: 2.1705
@@ -139,7 +139,7 @@ export async function setupAgreement({
                 {
                   code: 'CMOR1',
                   description: 'Assess moorland and produce a written record',
-                  durationYears: 3,
+                  durationYears: 1,
                   paymentRates: 1060,
                   annualPaymentPence: 5042,
                   eligible: {
@@ -154,7 +154,7 @@ export async function setupAgreement({
                 {
                   code: 'UPL3',
                   description: 'Limited livestock grazing on moorland',
-                  durationYears: 3,
+                  durationYears: 1,
                   paymentRates: 6600,
                   annualPaymentPence: 31399,
                   eligible: {
@@ -179,7 +179,7 @@ export async function setupAgreement({
                 {
                   code: 'CMOR1',
                   description: 'Assess moorland and produce a written record',
-                  durationYears: 3,
+                  durationYears: 1,
                   paymentRates: 1060,
                   annualPaymentPence: 2300,
                   eligible: {
@@ -194,7 +194,7 @@ export async function setupAgreement({
                 {
                   code: 'UPL1',
                   description: 'Moderate livestock grazing on moorland',
-                  durationYears: 3,
+                  durationYears: 1,
                   paymentRates: 2000,
                   annualPaymentPence: 4341,
                   eligible: {
@@ -213,7 +213,7 @@ export async function setupAgreement({
             {
               code: 'CMOR1',
               description: 'Assess moorland and produce a written record',
-              durationYears: 3,
+              durationYears: 1,
               paymentRates: 27200,
               annualPaymentPence: 27200
             }

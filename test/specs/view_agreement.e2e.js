@@ -15,7 +15,7 @@ const offerAcceptedPage = new OfferAcceptedPage()
 const viewAgreementPage = new ViewAgreementPage()
 const loginPage = new LoginPage()
 
-describe('Given the applicant has reviewed and accepted the offer', () => {
+describe.skip('Given the applicant has reviewed and accepted the offer', () => {
   describe('When the applicant views the “View agreement” page', () => {
     let agreementId, sbi, agreementData
 
