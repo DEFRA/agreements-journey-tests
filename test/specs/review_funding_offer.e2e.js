@@ -96,6 +96,8 @@ describe('Given the farmer is authenticated', () => {
 
     it('should continue to next page', async () => {
       await reviewOfferPage.selectContinue()
+      // eslint-disable-next-line wdio/no-pause
+      browser.pause(1000)
       expect(await acceptYourOfferPage.getPageHeader()).toBe(
         constants.ACCEPT_OFFER_HEADER
       )
