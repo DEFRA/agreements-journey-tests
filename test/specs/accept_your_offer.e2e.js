@@ -4,12 +4,11 @@ import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
 import { OfferAcceptedPage } from '../page-objects/offer-accepted.page.js'
 import * as constants from '../support/constants.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
-import { LoginPage } from '../page-objects/login.page.js'
+import { genAuthHeader } from '../support/gen-auth-header.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const offerAcceptedPage = new OfferAcceptedPage()
-const loginPage = new LoginPage()
 
 describe('Given the applicant has reviewed the offer', () => {
   describe('When the applicant navigate to "Accept your offer" page', () => {
@@ -21,7 +20,11 @@ describe('Given the applicant has reviewed the offer', () => {
       agreementId = agreement.agreementId
       sbi = agreement.sbi
       console.log(`Created agreement with ID: ${agreementId}`)
-      await loginPage.login()
+
+      const headers = genAuthHeader({ sbi })
+      await browser.cdp('Network', 'setExtraHTTPHeaders', { headers })
+
+      await reviewOfferPage.open()
       await reviewOfferPage.selectContinue()
     })
 

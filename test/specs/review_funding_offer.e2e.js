@@ -3,10 +3,9 @@ import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
 import * as constants from '../support/constants.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
-import { LoginPage } from '../page-objects/login.page.js'
+import { genAuthHeader } from '../support/gen-auth-header.js'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
-const loginPage = new LoginPage()
 
 describe('Given the farmer is authenticated', () => {
   describe('When the farmer navigates to “Review your funding offer” page', () => {
@@ -18,7 +17,11 @@ describe('Given the farmer is authenticated', () => {
       agreementId = agreement.agreementId
       sbi = agreement.sbi
       console.log(`Created agreement with ID: ${agreementId}`)
-      await loginPage.login()
+
+      const headers = genAuthHeader({ sbi })
+      await browser.cdp('Network', 'setExtraHTTPHeaders', { headers })
+
+      await reviewOfferPage.open()
     })
 
     it('Then should show Beta phase banner', async () => {

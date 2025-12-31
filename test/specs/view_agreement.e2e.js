@@ -6,14 +6,13 @@ import { ViewAgreementPage } from '../page-objects/view-agreement.page.js'
 import * as constants from '../support/constants.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
-import { LoginPage } from '../page-objects/login.page.js'
+import { genAuthHeader } from '../support/gen-auth-header.js'
 import dayjs from 'dayjs'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const offerAcceptedPage = new OfferAcceptedPage()
 const viewAgreementPage = new ViewAgreementPage()
-const loginPage = new LoginPage()
 
 describe.skip('Given the applicant has reviewed and accepted the offer', () => {
   describe('When the applicant views the “View agreement” page', () => {
@@ -26,7 +25,10 @@ describe.skip('Given the applicant has reviewed and accepted the offer', () => {
       console.log('agreementData', agreementData)
       sbi = agreement.sbi
 
-      await loginPage.login()
+      const headers = genAuthHeader({ sbi })
+      await browser.cdp('Network', 'setExtraHTTPHeaders', { headers })
+
+      await reviewOfferPage.open()
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()

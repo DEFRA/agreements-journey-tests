@@ -2,11 +2,10 @@ import { browser, expect } from '@wdio/globals'
 import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
-import { LoginPage } from '../page-objects/login.page.js'
+import { genAuthHeader } from '../support/gen-auth-header.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
-const loginPage = new LoginPage()
 
 describe('Download API validation', function () {
   this.timeout(70000)
@@ -15,8 +14,13 @@ describe('Download API validation', function () {
   before(async function () {
     const agreement = await createTestAgreement()
     agreementId = agreement.agreementId
+    const sbi = agreement.sbi
     console.log(`Created offer with ID: ${agreementId}`)
-    await loginPage.login()
+
+    const headers = genAuthHeader({ sbi })
+    await browser.cdp('Network', 'setExtraHTTPHeaders', { headers })
+
+    await reviewOfferPage.open()
     await reviewOfferPage.selectContinue()
     await acceptYourOfferPage.clickConfirmCheckbox()
     await acceptYourOfferPage.selectAcceptOffer()
