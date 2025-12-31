@@ -3,12 +3,14 @@ import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import { LoginPage } from '../page-objects/login.page.js'
+import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const loginPage = new LoginPage()
+const offerAcceptedPage = new OfferAcceptedPage()
 
-describe('Download API validation', function () {
+describe('Download final agreement', function () {
   this.timeout(70000)
   let agreementId
 
@@ -20,12 +22,12 @@ describe('Download API validation', function () {
     await reviewOfferPage.selectContinue()
     await acceptYourOfferPage.clickConfirmCheckbox()
     await acceptYourOfferPage.selectAcceptOffer()
+    await offerAcceptedPage.clickAgreementDocumentLink()
   })
 
   it('should return a valid file with correct headers', async function () {
     // eslint-disable-next-line wdio/no-pause
-    await browser.pause(60000)
-
+    await browser.pause(30000)
     const downloadUrl = `${browser.options.testAPIEndPointUrl}/${agreementId}/1/download`
     const token = process.env.TOKEN_SECRET_KEY
 
