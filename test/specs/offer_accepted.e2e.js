@@ -75,5 +75,31 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       const guidanceText = await offerAcceptedPage.getHelpText()
       expect(guidanceText).toContain(constants.HELP_TEXT)
     })
+
+    it('should have agreement document link', async () => {
+      const link = await offerAcceptedPage.getAgreementDocumentLink()
+      expect(await link.getAttribute('href')).toBe('/agreement/' + agreementId)
+    })
+
+    it('should have terms and conditions link', async () => {
+      const link = await offerAcceptedPage.getTermsAndConditionsLink()
+      expect(await link.getAttribute('href')).toBe(
+        '/farm-payments/terms-and-conditions'
+      )
+    })
+
+    it('should have technical test information link', async () => {
+      const link = await offerAcceptedPage.getTechnicalTestInfoLink()
+      expect(await link.getAttribute('href')).toBe(
+        '/farm-payments/fptt-information'
+      )
+    })
+
+    it('should have technical test actions link', async () => {
+      const link = await offerAcceptedPage.getTechnicalTestActionsLink()
+      expect(await link.getAttribute('href')).toBe(
+        '/farm-payments/fptt-actions'
+      )
+    })
   })
 })

@@ -47,6 +47,34 @@ describe('Given the farmer is authenticated', () => {
       )
     })
 
+    it('should have terms and conditions link', async () => {
+      const link = await reviewOfferPage.getTermsAndConditionsLink()
+      expect(await link.getAttribute('href')).toBe(
+        '/farm-payments/terms-and-conditions'
+      )
+    })
+
+    it('should have technical test information link', async () => {
+      const link = await reviewOfferPage.getTechnicalTestInfoLink()
+      expect(await link.getAttribute('href')).toBe(
+        '/farm-payments/fptt-information'
+      )
+    })
+
+    it('should have technical test actions link', async () => {
+      const link = await reviewOfferPage.getTechnicalTestActionsLink()
+      expect(await link.getAttribute('href')).toBe(
+        '/farm-payments/fptt-actions'
+      )
+    })
+
+    it('should have draft agreement link', async () => {
+      const link = await reviewOfferPage.getDraftAgreementLink()
+      expect(await link.getAttribute('href')).toBe(
+        '/agreement/' + agreementId + '/print'
+      )
+    })
+
     it('Then should show Actions table details correctly', async () => {
       for (let i = 0; i < constants.DEFAULT_ACTION_TABLE_DATA.length; i++) {
         const rowIndex = i + 1
@@ -100,7 +128,7 @@ describe('Given the farmer is authenticated', () => {
     it('should continue to next page', async () => {
       await reviewOfferPage.selectContinue()
       // eslint-disable-next-line wdio/no-pause
-      browser.pause(1000)
+      browser.pause(2000)
       expect(await acceptYourOfferPage.getPageHeader()).toBe(
         constants.ACCEPT_OFFER_HEADER
       )

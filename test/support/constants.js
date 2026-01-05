@@ -2,9 +2,9 @@ export const REVIEW_FUNDING_OFFER_TITLE = 'Review your agreement offer - GOV.UK'
 export const WITHDRAW_OFFER_TITLE =
   'You have requested an update to your offer - GOV.UK'
 export const EXPECTED_PARCEL = 'SK0971 7555'
-export const EXPECTED_AREA = '4.7575'
+export const EXPECTED_AREA = '5.2182'
 export const EXPECTED_PARCEL_TWO = 'SK0971 9194'
-export const EXPECTED_AREA_TWO = '2.1705'
+export const EXPECTED_AREA_TWO = '2.1703'
 export const DEFAULT_ACTION_TABLE_DATA = [
   {
     action: 'Assess moorland and produce a written record',
@@ -134,15 +134,16 @@ export const HELP_TEXT =
   'You can contact the Rural Payments Agency (RPA) by phone or email for help and support.'
 export const DEFAULT_ADDRESS =
   'Benbrigge House, ALBRIGHTON, BRIDGE ROAD, GRIMSBY, DY13 0UY'
-export const DEFAULT_AGREEMENT_NAME = 'Sustainable Farming Incentive agreement'
+export const DEFAULT_AGREEMENT_NAME = 'Texels Hire & Contracting FPTT'
 export const SUB_HEADERS = [
   { element: 'introSubHeader', expected: '1. Introduction and overview' },
   { element: 'partiesSubHeader', expected: '2. Parties to the agreement' },
   { element: 'landSubHeader', expected: '3. Land covered by the agreement' },
   { element: 'actionsSubHeader', expected: '4. Summary of actions' },
-  { element: 'paymentSubHeader', expected: '5. Summary of payments' },
-  { element: 'scheduleSubHeader', expected: '6. Payment schedule' },
-  { element: 'protectionSubHeader', expected: '7. Data protection' }
+  { element: 'paymentSubHeader', expected: '5. Payments' },
+  { element: 'scheduleSubHeader', expected: '6. Agreement duration' },
+  { element: 'signatureSubHeader', expected: '7. Electronic signature' },
+  { element: 'protectionSubHeader', expected: '8. Data protection' }
 ]
 export const EXPECTED_CONTENTS = [
   {
@@ -158,11 +159,12 @@ export const EXPECTED_CONTENTS = [
     expected: '3. Land covered by the agreement'
   },
   { element: 'contentsActionsLink', expected: '4. Summary of actions' },
-  { element: 'contentsPaymentLink', expected: '5. Summary of payments' },
-  { element: 'contentsScheduleLink', expected: '6. Payment schedule' },
-  { element: 'contentsProtectionLink', expected: '7. Data protection' }
+  { element: 'contentsPaymentLink', expected: '5. Payments' },
+  { element: 'contentsScheduleLink', expected: '6. Agreement duration' },
+  { element: 'contentsSignatureLink', expected: '7. Electronic signature' },
+  { element: 'contentsProtectionLink', expected: '8. Data protection' }
 ]
 
 export const USERNAME = '1102838829'
 export const PASSWORD = process.env.DEFRA_ID_USER_PASSWORD
-export const AGREEMENT_NAME = 'Sustainable Farming Incentive agreement'
+export const AGREEMENT_NAME = 'Farm payments technical test agreement document'

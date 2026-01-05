@@ -1,21 +1,17 @@
 import { expect } from '@wdio/globals'
 import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
-import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
-import { OfferAcceptedPage } from '../page-objects/offer-accepted.page.js'
 import { ViewAgreementPage } from '../page-objects/view-agreement.page.js'
 import * as constants from '../support/constants.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
-import { genAuthHeader } from '../support/gen-auth-header.js'
-import dayjs from 'dayjs'
+import { LoginPage } from '../page-objects/login.page.js'
 
 const reviewOfferPage = new ReviewOfferPage()
-const acceptYourOfferPage = new AcceptYourOfferPage()
-const offerAcceptedPage = new OfferAcceptedPage()
 const viewAgreementPage = new ViewAgreementPage()
+const loginPage = new LoginPage()
 
-describe('Given the applicant has reviewed and accepted the offer', () => {
-  describe('When the applicant views the “View agreement” page', () => {
+describe('Given the applicant has received the offer', () => {
+  describe('When the applicant views the “draft agreement” page', () => {
     let agreementId, sbi, agreementData
 
     before(async () => {
@@ -25,14 +21,8 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       console.log('agreementData', agreementData)
       sbi = agreement.sbi
 
-      const headers = genAuthHeader({ sbi })
-      await browser.cdp('Network', 'setExtraHTTPHeaders', { headers })
-
-      await reviewOfferPage.open()
-      await reviewOfferPage.selectContinue()
-      await acceptYourOfferPage.clickConfirmCheckbox()
-      await acceptYourOfferPage.selectAcceptOffer()
-      await offerAcceptedPage.clickAgreementDocumentLink()
+      await loginPage.login()
+      await reviewOfferPage.clickPrintableAgreementLinkAndSwitchTab()
     })
 
     it('Then should show the Farm Details', async () => {
@@ -42,6 +32,15 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       expect(await viewAgreementPage.getFarmerName()).toBe(
         constants.DEFAULT_FARMER_NAME
       )
+    })
+
+    it('Then should display draft agreement notification message', async () => {
+      const expectedText = 'This is a draft version of your agreement'
+
+      const bannerMessage = await viewAgreementPage.getDraftAgreementMessage()
+
+      await expect(bannerMessage).toBeDisplayed()
+      await expect(bannerMessage).toHaveText(expectedText)
     })
 
     it('Then should show Header', async () => {
@@ -59,15 +58,8 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
         constants.DEFAULT_AGREEMENT_NAME
       )
       expect(await viewAgreementPage.getAgreementNumber()).toBe(agreementId)
-      const startDateNextMonth = dayjs()
-        .add(1, 'month')
-        .startOf('month')
-        .toISOString()
-      const formattedDate = dayjs(startDateNextMonth).format('D MMMM YYYY')
-      const endDate = dayjs().add(13, 'month').startOf('month').toISOString()
-      const formattedEndDate = dayjs(endDate).format('D MMMM YYYY')
-      expect(await viewAgreementPage.getStartDate()).toBe(formattedDate)
-      expect(await viewAgreementPage.getEndDate()).toBe(formattedEndDate)
+      expect(await viewAgreementPage.getStartDate()).toBe('XXXXX')
+      expect(await viewAgreementPage.getEndDate()).toBe('XXXXX')
     })
 
     it('Then should display all expected sub-headers', async () => {
@@ -135,44 +127,38 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
     })
 
     it('Then should display - Summary of actions', async () => {
-      const now = new Date()
-      const startDate = new Date(now.getFullYear(), now.getMonth() + 1, 1)
-      const endDate = new Date(startDate)
-      endDate.setFullYear(endDate.getFullYear() + 1)
-      const format = (d) => d.toLocaleDateString('en-GB')
-
       const expectedValues = [
         [
           'SK0971 7555',
           'CMOR1',
           'Assess moorland and produce a written record',
           '4.7575',
-          format(startDate),
-          format(endDate)
+          'XXXXX',
+          'XXXXX'
         ],
         [
           'SK0971 7555',
           'UPL3',
           'Limited livestock grazing on moorland',
           '4.7575',
-          format(startDate),
-          format(endDate)
+          'XXXXX',
+          'XXXXX'
         ],
         [
           'SK0971 9194',
           'CMOR1',
           'Assess moorland and produce a written record',
           '2.1705',
-          format(startDate),
-          format(endDate)
+          'XXXXX',
+          'XXXXX'
         ],
         [
           'SK0971 9194',
           'UPL1',
           'Moderate livestock grazing on moorland',
           '2.1705',
-          format(startDate),
-          format(endDate)
+          'XXXXX',
+          'XXXXX'
         ]
       ]
 
@@ -267,31 +253,16 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
     })
 
     it('Then should display - Agreement start and end dates', async () => {
-      const now = new Date()
-      const startDate = new Date(now.getFullYear(), now.getMonth() + 1, 1)
-      const endDate = new Date(startDate)
-      endDate.setFullYear(endDate.getFullYear() + 1)
-
-      const format = (d) =>
-        d.toLocaleDateString('en-GB', {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
-        })
-
-      const expectedStartDate = format(startDate)
-      const expectedEndDate = format(endDate)
-
+      const expectedStartDate = 'XXXXX'
+      const expectedEndDate = 'XXXXX'
       const startDateElement = await viewAgreementPage.getAgreementDate(
         'Agreement start date:'
       )
       const endDateElement = await viewAgreementPage.getAgreementDate(
         'Agreement end date:'
       )
-
       await expect(startDateElement).toBeDisplayed()
       await expect(startDateElement).toHaveText(expectedStartDate)
-
       await expect(endDateElement).toBeDisplayed()
       await expect(endDateElement).toHaveText(expectedEndDate)
     })

@@ -70,6 +70,38 @@ class ReviewOfferPage extends Page {
     const text = await $('body').getText()
     return text.includes('DY14 0UY')
   }
+
+  async getTermsAndConditionsLink() {
+    return await this.getLinkByPartialText(
+      'Farm payments technical test terms and conditions'
+    )
+  }
+
+  async getTechnicalTestInfoLink() {
+    return await this.getLinkByPartialText(
+      'Farm payments technical test information'
+    )
+  }
+
+  async getTechnicalTestActionsLink() {
+    return await this.getLinkByPartialText(
+      'Farm payments technical test actions'
+    )
+  }
+
+  async getDraftAgreementLink() {
+    return await this.getLinkByPartialText(
+      'View a printable version of your draft agreement (opens in new tab)'
+    )
+  }
+
+  async clickPrintableAgreementLinkAndSwitchTab() {
+    const link = await $('a[href*="/agreement/"][href*="/print"]')
+    await link.click()
+
+    const handles = await browser.getWindowHandles()
+    await browser.switchToWindow(handles[handles.length - 1])
+  }
 }
 
 export { ReviewOfferPage }
