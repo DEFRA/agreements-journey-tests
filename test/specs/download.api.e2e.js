@@ -3,15 +3,10 @@ import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import { genAuthHeader } from '../support/gen-auth-header.js'
-
-const reviewOfferPage = new ReviewOfferPage()
-const acceptYourOfferPage = new AcceptYourOfferPage()
-import { LoginPage } from '../page-objects/login.page.js'
 import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
-const loginPage = new LoginPage()
 const offerAcceptedPage = new OfferAcceptedPage()
 
 describe('Download final agreement', function () {
