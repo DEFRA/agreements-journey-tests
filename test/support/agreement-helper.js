@@ -7,7 +7,11 @@ export async function withdrawOffer(clientRef, agreementNumber) {
 }
 
 export async function createTestAgreement(clientRef = 'ref-e2e-001') {
-  const sbi = faker.string.numeric(10)
+  let sbi = faker.string.numeric(10)
+  const isParallelRun = process.env.PARALLEL_RUN === 'true'
+  if (!isParallelRun) {
+    sbi = '106284736'
+  }
   const frn = faker.string.numeric(10)
   const agreementName = 'E2E Agreement Test Farm'
   const agreementId = await setupAgreement({
