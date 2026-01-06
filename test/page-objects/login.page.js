@@ -4,15 +4,19 @@ import { genAuthToken } from '../support/gen-auth-token.js'
 
 class LoginPage extends Page {
   async login(sbi) {
+    let path = browser.options.proxy
+
     if (sbi) {
       browser.options.baseUrl = browser.options.unproxiedUrl
       browser.options.proxy = '/'
+
+      const authToken = sbi ? genAuthToken({ sbi }) : ''
+      const separator = browser.options.proxy.includes('?') ? '&' : '?'
+      path = `${browser.options.proxy}${separator}x-encrypted-auth=${authToken}`
     }
-    const authToken = sbi ? genAuthToken({ sbi }) : ''
-    const separator = browser.options.proxy.includes('?') ? '&' : '?'
-    const pathWithAuth = `${browser.options.proxy}${separator}x-encrypted-auth=${authToken}`
-    console.debug(`URL set to ${browser.options.baseUrl}${pathWithAuth}`)
-    this.open(pathWithAuth)
+
+    console.debug(`URL set to: ${browser.options.baseUrl}${path}`)
+    this.open(path)
 
     if (sbi) {
       return
