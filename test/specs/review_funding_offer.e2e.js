@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { browser, expect } from '@wdio/globals'
 import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
@@ -46,29 +47,39 @@ describe('Given the farmer is authenticated', () => {
 
     it('should have terms and conditions link', async () => {
       const link = await reviewOfferPage.getTermsAndConditionsLink()
-      expect(await link.getAttribute('href')).toBe(
-        '/farm-payments/terms-and-conditions'
+      await expect(link).toHaveAttribute(
+        'href',
+        '/farm-payments/terms-and-conditions',
+        { atStart: true }
       )
     })
 
     it('should have technical test information link', async () => {
       const link = await reviewOfferPage.getTechnicalTestInfoLink()
-      expect(await link.getAttribute('href')).toBe(
-        '/farm-payments/fptt-information'
+      await expect(link).toHaveAttribute(
+        'href',
+        '/farm-payments/fptt-information',
+        { atStart: true }
       )
     })
 
     it('should have technical test actions link', async () => {
       const link = await reviewOfferPage.getTechnicalTestActionsLink()
-      expect(await link.getAttribute('href')).toBe(
-        '/farm-payments/fptt-actions'
+      await expect(link).toHaveAttribute(
+        'href',
+        '/farm-payments/fptt-actions',
+        {
+          atStart: true
+        }
       )
     })
 
     it('should have draft agreement link', async () => {
       const link = await reviewOfferPage.getDraftAgreementLink()
-      expect(await link.getAttribute('href')).toBe(
-        '/agreement/' + agreementId + '/print'
+      await expect(link).toHaveAttribute(
+        'href',
+        path.join(browser.options.proxy, agreementId, 'print'),
+        { atStart: true }
       )
     })
 
