@@ -10,7 +10,7 @@ class LoginPage extends Page {
     if (isParallelRun) {
       browser.options.baseUrl = browser.options.unproxiedUrl
       browser.options.proxy = '/'
-      const authToken = sbi ? genAuthToken({ sbi }) : ''
+      const authToken = genAuthToken({ sbi })
       const separator = browser.options.proxy.includes('?') ? '&' : '?'
       path = `${browser.options.proxy}${separator}x-encrypted-auth=${authToken}`
       console.debug(`URL set to: ${browser.options.baseUrl}${path}`)
