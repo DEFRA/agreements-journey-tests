@@ -1,11 +1,12 @@
 import { browser, expect } from '@wdio/globals'
+import { LoginPage } from '../page-objects/login.page.js'
 import {
   createTestAgreement,
   withdrawOffer
 } from '../support/agreement-helper.js'
 import { WithdrawnOfferPage } from '../page-objects/withdrawn-offer.page.js'
 import * as constants from '../support/constants.js'
-import { genAuthHeader } from '../support/gen-auth-header.js'
+const loginPage = new LoginPage()
 const withdrawnOfferPage = new WithdrawnOfferPage()
 
 describe('Given the applicant has asked for changes to the offer ', () => {
@@ -21,13 +22,7 @@ describe('Given the applicant has asked for changes to the offer ', () => {
       console.log(`Created test agreement with ID: ${agreementNumber}`)
       await withdrawOffer(clientRef, agreementNumber)
       this.timeout(30000)
-
-      const headers = genAuthHeader({ sbi })
-      await browser.cdp('Network', 'setExtraHTTPHeaders', { headers })
-
-      // Using reviewOfferPage.open() or navigating directly to the proxy might work
-      // Since it's a withdrawn offer, navigating to any protected route should redirect to the withdrawn page
-      await browser.url(browser.options.proxy)
+      await loginPage.login(sbi)
       // eslint-disable-next-line wdio/no-pause
       // await browser.pause(20000)
     })

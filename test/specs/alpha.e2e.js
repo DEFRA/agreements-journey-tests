@@ -5,11 +5,12 @@ import { OfferAcceptedPage } from '../page-objects/offer-accepted.page.js'
 import { getAgreement } from '../services/get-agreement.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import * as constants from '../support/constants.js'
-import { genAuthHeader } from '../support/gen-auth-header.js'
+import { LoginPage } from '../page-objects/login.page.js'
 import { unacceptAgreement } from '~/test/services/unaccept-agreement.js'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const offerAcceptedPage = new OfferAcceptedPage()
+const loginPage = new LoginPage()
 
 describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
   let agreementId
@@ -17,13 +18,8 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     // Step 1: Create agreement
     const agreement = await createTestAgreement()
     agreementId = agreement.agreementId
-    const sbi = agreement.sbi
     console.log(`Created agreement with ID: ${agreementId}`)
-
-    const headers = genAuthHeader({ sbi })
-    await browser.cdp('Network', 'setExtraHTTPHeaders', { headers })
-
-    await reviewOfferPage.open()
+    await loginPage.login(agreement.sbi)
   })
 
   it('should accept the agreement', async () => {

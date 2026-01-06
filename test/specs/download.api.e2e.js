@@ -2,11 +2,12 @@ import { browser, expect } from '@wdio/globals'
 import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
-import { genAuthHeader } from '../support/gen-auth-header.js'
+import { LoginPage } from '../page-objects/login.page.js'
 import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
 
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
+const loginPage = new LoginPage()
 const offerAcceptedPage = new OfferAcceptedPage()
 
 describe('Download final agreement', function () {
@@ -16,13 +17,8 @@ describe('Download final agreement', function () {
   before(async function () {
     const agreement = await createTestAgreement()
     agreementId = agreement.agreementId
-    const sbi = agreement.sbi
     console.log(`Created offer with ID: ${agreementId}`)
-
-    const headers = genAuthHeader({ sbi })
-    await browser.cdp('Network', 'setExtraHTTPHeaders', { headers })
-
-    await reviewOfferPage.open()
+    await loginPage.login(agreement.sbi)
     await reviewOfferPage.selectContinue()
     await acceptYourOfferPage.clickConfirmCheckbox()
     await acceptYourOfferPage.selectAcceptOffer()

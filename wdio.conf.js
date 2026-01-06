@@ -16,6 +16,7 @@ export const config = {
   // gets prepended directly.
   baseUrl: `https://grants-ui.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
   // baseUrl: `https://farming-grants-agreements-api.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
+  unproxiedUrl: `https://farming-grants-agreements-ui.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
   testAPIEndPointUrl: `https://farming-grants-agreements-api.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
   proxy: '/agreement',
   // proxy: '',

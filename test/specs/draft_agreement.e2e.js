@@ -21,7 +21,7 @@ describe('Given the applicant has received the offer', () => {
       console.log('agreementData', agreementData)
       sbi = agreement.sbi
 
-      await loginPage.login()
+      await loginPage.login(sbi)
       await reviewOfferPage.clickPrintableAgreementLinkAndSwitchTab()
     })
 

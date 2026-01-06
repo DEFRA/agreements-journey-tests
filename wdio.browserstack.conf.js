@@ -17,6 +17,7 @@ export const config = {
   // gets prepended directly.
   baseUrl: `https://grants-ui.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
   testAPIEndPointUrl: `https://farming-grants-agreements-api.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
+  unproxiedUrl: `https://farming-grants-agreements-ui.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
   proxy: '/agreement',
   // You will need to provide your own BrowserStack credentials.
   // These should be added as secrets to the test suite.
