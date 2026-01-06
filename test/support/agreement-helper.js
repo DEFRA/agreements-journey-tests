@@ -7,7 +7,7 @@ export async function withdrawOffer(clientRef, agreementNumber) {
 }
 
 export async function createTestAgreement(clientRef = 'ref-e2e-001') {
-  const sbi = '106284736' // fixed to hardcode sbi for auth verification- faker.string.numeric(10)
+  const sbi = faker.string.numeric(10)
   const frn = faker.string.numeric(10)
   const agreementName = 'E2E Agreement Test Farm'
   const agreementId = await setupAgreement({

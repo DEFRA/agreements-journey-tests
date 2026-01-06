@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { browser, expect } from '@wdio/globals'
 import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
@@ -25,7 +26,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       sbi = agreement.sbi
       console.log(`Created offer with ID: ${agreementId}`)
       console.log('agreementData:', JSON.stringify(agreementData, null, 2))
-      await loginPage.login()
+      await loginPage.login(sbi)
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
@@ -75,27 +76,41 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
 
     it('should have agreement document link', async () => {
       const link = await offerAcceptedPage.getAgreementDocumentLink()
-      expect(await link.getAttribute('href')).toBe('/agreement/' + agreementId)
+      await expect(link).toHaveAttribute(
+        'href',
+        path.join(browser.options.proxy, agreementId),
+        {
+          atStart: true
+        }
+      )
     })
 
     it('should have terms and conditions link', async () => {
       const link = await offerAcceptedPage.getTermsAndConditionsLink()
-      expect(await link.getAttribute('href')).toBe(
-        '/farm-payments/terms-and-conditions'
+      await expect(link).toHaveAttribute(
+        'href',
+        '/farm-payments/terms-and-conditions',
+        { atStart: true }
       )
     })
 
     it('should have technical test information link', async () => {
       const link = await offerAcceptedPage.getTechnicalTestInfoLink()
-      expect(await link.getAttribute('href')).toBe(
-        '/farm-payments/fptt-information'
+      await expect(link).toHaveAttribute(
+        'href',
+        '/farm-payments/fptt-information',
+        { atStart: true }
       )
     })
 
     it('should have technical test actions link', async () => {
       const link = await offerAcceptedPage.getTechnicalTestActionsLink()
-      expect(await link.getAttribute('href')).toBe(
-        '/farm-payments/fptt-actions'
+      await expect(link).toHaveAttribute(
+        'href',
+        '/farm-payments/fptt-actions',
+        {
+          atStart: true
+        }
       )
     })
   })

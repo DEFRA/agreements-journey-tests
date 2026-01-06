@@ -18,7 +18,7 @@ describe('Download final agreement', function () {
     const agreement = await createTestAgreement()
     agreementId = agreement.agreementId
     console.log(`Created offer with ID: ${agreementId}`)
-    await loginPage.login()
+    await loginPage.login(agreement.sbi)
     await reviewOfferPage.selectContinue()
     await acceptYourOfferPage.clickConfirmCheckbox()
     await acceptYourOfferPage.selectAcceptOffer()

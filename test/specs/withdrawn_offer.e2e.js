@@ -22,7 +22,7 @@ describe('Given the applicant has asked for changes to the offer ', () => {
       console.log(`Created test agreement with ID: ${agreementNumber}`)
       await withdrawOffer(clientRef, agreementNumber)
       this.timeout(30000)
-      await loginPage.login()
+      await loginPage.login(sbi)
       // eslint-disable-next-line wdio/no-pause
       // await browser.pause(20000)
     })

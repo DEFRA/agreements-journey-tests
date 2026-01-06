@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { Page } from './page.js'
 
 class ReviewOfferPage extends Page {
@@ -96,7 +97,9 @@ class ReviewOfferPage extends Page {
   }
 
   async clickPrintableAgreementLinkAndSwitchTab() {
-    const link = await $('a[href*="/agreement/"][href*="/print"]')
+    const link = await $(
+      `a[href*="${path.join('/', browser.options.proxy, '/')}"][href*="/print"]`
+    )
     await link.click()
 
     const handles = await browser.getWindowHandles()

@@ -26,7 +26,7 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       console.log('agreementData', agreementData)
       sbi = agreement.sbi
 
-      await loginPage.login()
+      await loginPage.login(sbi)
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()

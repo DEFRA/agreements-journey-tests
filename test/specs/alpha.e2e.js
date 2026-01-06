@@ -19,7 +19,7 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     const agreement = await createTestAgreement()
     agreementId = agreement.agreementId
     console.log(`Created agreement with ID: ${agreementId}`)
-    await loginPage.login()
+    await loginPage.login(agreement.sbi)
   })
 
   it('should accept the agreement', async () => {

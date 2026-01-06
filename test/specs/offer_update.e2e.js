@@ -24,7 +24,7 @@ describe('Given the applicant has asked for changes to the offer ', () => {
       frn = agreement.frn
       await updateTestAgreement(frn)
       console.log(`Created offer with ID: ${agreementId}`)
-      await loginPage.login()
+      await loginPage.login(agreement.sbi)
     })
 
     it('Then should see the new version and is able to accept the agreement', async () => {

@@ -10,6 +10,7 @@ export const config = {
   // proxy: '',
   // DEV URL
   baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
+  unproxiedUrl: 'https://farming-grants-agreements-ui.dev.cdp-int.defra.cloud',
   testAPIEndPointUrl:
     'https://ephemeral-protected.api.dev.cdp-int.defra.cloud/farming-grants-agreements-api',
   proxy: '/agreement',
