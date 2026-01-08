@@ -8,36 +8,56 @@ class ReviewOfferPage extends Page {
   }
 
   async getActionTableRowData(rowIndex) {
-    const action = await $(`#actionTableActionRow${rowIndex}`).getText()
-    const code = await $(`#actionTableCodeRow${rowIndex}`).getText()
-    const parcel = await $(`#actionTableLandParcelRow${rowIndex}`).getText()
-    const quantity = await $(`#actionTableQuantityRow${rowIndex}`).getText()
-    const duration = await $(`#actionTableDurationRow${rowIndex}`).getText()
+    const row = await $(`[data-test-id="actionsTableRow${rowIndex}"]`)
+
+    const action = await row.$('[data-test-id="actionsTableCell1_0"]').getText()
+
+    const code = await row.$('[data-test-id="actionsTableCell2_1"]').getText()
+
+    const parcel = await row.$('[data-test-id="actionsTableCell3_2"]').getText()
+
+    const quantity = await row
+      .$('[data-test-id="actionsTableCell4_3"]')
+      .getText()
+
+    const duration = await row
+      .$('[data-test-id="actionsTableCell5_4"]')
+      .getText()
 
     console.log(
-      `Row ${rowIndex} - Action: ${action}, Code: ${code}, Parcel: ${parcel}, Quantity: ${quantity} , Duration: ${duration}`
+      `Row ${rowIndex} - Action: ${action}, Code: ${code}, Parcel: ${parcel}, Quantity: ${quantity}, Duration: ${duration}`
     )
+
     return { action, code, parcel, quantity, duration }
   }
 
   async getPaymentsTableRowData(rowIndex) {
-    const action = await $(`#paymentsTableActionRow${rowIndex}`).getText()
-    const code = await $(`#paymentsTableCodeRow${rowIndex}`).getText()
-    const paymentRate = await $(
-      `#paymentsTablePaymentRateForEachYearRow${rowIndex}`
-    ).getText()
-    const firstPayment = await $(
-      `#paymentsTableFirstPaymentRow${rowIndex}`
-    ).getText()
-    const subsequentPayments = await $(
-      `#paymentsTableSubsequentPaymentRow${rowIndex}`
-    ).getText()
-    const yearlyPayment = await $(
-      `#paymentsTableYearlyPaymentRow${rowIndex}`
-    ).getText()
+    const row = await $(`[data-test-id="paymentsTableRow${rowIndex}"]`)
+
+    const action = await row
+      .$('[data-test-id="paymentsTableCell1_0"]')
+      .getText()
+
+    const code = await row.$('[data-test-id="paymentsTableCell2_1"]').getText()
+
+    const paymentRate = await row
+      .$('[data-test-id="paymentsTableCell3_2"]')
+      .getText()
+
+    const firstPayment = await row
+      .$('[data-test-id="paymentsTableCell4_3"]')
+      .getText()
+
+    const subsequentPayments = await row
+      .$('[data-test-id="paymentsTableCell5_4"]')
+      .getText()
+
+    const yearlyPayment = await row
+      .$('[data-test-id="paymentsTableCell6_5"]')
+      .getText()
 
     console.log(
-      `Row ${rowIndex} - Action: ${action}, Code: ${code}, Payment Rate: ${paymentRate}, First Payment: ${firstPayment},Subsequent payments : ${subsequentPayments}, Yearly: ${yearlyPayment}`
+      `Row ${rowIndex} - Action: ${action}, Code: ${code}, Payment Rate: ${paymentRate}, First Payment: ${firstPayment}, Subsequent Payments: ${subsequentPayments}, Yearly: ${yearlyPayment}`
     )
 
     return {
@@ -51,15 +71,18 @@ class ReviewOfferPage extends Page {
   }
 
   async getTotalFirstPayment() {
-    return await $(`#paymentsTableTotalFirstPayment`).getText()
+    const totalRow = await $('[data-test-id="paymentsTableRow6"]')
+    return await totalRow.$('[data-test-id="paymentsTableCell4_3"]').getText()
   }
 
   async getTotalSubsequentPayment() {
-    return await $(`#paymentsTableTotalSubsequentPayment`).getText()
+    const totalRow = await $('[data-test-id="paymentsTableRow6"]')
+    return await totalRow.$('[data-test-id="paymentsTableCell5_4"]').getText()
   }
 
   async getTotalYearlyPayment() {
-    return await $(`#paymentsTableTotalYearlyPayment`).getText()
+    const totalRow = await $('[data-test-id="paymentsTableRow6"]')
+    return await totalRow.$('[data-test-id="paymentsTableCell6_5"]').getText()
   }
 
   async selectContinue(selector) {
