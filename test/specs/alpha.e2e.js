@@ -6,7 +6,7 @@ import { getAgreement } from '../services/get-agreement.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import * as constants from '../support/constants.js'
 import { LoginPage } from '../page-objects/login.page.js'
-import { unacceptAgreement } from '~/test/services/unaccept-agreement.js'
+import { unacceptAgreement } from '../services/unaccept-agreement.js'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const offerAcceptedPage = new OfferAcceptedPage()
