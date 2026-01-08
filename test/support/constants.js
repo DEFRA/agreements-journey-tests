@@ -48,7 +48,7 @@ export const DEFAULT_PAYMENTS_DATA = [
   {
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
-    rate: '£10.60  per ha',
+    rate: '£10.60 per ha',
     firstPayment: '£12.63',
     subsequentPayments: '£12.60',
     yearlyPayment: '£50.43'
@@ -56,7 +56,7 @@ export const DEFAULT_PAYMENTS_DATA = [
   {
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
-    rate: '£10.60  per ha',
+    rate: '£10.60 per ha',
     firstPayment: '£5.76', // updated
     subsequentPayments: '£5.75',
     yearlyPayment: '£23.01'
@@ -72,7 +72,7 @@ export const DEFAULT_PAYMENTS_DATA = [
   {
     action: 'Moderate livestock grazing on moorland',
     code: 'UPL1',
-    rate: '£20  per ha',
+    rate: '£20 per ha',
     firstPayment: '£10.86', // updated
     subsequentPayments: '£10.85',
     yearlyPayment: '£43.41'
@@ -80,7 +80,7 @@ export const DEFAULT_PAYMENTS_DATA = [
   {
     action: 'Limited livestock grazing on moorland',
     code: 'UPL3',
-    rate: '£66  per ha',
+    rate: '£66 per ha',
     firstPayment: '£78.50',
     subsequentPayments: '£78.50',
     yearlyPayment: '£314'
