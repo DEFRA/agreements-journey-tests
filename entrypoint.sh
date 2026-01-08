@@ -10,7 +10,6 @@ export HTTP_PROXY=http://localhost:3128
 
 # Bypass Squid for internal domains
 export NO_PROXY=.cdp-int.defra.cloud,localhost,127.0.0.1
-export CDP_HTTPS_PROXY=
 
 # -----------------------------
 # RUN TESTS
