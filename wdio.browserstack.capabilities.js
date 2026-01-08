@@ -1,18 +1,18 @@
 export const browserStackCapabilities = [
   // windows
-  {
-    browserName: 'Chrome',
-    'wdio-ics:options': {
-      logName: 'win-chrome'
-    },
-    'bstack:options': {
-      idleTimeout: 300,
-      resolution: '1920x1080',
-      browserVersion: 'latest',
-      os: 'Windows',
-      osVersion: '11'
-    }
-  },
+  // {
+  //   browserName: 'Chrome',
+  //   'wdio-ics:options': {
+  //     logName: 'win-chrome'
+  //   },
+  //   'bstack:options': {
+  //     idleTimeout: 300,
+  //     resolution: '1920x1080',
+  //     browserVersion: 'latest',
+  //     os: 'Windows',
+  //     osVersion: '11'
+  //   }
+  // },
   {
     browserName: 'Edge',
     'wdio-ics:options': {
@@ -25,20 +25,21 @@ export const browserStackCapabilities = [
       os: 'Windows',
       osVersion: '11'
     }
-  },
-  {
-    browserName: 'Firefox',
-    'wdio-ics:options': {
-      logName: 'win-firefox'
-    },
-    'bstack:options': {
-      idleTimeout: 300,
-      resolution: '1920x1080',
-      browserVersion: 'latest',
-      os: 'Windows',
-      osVersion: '11'
-    }
   }
+  // ,
+  // {
+  //   browserName: 'Firefox',
+  //   'wdio-ics:options': {
+  //     logName: 'win-firefox'
+  //   },
+  //   'bstack:options': {
+  //     idleTimeout: 300,
+  //     resolution: '1920x1080',
+  //     browserVersion: 'latest',
+  //     os: 'Windows',
+  //     osVersion: '11'
+  //   }
+  // },
   // // macOS
   // {
   //   browserName: 'Chrome',
