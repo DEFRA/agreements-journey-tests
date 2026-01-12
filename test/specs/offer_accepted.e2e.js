@@ -51,6 +51,22 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       )
     })
 
+    it('Then should show Privacy link in footer', async () => {
+      const privacyLink = await offerAcceptedPage.getFooterLinkByText(
+        'Privacy (opens in new tab)'
+      )
+
+      await expect(privacyLink).toBeExisting()
+      await expect(privacyLink).toBeDisplayed()
+    })
+
+    it('And should show Cookies link in footer', async () => {
+      const cookiesLink = await offerAcceptedPage.getFooterLinkByText('Cookies')
+
+      await expect(cookiesLink).toBeExisting()
+      await expect(cookiesLink).toBeDisplayed()
+    })
+
     it('Then should show start date', async () => {
       const startDateNextMonth = dayjs()
         .add(1, 'month')

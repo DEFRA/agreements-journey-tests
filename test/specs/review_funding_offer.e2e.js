@@ -45,6 +45,22 @@ describe('Given the farmer is authenticated', () => {
       )
     })
 
+    it('Then should show Privacy link in footer', async () => {
+      const privacyLink = await reviewOfferPage.getFooterLinkByText(
+        'Privacy (opens in new tab)'
+      )
+
+      await expect(privacyLink).toBeExisting()
+      await expect(privacyLink).toBeDisplayed()
+    })
+
+    it('And should show Cookies link in footer', async () => {
+      const cookiesLink = await reviewOfferPage.getFooterLinkByText('Cookies')
+
+      await expect(cookiesLink).toBeExisting()
+      await expect(cookiesLink).toBeDisplayed()
+    })
+
     it('should have terms and conditions link', async () => {
       const link = await reviewOfferPage.getTermsAndConditionsLink()
       await expect(link).toHaveAttribute(

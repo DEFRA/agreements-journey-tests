@@ -50,6 +50,28 @@ class Page {
     const msg = await this.phaseMessage.getText()
     return tag.includes('Beta') && msg.includes('This is a new service.')
   }
+
+  get footer() {
+    return $('.govuk-footer')
+  }
+
+  async getFooterLinkByText(linkText) {
+    const links = await this.footer.$$('a.govuk-footer__link')
+
+    for (const link of links) {
+      if (
+        (await link.getText()).trim().toLowerCase() === linkText.toLowerCase()
+      ) {
+        return link
+      }
+    }
+
+    throw new Error(`Footer link with text "${linkText}" not found`)
+  }
+
+  async isFooterDisplayed() {
+    return await this.footer.isDisplayed()
+  }
 }
 
 export { Page }

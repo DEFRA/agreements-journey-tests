@@ -31,6 +31,23 @@ describe('Given the applicant has asked for changes to the offer ', () => {
       await expect(browser).toHaveTitle(constants.WITHDRAW_OFFER_TITLE)
     })
 
+    it('Then should show Privacy link in footer', async () => {
+      const privacyLink = await withdrawnOfferPage.getFooterLinkByText(
+        'Privacy (opens in new tab)'
+      )
+
+      await expect(privacyLink).toBeExisting()
+      await expect(privacyLink).toBeDisplayed()
+    })
+
+    it('And should show Cookies link in footer', async () => {
+      const cookiesLink =
+        await withdrawnOfferPage.getFooterLinkByText('Cookies')
+
+      await expect(cookiesLink).toBeExisting()
+      await expect(cookiesLink).toBeDisplayed()
+    })
+
     it('Then should show the Farm Details', async () => {
       const text = await withdrawnOfferPage.getFarmName()
       expect(text).toContain(constants.DEFAULT_FARM_NAME)

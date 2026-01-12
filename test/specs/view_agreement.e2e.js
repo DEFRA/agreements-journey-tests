@@ -68,6 +68,22 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       expect(await viewAgreementPage.getEndDate()).toBe(formattedEndDate)
     })
 
+    it('Then should show Privacy link in footer', async () => {
+      const privacyLink = await viewAgreementPage.getFooterLinkByText(
+        'Privacy (opens in new tab)'
+      )
+
+      await expect(privacyLink).toBeExisting()
+      await expect(privacyLink).toBeDisplayed()
+    })
+
+    it('And should show Cookies link in footer', async () => {
+      const cookiesLink = await viewAgreementPage.getFooterLinkByText('Cookies')
+
+      await expect(cookiesLink).toBeExisting()
+      await expect(cookiesLink).toBeDisplayed()
+    })
+
     it('Then should display all expected sub-headers', async () => {
       for (const header of constants.SUB_HEADERS) {
         const element = await viewAgreementPage[header.element]

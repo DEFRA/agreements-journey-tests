@@ -34,6 +34,22 @@ describe('Given the applicant has received the offer', () => {
       )
     })
 
+    it('Then should show Privacy link in footer', async () => {
+      const privacyLink = await viewAgreementPage.getFooterLinkByText(
+        'Privacy (opens in new tab)'
+      )
+
+      await expect(privacyLink).toBeExisting()
+      await expect(privacyLink).toBeDisplayed()
+    })
+
+    it('And should show Cookies link in footer', async () => {
+      const cookiesLink = await viewAgreementPage.getFooterLinkByText('Cookies')
+
+      await expect(cookiesLink).toBeExisting()
+      await expect(cookiesLink).toBeDisplayed()
+    })
+
     it('Then should display draft agreement notification message', async () => {
       const expectedText = 'This is a draft version of your agreement'
 

@@ -48,6 +48,23 @@ describe('Given the applicant has reviewed the offer', () => {
       )
     })
 
+    it('Then should show Privacy link in footer', async () => {
+      const privacyLink = await acceptYourOfferPage.getFooterLinkByText(
+        'Privacy (opens in new tab)'
+      )
+
+      await expect(privacyLink).toBeExisting()
+      await expect(privacyLink).toBeDisplayed()
+    })
+
+    it('And should show Cookies link in footer', async () => {
+      const cookiesLink =
+        await acceptYourOfferPage.getFooterLinkByText('Cookies')
+
+      await expect(cookiesLink).toBeExisting()
+      await expect(cookiesLink).toBeDisplayed()
+    })
+
     it('should return to the Review Offer page when clicking Back', async () => {
       await acceptYourOfferPage.clickBackLink()
       expect(await reviewOfferPage.getPageHeader()).toBe(
