@@ -29,7 +29,6 @@ describe('Given the applicant has applied and received the offer ', () => {
 
     it('Then should be able to accept the agreement', async () => {
       await loginPage.login(sbi)
-      await reviewOfferPage.clickPrintableAgreementLinkAndSwitchTab()
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
