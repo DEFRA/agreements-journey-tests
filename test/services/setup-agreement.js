@@ -241,7 +241,7 @@ export async function setupAgreement({
       body: JSON.stringify(requestBody)
     })
     const raw = await response.body.text()
-    console.debug('Raw response:', raw)
+    // console.debug('Raw response:', raw)
 
     let responseBody
     try {
