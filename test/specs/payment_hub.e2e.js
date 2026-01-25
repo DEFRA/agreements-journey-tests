@@ -3,6 +3,7 @@ import { ReviewOfferPage } from '../page-objects/review-offer.page.js'
 import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
+import { getPaymentHubRequest } from '~/test/services/get-payment-hub-request.js'
 import { LoginPage } from '../page-objects/login.page.js'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
@@ -20,12 +21,12 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       agreementData = await getAgreement(agreementId)
       sbi = agreement.sbi
       console.log(`Created offer with ID: ${agreementId}`)
-      console.log('agreementData:', JSON.stringify(agreementData, null, 2))
       await loginPage.login(sbi)
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
-      console.log('agreementData : ', JSON.stringify(agreementData, null, 2))
+      const paymentData = await getPaymentHubRequest(agreementId)
+      expect(paymentData).toBeDefined()
     })
 
     it('Then should show the payment hub request with correct details', async () => {

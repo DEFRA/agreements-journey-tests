@@ -4,8 +4,11 @@ echo "run_id: $RUN_ID"
 if [ "$REMOTE_CHROME" = "true" ]; then
   echo "Running tests on remote Chrome "
   npm run test
+if [ "$PARALLEL_RUN" = "true" ]; then
+  echo "Running compatability tests on BrowserStack"
+  npm run test:cdp:browserstack:e2e
 else
-  echo "Running tests on BrowserStack"
+  echo "Running all tests on BrowserStack"
   npm run test:cdp:browserstack
 fi
 

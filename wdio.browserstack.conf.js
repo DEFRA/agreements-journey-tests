@@ -1,8 +1,11 @@
 import fs from 'node:fs'
-import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
 
 const oneMinute = 60 * 1000
-
+const isParallelRun = process.env.PARALLEL_RUN === 'true'
+const { browserStackCapabilities } = isParallelRun
+  ? await import('./wdio.browserstack.capabilities.all.js')
+  : await import('./wdio.browserstack.capabilities.js')
+const maxInstances = isParallelRun ? 10 : 1
 export const config = {
   //
   // ====================
@@ -28,7 +31,7 @@ export const config = {
   specs: ['./test/specs/**/*.js'],
   // Tests to exclude
   exclude: [],
-  maxInstances: 1,
+  maxInstances,
   commonCapabilities: {
     'bstack:options': {
       buildName: `agreements-journey-tests-${process.env.ENVIRONMENT}` // configure as required
