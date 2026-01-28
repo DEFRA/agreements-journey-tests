@@ -13,7 +13,7 @@ const offerAcceptedPage = new OfferAcceptedPage()
 const loginPage = new LoginPage()
 const viewAgreementPage = new ViewAgreementPage()
 
-describe('Given the applicant has applied and received the offer ', () => {
+describe('Browser Compatability: Given the applicant has applied and received the offer ', () => {
   describe('When the applicant lands on agreement page', () => {
     let agreementId
     let sbi
@@ -23,8 +23,8 @@ describe('Given the applicant has applied and received the offer ', () => {
       const agreement = await createTestAgreement()
       agreementId = agreement.agreementId
       agreementData = await getAgreement(agreementId)
-      sbi = agreementData.sbi
-      console.log(`Created offer with ID: ${agreementId}`)
+      sbi = agreementData.identifiers.sbi
+      console.log(`Created offer with ID: ${agreementId} , SBI :${sbi}`)
     })
 
     it('Then should be able to accept the agreement', async () => {
