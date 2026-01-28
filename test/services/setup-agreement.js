@@ -23,7 +23,7 @@ export async function setupAgreement({
       identifiers: {
         sbi,
         frn,
-        crn: '1102838829  ',
+        crn: '1102838829',
         defraId: 'defraId'
       },
       answers: {
@@ -37,10 +37,9 @@ export async function setupAgreement({
         applicant: {
           business: {
             reference: '1101091126',
-            email: {
-              address: 'texelshirecontractingg@gnitcartnocerihslexeto.com.test'
-            },
-            phone: '01234816251',
+            mobilePhoneNumber: '07713973104',
+            landlinePhoneNumber: '01235863957',
+            email: 'geoffy@geoffly.geoff',
             name: 'Texels Hire & Contracting',
             address: {
               line1: 'Benbrigge House',
