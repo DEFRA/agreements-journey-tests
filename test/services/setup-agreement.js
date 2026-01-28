@@ -23,7 +23,8 @@ export async function setupAgreement({
       identifiers: {
         sbi,
         frn,
-        crn: '1102838829'
+        crn: '1102838829',
+        defraId: 'defraId'
       },
       answers: {
         rulesCalculations: {
