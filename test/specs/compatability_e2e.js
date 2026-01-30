@@ -4,9 +4,9 @@ import { AcceptYourOfferPage } from '../page-objects/accept-your-offer.page.js'
 import { createTestAgreement } from '../support/agreement-helper.js'
 import { getAgreement } from '../services/get-agreement.js'
 import { LoginPage } from '../page-objects/login.page.js'
-import { OfferAcceptedPage } from 'page-objects/offer-accepted.page.js'
-import * as constants from '~/test/support/constants.js'
-import { ViewAgreementPage } from 'page-objects/view-agreement.page.js'
+import { OfferAcceptedPage } from '../page-objects/offer-accepted.page.js'
+import * as constants from '../support/constants.js'
+import { ViewAgreementPage } from '../page-objects/view-agreement.page.js'
 const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const offerAcceptedPage = new OfferAcceptedPage()

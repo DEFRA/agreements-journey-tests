@@ -18,7 +18,7 @@
     "test": "npm run clean && wdio run wdio.conf.js",
     "test:cdp:browserstack": "npm run clean && wdio run wdio.browserstack.cdp.conf.js",
     "test:cdp:browserstack:e2e": "npm run clean && wdio run wdio.browserstack.cdp.conf.js --spec ./test/specs/compatability_e2e.js",
-    "test:local:browserstack": "npm run clean && wdio run wdio.local.browserstack.conf.js",
+    "test:local:browserstack": "npm run clean && wdio run wdio.local.browserstack.conf.js --spec ./test/specs/compatability_e2e.js",
     "test:local": "npm run clean && wdio run wdio.local.conf.js",
     "test:local:debug": "npm run clean && DEBUG=true wdio run wdio.local.conf.js",
     "format": "prettier --write 'test/**/*.js' '**/*.{js,md,json,config.js}'",
