@@ -1,5 +1,6 @@
 import allure from 'allure-commandline'
 import { browserStackCapabilities } from './wdio.browserstack.capabilities.js'
+// import { browserStackCapabilities } from './wdio.browserstack.capabilities.all.js'
 
 export const config = {
   user: process.env.BROWSERSTACK_USER,
@@ -9,10 +10,9 @@ export const config = {
   // testAPIEndPointUrl: 'http://localhost:3555',
   // proxy: '',
   // DEV URL
-  baseUrl: 'https://grants-ui.dev.cdp-int.defra.cloud',
-  unproxiedUrl: 'https://farming-grants-agreements-ui.dev.cdp-int.defra.cloud',
-  testAPIEndPointUrl:
-    'https://ephemeral-protected.api.dev.cdp-int.defra.cloud/farming-grants-agreements-api',
+  baseUrl: `https://grants-ui.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
+  unproxiedUrl: `https://farming-grants-agreements-ui.${process.env.ENVIRONMENT}.cdp-int.defra.cloud`,
+  testAPIEndPointUrl: `https://ephemeral-protected.api.${process.env.ENVIRONMENT}.cdp-int.defra.cloud/farming-grants-agreements-api`,
   proxy: '/agreement',
   // TEST URL
   // baseUrl: 'https://grants-ui.test.cdp-int.defra.cloud',
@@ -21,7 +21,7 @@ export const config = {
   runner: 'local',
   specs: ['./test/specs/*.js'],
   exclude: [],
-  maxInstances: 1,
+  maxInstances: 10,
   capabilities: browserStackCapabilities,
   services: [
     [

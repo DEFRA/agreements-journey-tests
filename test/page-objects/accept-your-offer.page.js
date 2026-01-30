@@ -38,7 +38,7 @@ class AcceptYourOfferPage extends Page {
 
   async clickConfirmCheckbox() {
     const checkbox = await $('#confirm')
-    await checkbox.scrollIntoView()
+    // await checkbox.scrollIntoView()
     await checkbox.click()
     await browser.waitUntil(
       async () => {
