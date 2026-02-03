@@ -55,10 +55,6 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
       expect(paymentHubRequest?.sourceSystem).toBe(SOURCE_SYSTEM)
     })
 
-    it('1. should have correct source system', async () => {
-      expect(paymentHubRequest?.sourceSystem).toBe(SOURCE_SYSTEM)
-    })
-
     it('2. should have correct ledger', async () => {
       expect(paymentHubRequest?.ledger).toBe(LEDGER)
     })
@@ -134,7 +130,7 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
       expect(paymentHubRequest?.originalSettlementDate).toMatch('')
     })
 
-    it('Then should show the payment hub request with correct Invoice Lines', async () => {
+    it('20.1 to 20.8 Then should show the payment hub request with correct Invoice Lines', async () => {
       const paymentHubRequest = paymentData?.paymentHubRequest
       expect(paymentHubRequest).toBeDefined()
 
