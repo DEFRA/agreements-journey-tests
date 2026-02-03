@@ -1,0 +1,9 @@
+export const SOURCE_SYSTEM = 'FPTT'
+export const LEDGER = 'AP'
+export const DELIVERY_BODY = 'RP00'
+export const FES_CODE = 'FALS_FPTT'
+export const PAYMENT_REQUEST_NUMBER = 1
+export const CURRENCY = 'GBP'
+export const ACCOUNTCODE = 'SOS710'
+export const FUNDCODE = 'DRD10'
+export const SCHEMECODE = ['CMOR1', 'UPL1', 'UPL3']
