@@ -39,3 +39,11 @@ export async function updateTestAgreement(frn) {
 export function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
+
+export function getQuarterAfterMonths(monthsToAdd = 4) {
+  const date = new Date()
+  date.setMonth(date.getMonth() + monthsToAdd)
+
+  const month = date.getMonth() + 1 // JS months are 0-based
+  return `Q${Math.ceil(month / 3)}`
+}
