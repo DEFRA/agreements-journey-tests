@@ -62,8 +62,11 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
         .startOf('month')
         .toISOString()
       const formattedDate = dayjs(startDateNextMonth).format('D MMMM YYYY')
-      const endDate = dayjs().add(13, 'month').startOf('month').toISOString()
-      const formattedEndDate = dayjs(endDate).format('D MMMM YYYY')
+      const endDate = dayjs(startDateNextMonth)
+        .add(12, 'month')
+        .subtract(1, 'day')
+
+      const formattedEndDate = endDate.format('D MMMM YYYY')
       expect(await viewAgreementPage.getStartDate()).toBe(formattedDate)
       expect(await viewAgreementPage.getEndDate()).toBe(formattedEndDate)
     })
@@ -152,7 +155,8 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       const now = new Date()
       const startDate = new Date(now.getFullYear(), now.getMonth() + 1, 1)
       const endDate = new Date(startDate)
-      endDate.setFullYear(endDate.getFullYear() + 1)
+      endDate.setMonth(endDate.getMonth() + 12)
+      endDate.setDate(endDate.getDate() - 1)
       const format = (d) => d.toLocaleDateString('en-GB')
 
       const expectedValues = [
@@ -284,7 +288,8 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
       const now = new Date()
       const startDate = new Date(now.getFullYear(), now.getMonth() + 1, 1)
       const endDate = new Date(startDate)
-      endDate.setFullYear(endDate.getFullYear() + 1)
+      endDate.setMonth(endDate.getMonth() + 12)
+      endDate.setDate(endDate.getDate() - 1)
 
       const format = (d) =>
         d.toLocaleDateString('en-GB', {

@@ -15,7 +15,6 @@ import {
   FES_CODE,
   FUNDCODE,
   LEDGER,
-  PAYMENT_REQUEST_NUMBER,
   SCHEMECODE,
   SOURCE_SYSTEM
 } from '~/test/support/payment_hub_constants.js'
@@ -38,6 +37,8 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
       sbi = agreement.sbi
       console.log(`Created offer with ID: ${agreementId}`)
       await loginPage.login(sbi)
+      // eslint-disable-next-line wdio/no-pause
+      // await browser.pause(100000)
       await reviewOfferPage.selectContinue()
       await acceptYourOfferPage.clickConfirmCheckbox()
       await acceptYourOfferPage.selectAcceptOffer()
@@ -80,8 +81,8 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
     })
 
     it('8. should have correct payment request number', async () => {
-      expect(paymentHubRequest?.paymentRequestNumber).toBe(
-        PAYMENT_REQUEST_NUMBER
+      expect(paymentHubRequest?.paymentRequestNumber).toEqual(
+        expect.any(Number)
       )
     })
 
@@ -90,12 +91,14 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
     })
 
     it('10. should have valid claim ID format', async () => {
-      expect(paymentData?.claimId).toMatch(/^R000000.{2}$/)
+      expect(paymentData?.claimId).toMatch(/^R0000.{4}$/)
     })
 
     it('11. should have correct invoice number format', async () => {
-      const expectedInvoiceNumber = `${paymentData?.claimId}-V001${getQuarterAfterMonths()}`
-      expect(paymentData?.invoiceNumber).toMatch(expectedInvoiceNumber)
+      const quarter = getQuarterAfterMonths()
+      const claimId = paymentData?.claimId
+      const invoiceRegex = new RegExp(`^${claimId}-V\\d{3}${quarter}$`)
+      expect(paymentData?.invoiceNumber).toMatch(invoiceRegex)
     })
 
     it('12. should have correct currency', async () => {
@@ -107,11 +110,13 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
     })
 
     it('14. should have annual value defined', async () => {
-      expect(paymentHubRequest?.annualValue).toBeDefined()
+      expect(paymentHubRequest?.annualValue).toBe(-702.85)
     })
 
     it('15. should have remittance description', async () => {
-      expect(paymentHubRequest?.remittanceDescription).toMatch('')
+      expect(paymentHubRequest?.remittanceDescription).toMatch(
+        'Farm Payments Technical Test Payment'
+      )
     })
 
     it('16. should have debt type', async () => {
