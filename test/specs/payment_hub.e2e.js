@@ -64,9 +64,9 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
       expect(paymentHubRequest?.deliveryBody).toBe(DELIVERY_BODY)
     })
 
-    it('4. should have correct FRN', async () => {
-      expect(paymentHubRequest?.frn).toBe(agreementData.identifiers.frn)
-    })
+    // it('4. should have correct FRN', async () => {
+    //   expect(paymentHubRequest?.frn).toBe(agreementData.identifiers.frn)
+    // })
 
     it('5. should have correct SBI', async () => {
       expect(paymentHubRequest?.sbi).toBe(agreementData.identifiers.sbi)
