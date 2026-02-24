@@ -2,7 +2,7 @@ import { request } from 'undici'
 import { browser } from '@wdio/globals'
 
 export async function sendWithdrawnOffer(clientRef, agreementNumber) {
-  const url = `${browser.options.testAPIEndPointUrl}/api/test/queue-message/update_agreement`
+  const url = `${browser.options.testAPIEndPointUrl}/api/test/queue-message/update_agreement_fifo.fifo`
   console.debug('Send GAS application status update request URL:', url)
   const headers = {
     Accept: 'application/json',
