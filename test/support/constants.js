@@ -72,7 +72,7 @@ export const DEFAULT_PAYMENTS_DATA = [
   {
     action: 'Moderate livestock grazing on moorland',
     code: 'UPL1',
-    rate: '£20 per ha',
+    rate: '£35 per ha',
     firstPayment: '£10.86', // updated
     subsequentPayments: '£10.85',
     yearlyPayment: '£43.41'
