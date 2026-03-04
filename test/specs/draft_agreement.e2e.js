@@ -221,17 +221,17 @@ describe('Given the applicant has received the offer', () => {
           'Moderate livestock grazing on moorland',
           'UPL1',
           '£35 per ha',
-          '£10.86',
-          '£10.85',
-          '£43.41'
+          '£19',
+          '£18.99',
+          '£75.97'
         ],
         [
           'Limited livestock grazing on moorland',
           'UPL3',
-          '£66 per ha',
-          '£78.50',
-          '£78.50',
-          '£314'
+          '£111 per ha',
+          '£132.02',
+          '£132.02',
+          '£528.08'
         ]
       ]
 
@@ -257,15 +257,15 @@ describe('Given the applicant has received the offer', () => {
 
       await expect(
         await viewAgreementPage.getTableCell('paymentsTable', totalsRowIndex, 3)
-      ).toHaveText('£175.75')
+      ).toHaveText('£237.41')
 
       await expect(
         await viewAgreementPage.getTableCell('paymentsTable', totalsRowIndex, 4)
-      ).toHaveText('£175.70')
+      ).toHaveText('£237.36')
 
       await expect(
         await viewAgreementPage.getTableCell('paymentsTable', totalsRowIndex, 5)
-      ).toHaveText('£702.85')
+      ).toHaveText('£949.49')
     })
 
     it('Then should display - Agreement start and end dates', async () => {
