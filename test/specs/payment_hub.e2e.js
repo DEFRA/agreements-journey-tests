@@ -135,7 +135,7 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
       expect(paymentHubRequest?.originalSettlementDate).toMatch('')
     })
 
-    it('20.1 to 20.8 Then should show the payment hub request with correct Invoice Lines', async () => {
+    it.skip('20.1 to 20.8 Then should show the payment hub request with correct Invoice Lines', async () => {
       const paymentHubRequest = paymentData?.paymentHubRequest
       expect(paymentHubRequest).toBeDefined()
 

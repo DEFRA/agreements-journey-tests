@@ -57,7 +57,7 @@ export const DEFAULT_PAYMENTS_DATA = [
     action: 'Assess moorland and produce a written record',
     code: 'CMOR1',
     rate: '£10.60 per ha',
-    firstPayment: '£5.76', // updated
+    firstPayment: '£5.76',
     subsequentPayments: '£5.75',
     yearlyPayment: '£23.01'
   },
@@ -73,23 +73,23 @@ export const DEFAULT_PAYMENTS_DATA = [
     action: 'Moderate livestock grazing on moorland',
     code: 'UPL1',
     rate: '£35 per ha',
-    firstPayment: '£10.86', // updated
-    subsequentPayments: '£10.85',
-    yearlyPayment: '£43.41'
+    firstPayment: '£19',
+    subsequentPayments: '£18.99',
+    yearlyPayment: '£75.97'
   },
   {
     action: 'Limited livestock grazing on moorland',
     code: 'UPL3',
-    rate: '£66 per ha',
-    firstPayment: '£78.50',
-    subsequentPayments: '£78.50',
-    yearlyPayment: '£314'
+    rate: '£111 per ha',
+    firstPayment: '£132.02',
+    subsequentPayments: '£132.02',
+    yearlyPayment: '£528.08'
   }
 ]
 
-export const DEFAULT_TOTAL_FIRST_PAYMENT = '£175.75'
-export const DEFAULT_TOTAL_SUBSEQUENT_PAYMENT = '£175.70'
-export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£702.85'
+export const DEFAULT_TOTAL_FIRST_PAYMENT = '£237.41'
+export const DEFAULT_TOTAL_SUBSEQUENT_PAYMENT = '£237.36'
+export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£949.49'
 export const ACCEPT_OFFER_TITLE = 'Accept your agreement offer - GOV.UK'
 export const DEFAULT_FARM_NAME = 'Texels Hire & Contracting'
 export const SBI = 'Single business identifier (SBI):'
