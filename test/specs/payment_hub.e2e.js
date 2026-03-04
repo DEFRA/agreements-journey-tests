@@ -110,7 +110,7 @@ describe('Payments Check : Given the applicant has reviewed and accepted the off
     })
 
     it('14. should have annual value defined', async () => {
-      expect(paymentHubRequest?.annualValue).toBe(-702.85)
+      expect(paymentHubRequest?.annualValue).toBe(-949.49)
     })
 
     it('15. should have remittance description', async () => {

@@ -236,7 +236,7 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
         [
           'Moderate livestock grazing on moorland',
           'UPL1',
-          '£20 per ha',
+          '£35 per ha',
           '£10.86',
           '£10.85',
           '£43.41'
