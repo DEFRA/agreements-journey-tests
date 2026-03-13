@@ -58,6 +58,30 @@ class OfferAcceptedPage extends Page {
   async getCallChargesLink() {
     return await this.getLinkByPartialText('Find out about call charges')
   }
+
+  // SSI and HEFER
+  async getInstructionPanelText() {
+    const panels = await $$('.govuk-panel__body')
+    return await panels[1].getText()
+  }
+
+  // Dynamic heading locator based on text content
+  async getSectionHeading(headingText) {
+    return await $(`h2=${headingText}`)
+  }
+
+  // Link locators
+  async getHeferGuidanceLink() {
+    return await $('a*=historic or archaeological features')
+  }
+
+  async getHeferGuidanceLinkwithSSI() {
+    return await $('a*=Historic Environment Farm Environment Record')
+  }
+
+  async getSssiGuidanceLink() {
+    return await $('a*=SSSI consent')
+  }
 }
 
 export { OfferAcceptedPage }

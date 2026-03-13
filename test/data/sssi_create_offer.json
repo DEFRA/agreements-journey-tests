@@ -1,0 +1,158 @@
+{
+  "id": "5356bb97-00c4-4f38-adc3-3881f5115ea1",
+  "source": "fg-gas-backend",
+  "specversion": "1.0",
+  "datacontenttype": "application/json",
+  "time": "2026-03-10T16:22:23.035Z",
+  "traceparent": "e58541c58d8ac12c4b8453133ad5f03b",
+  "type": "cloud.defra.dev.fg-gas-backend.agreement.create",
+  "data": {
+    "clientRef": "ref-e2e-002",
+    "code": "frps-private-beta",
+    "identifiers": {
+      "sbi": "106514040",
+      "frn": "1101091126",
+      "crn": "1103313150"
+    },
+    "metadata": {},
+    "answers": {
+      "rulesCalculations": {
+        "id": 21683,
+        "message": "Application validated successfully",
+        "valid": true,
+        "date": "2026-03-10T16:16:28.074Z",
+        "caveats": [
+          {
+            "code": "ne-consent-required",
+            "description": "A consent is required from Natural England",
+            "metadata": {
+              "actionCode": "UPL1",
+              "parcelId": "7349",
+              "sheetId": "ST1437",
+              "percentageOverlap": 100,
+              "overlapAreaHectares": 35.6515
+            }
+          }
+        ]
+      },
+      "scheme": "SFI",
+      "applicant": {
+        "business": {
+          "reference": "1101091126",
+          "mobilePhoneNumber": "07713973104",
+          "landlinePhoneNumber": "01235863957",
+          "email": "geoffy@geoffly.geoff",
+          "name": "Texels Hire & Contracting",
+          "address": {
+            "line1": "Benbrigge House",
+            "line2": "ALBRIGHTON",
+            "line3": null,
+            "line4": null,
+            "line5": null,
+            "street": "BRIDGE ROAD",
+            "city": "GRIMSBY",
+            "postalCode": "DY13 0UY"
+          }
+        },
+        "customer": {
+          "name": {
+            "title": "Mrs",
+            "first": "Bernardine",
+            "middle": "Anthony",
+            "last": "O'toole"
+          }
+        }
+      },
+      "totalAnnualPaymentPence": 183392,
+      "application": {
+        "parcel": [
+          {
+            "sheetId": "ST1437",
+            "parcelId": "7349",
+            "area": {
+              "unit": "ha",
+              "quantity": 35.6517
+            },
+            "actions": [
+              {
+                "code": "CMOR1",
+                "version": "2.0.0",
+                "durationYears": 1,
+                "appliedFor": {
+                  "unit": "ha",
+                  "quantity": 34.2525
+                }
+              },
+              {
+                "code": "UPL1",
+                "version": "3.1.0",
+                "durationYears": 1,
+                "appliedFor": {
+                  "unit": "ha",
+                  "quantity": 34.2525
+                }
+              }
+            ]
+          }
+        ],
+        "agreement": []
+      },
+      "payments": {
+        "parcel": [
+          {
+            "sheetId": "ST1437",
+            "parcelId": "7349",
+            "area": {
+              "unit": "ha",
+              "quantity": 35.6517
+            },
+            "actions": [
+              {
+                "code": "CMOR1",
+                "version": "2.0.0",
+                "description": "Assess moorland and produce a written record",
+                "durationYears": 1,
+                "paymentRates": 1060,
+                "annualPaymentPence": 36308,
+                "eligible": {
+                  "unit": "ha",
+                  "quantity": 34.2525
+                },
+                "appliedFor": {
+                  "unit": "ha",
+                  "quantity": 34.2525
+                }
+              },
+              {
+                "code": "UPL1",
+                "version": "3.1.0",
+                "description": "Moderate livestock grazing on moorland",
+                "durationYears": 1,
+                "paymentRates": 3500,
+                "annualPaymentPence": 119884,
+                "eligible": {
+                  "unit": "ha",
+                  "quantity": 34.2525
+                },
+                "appliedFor": {
+                  "unit": "ha",
+                  "quantity": 34.2525
+                }
+              }
+            ]
+          }
+        ],
+        "agreement": [
+          {
+            "code": "CMOR1",
+            "description": "Assess moorland and produce a written record",
+            "durationYears": 1,
+            "paymentRates": 27200,
+            "annualPaymentPence": 27200
+          }
+        ]
+      }
+    }
+  },
+  "messageGroupId": "4sh-69z-avj-frps-private-beta"
+}

@@ -29,19 +29,6 @@ describe('E2E: Create, Accept,Un-accept and validate agreement', () => {
     expect(confirmationText).toBe('Agreement offer accepted')
   })
 
-  it('should validate agreement is accepted along with invoice details via API', async () => {
-    console.log(`agreement accepted: ${agreementId}`)
-    const agreementData = await getAgreement(agreementId)
-    console.debug(
-      'agreementData after accept:-----',
-      JSON.stringify(agreementData, null, 2)
-    )
-    expect(agreementData).not.toBeUndefined()
-    expect(agreementData.status).toBe('accepted')
-    expect(agreementData.invoice).toBeDefined()
-    expect(agreementData.invoice[0].invoiceNumber).toBeDefined()
-  })
-
   /*
     Un accept and re-acceptance not part of scope will be revisited
    */

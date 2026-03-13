@@ -22,7 +22,8 @@ const reviewOfferPage = new ReviewOfferPage()
 const acceptYourOfferPage = new AcceptYourOfferPage()
 const loginPage = new LoginPage()
 
-describe('Payments Check : Given the applicant has reviewed and accepted the offer ', () => {
+// Deprecated :Functionality moved to GPS , will be removed
+describe.skip('Payments Check : Given the applicant has reviewed and accepted the offer ', () => {
   describe('When the views “Offer accepted” page', () => {
     let agreementId
     let sbi

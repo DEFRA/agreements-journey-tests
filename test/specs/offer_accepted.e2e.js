@@ -24,7 +24,7 @@ describe('Given the applicant has reviewed and accepted the offer ', () => {
       agreementId = agreement.agreementId
       agreementData = await getAgreement(agreementId)
       sbi = agreement.sbi
-      console.log(`Created offer with ID: ${agreementId}`)
+      console.log(`Created offer with ID: ${agreementId} ${sbi}`)
       console.log('agreementData:', JSON.stringify(agreementData, null, 2))
       await loginPage.login(sbi)
       await reviewOfferPage.selectContinue()

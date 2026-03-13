@@ -16,7 +16,7 @@ describe('Given the applicant has asked for changes to the offer ', () => {
     const clientRef = 'ref-e2e-002'
     before(async function () {
       // Step 1: Create agreement
-      const agreement = await createTestAgreement(clientRef)
+      const agreement = await createTestAgreement()
       agreementNumber = agreement.agreementId
       sbi = agreement.sbi
       console.log(`Created test agreement with ID: ${agreementNumber}`)
