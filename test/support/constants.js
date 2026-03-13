@@ -168,3 +168,26 @@ export const EXPECTED_CONTENTS = [
 export const USERNAME = '1102838829'
 export const PASSWORD = process.env.DEFRA_ID_USER_PASSWORD
 export const AGREEMENT_NAME = 'Farm payments technical test agreement document'
+// --- Scenario 1: SSSI & HEFER Combined ---
+export const SSSI_HEFER_COMBINED_HEADING =
+  'You must get consent to do your actions'
+export const SSSI_HEFER_COMBINED_BODY =
+  "You are applying for actions on land that's a site of special scientific interest (SSSI) and land with historic or archaeological features."
+export const HEFER_LINK_TEXT =
+  'Historic Environment Farm Environment Record (HEFER)'
+export const SSSI_CONSENT_LINK_TEXT = 'SSSI consent'
+
+// --- Scenario 2: SSSI Only ---
+export const SSSI_ONLY_HEADING = 'You must have SSSI consent'
+export const SSSI_ONLY_BODY =
+  "You are applying for actions on land that's a site of special scientific interest (SSSI). You must get SSSI consent from Natural England."
+export const SSSI_ONLY_LINK =
+  'Read the guidance on SSSI consent (opens in new tab).'
+
+// --- Scenario 3: HEFER Only ---
+export const HEFER_ONLY_HEADING =
+  'You must get an SFI Historic Environment Farm Environment Record (SFI HEFER) from Historic England'
+export const HEFER_ONLY_BODY =
+  'This is because you are applying for actions on land with historic or archaeological features. You must do this before you do your selected SFI actions on this land.'
+export const HEFER_ONLY_LINK =
+  'Read the guidance on land with historic or archaeological features (opens in new tab)'

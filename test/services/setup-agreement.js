@@ -1,224 +1,16 @@
 import { request } from 'undici'
-import { randomUUID } from 'crypto'
 import { browser } from '@wdio/globals'
+import { buildAgreementPayload } from '~/test/support/agreementPayloadBuilder.js'
 
-export async function setupAgreement({
-  sbi,
-  frn,
-  agreementName,
-  clientRef,
-  postalCode = 'DY13 0UY'
-}) {
-  const requestBody = {
-    id: randomUUID(),
-    source: 'fg-gas-backend',
-    specversion: '1.0',
-    datacontenttype: 'application/json',
-    time: '2025-11-25T15:58:27.496Z',
-    traceparent: 'c335f29d2d4455947fd4047bd3353f67',
-    type: 'cloud.defra.dev.fg-gas-backend.agreement.create',
-    data: {
-      clientRef,
-      code: 'frps-private-beta',
-      identifiers: {
-        sbi,
-        frn,
-        crn: '1102838829',
-        defraId: 'defraId'
-      },
-      answers: {
-        rulesCalculations: {
-          id: 2979,
-          message: 'Application validated successfully',
-          valid: true,
-          date: '2025-11-21T10:10:43.673Z'
-        },
-        scheme: 'SFI',
-        applicant: {
-          business: {
-            reference: '1101091126',
-            mobilePhoneNumber: '07713973104',
-            landlinePhoneNumber: '01235863957',
-            email: 'geoffy@geoffly.geoff',
-            name: 'Texels Hire & Contracting',
-            address: {
-              line1: 'Benbrigge House',
-              line2: 'ALBRIGHTON',
-              line3: null,
-              line4: null,
-              line5: null,
-              street: 'BRIDGE ROAD',
-              city: 'GRIMSBY',
-              postalCode
-            }
-          },
-          customer: {
-            name: {
-              title: 'Mr',
-              first: 'Graham',
-              middle: 'Lisa',
-              last: 'Gilfoyle'
-            }
-          }
-        },
-        totalAnnualPaymentPence: 70284,
-        application: {
-          parcel: [
-            {
-              sheetId: 'SK0971',
-              parcelId: '7555',
-              area: {
-                unit: 'ha',
-                quantity: 5.2182
-              },
-              actions: [
-                {
-                  code: 'CMOR1',
-                  version: 1,
-                  durationYears: 1,
-                  appliedFor: {
-                    unit: 'ha',
-                    quantity: 4.7575
-                  }
-                },
-                {
-                  code: 'UPL3',
-                  version: 1,
-                  durationYears: 1,
-                  appliedFor: {
-                    unit: 'ha',
-                    quantity: 4.7575
-                  }
-                }
-              ]
-            },
-            {
-              sheetId: 'SK0971',
-              parcelId: '9194',
-              area: {
-                unit: 'ha',
-                quantity: 2.1703
-              },
-              actions: [
-                {
-                  code: 'CMOR1',
-                  version: 1,
-                  durationYears: 1,
-                  appliedFor: {
-                    unit: 'ha',
-                    quantity: 2.1705
-                  }
-                },
-                {
-                  code: 'UPL1',
-                  version: 1,
-                  durationYears: 1,
-                  appliedFor: {
-                    unit: 'ha',
-                    quantity: 2.1705
-                  }
-                }
-              ]
-            }
-          ],
-          agreement: []
-        },
-        payments: {
-          parcel: [
-            {
-              sheetId: 'SK0971',
-              parcelId: '7555',
-              area: {
-                unit: 'ha',
-                quantity: 5.2182
-              },
-              actions: [
-                {
-                  code: 'CMOR1',
-                  description: 'Assess moorland and produce a written record',
-                  durationYears: 1,
-                  paymentRates: 1060,
-                  annualPaymentPence: 5042,
-                  eligible: {
-                    unit: 'ha',
-                    quantity: 4.7575
-                  },
-                  appliedFor: {
-                    unit: 'ha',
-                    quantity: 4.7575
-                  }
-                },
-                {
-                  code: 'UPL3',
-                  description: 'Limited livestock grazing on moorland',
-                  durationYears: 1,
-                  paymentRates: 6600,
-                  annualPaymentPence: 31399,
-                  eligible: {
-                    unit: 'ha',
-                    quantity: 4.7575
-                  },
-                  appliedFor: {
-                    unit: 'ha',
-                    quantity: 4.7575
-                  }
-                }
-              ]
-            },
-            {
-              sheetId: 'SK0971',
-              parcelId: '9194',
-              area: {
-                unit: 'ha',
-                quantity: 2.1703
-              },
-              actions: [
-                {
-                  code: 'CMOR1',
-                  description: 'Assess moorland and produce a written record',
-                  durationYears: 1,
-                  paymentRates: 1060,
-                  annualPaymentPence: 2300,
-                  eligible: {
-                    unit: 'ha',
-                    quantity: 2.1705
-                  },
-                  appliedFor: {
-                    unit: 'ha',
-                    quantity: 2.1705
-                  }
-                },
-                {
-                  code: 'UPL1',
-                  description: 'Moderate livestock grazing on moorland',
-                  durationYears: 1,
-                  paymentRates: 2000,
-                  annualPaymentPence: 4341,
-                  eligible: {
-                    unit: 'ha',
-                    quantity: 2.1705
-                  },
-                  appliedFor: {
-                    unit: 'ha',
-                    quantity: 2.1705
-                  }
-                }
-              ]
-            }
-          ],
-          agreement: [
-            {
-              code: 'CMOR1',
-              description: 'Assess moorland and produce a written record',
-              durationYears: 1,
-              paymentRates: 27200,
-              annualPaymentPence: 27200
-            }
-          ]
-        }
-      }
-    }
-  }
+export async function setupAgreement(
+  { data: payloadOverrides = {} },
+  basePayload
+) {
+  console.log('setupAgreement:payloadOverrides:', payloadOverrides)
+  const requestBody = buildAgreementPayload(
+    { data: payloadOverrides },
+    basePayload
+  )
 
   const headers = {
     Accept: 'application/json',
@@ -240,8 +32,6 @@ export async function setupAgreement({
       body: JSON.stringify(requestBody)
     })
     const raw = await response.body.text()
-    // console.debug('Raw response:', raw)
-
     let responseBody
     try {
       responseBody = JSON.parse(raw)
@@ -255,7 +45,7 @@ export async function setupAgreement({
         `Failed to create test agreement. Status: ${response.statusCode}, Response: ${JSON.stringify(responseBody)}`
       )
     }
-    return responseBody.agreementData?.agreementNumber
+    return responseBody.agreementData?.agreementNumber || 'MISSING_ID'
   } catch (error) {
     console.error('Create agreement encountered an error:', error)
     throw error
