@@ -1,6 +1,7 @@
 export const REVIEW_FUNDING_OFFER_TITLE = 'Review your agreement offer - GOV.UK'
 export const WITHDRAW_OFFER_TITLE =
   'You have requested an update to your offer - GOV.UK'
+export const AGREEMENT_ENDED_TITLE = 'Agreement ended - GOV.UK'
 export const EXPECTED_PARCEL = 'SK0971 7555'
 export const EXPECTED_AREA = '5.2182'
 export const EXPECTED_PARCEL_TWO = 'SK0971 9194'
@@ -121,13 +122,11 @@ export const GUIDANCE_DETAILS_TEXT =
 export const CONTACT_CENTRE_NUMBER = '020 8026 2395'
 export const CONTACT_CENTRE_EMAIL = 'farmpayments@rpa.gov.uk'
 export const CALL_CHARGES_TEXT = 'Find out about call charges'
-export const CALL_CHARGES_HREF = '#'
-export const HREF = 'href'
-export const TARGET = 'target'
-export const DEFAULT_AGREEMENT_ID = 'SFI999999999'
 export const OFFER_ACCEPTED_TITLE = 'Offer accepted - GOV.UK'
 export const OFFER_ACCEPTED_HEADER = 'Agreement offer accepted'
+export const TERMINATE_HEADER = 'Agreement ended'
 export const START_DATE = 'The start date for this agreement is'
+export const END_DATE = 'This agreement ended early on'
 export const AGREEMENT_REFERENCE = 'Your agreement number is '
 export const FULL_STOP = '.'
 export const HELP_TEXT =
