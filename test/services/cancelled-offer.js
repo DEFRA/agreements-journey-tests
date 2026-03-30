@@ -2,7 +2,7 @@ import { request } from 'undici'
 import { browser } from '@wdio/globals'
 import { faker } from '@faker-js/faker'
 
-export async function sendWithdrawnOffer(clientRef, agreementNumber) {
+export async function sendCancelledOffer(clientRef, agreementNumber) {
   const url = `${browser.options.testAPIEndPointUrl}/api/test/queue-message/update_agreement_fifo.fifo`
   console.debug('Send GAS application status update request URL:', url)
   const headers = {
@@ -16,15 +16,15 @@ export async function sendWithdrawnOffer(clientRef, agreementNumber) {
     id: faker.string.uuid(),
     source: 'fg-gas-backend',
     specVersion: '1.0',
-    type: 'cloud.defra.test.fg-gas-backend.agreement.withdraw',
+    type: 'cloud.defra.test.fg-gas-backend.agreement.cancelled',
     datacontenttype: 'application/json',
     data: {
       clientRef,
       agreementNumber,
       id: faker.string.uuid(),
-      status: 'withdrawn',
-      withdrawnBy: 'Caseworker_ID_123',
-      withdrawnAt: '2025-03-27T14:30:00Z'
+      status: 'cancelled',
+      cancelledBy: 'Caseworker_ID_123',
+      cancelledAt: '2025-03-27T14:30:00Z'
     }
   }
 

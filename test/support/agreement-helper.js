@@ -1,20 +1,30 @@
 import { faker } from '@faker-js/faker'
 import { setupAgreement } from '../services/setup-agreement.js'
 import { sendWithdrawnOffer } from '../services/withdraw-offer.js'
+import { sendCancelledOffer } from '../services/cancelled-offer.js'
+import { sendTerminateOffer } from '../services/terminate-offer.js'
 
 export async function withdrawOffer(clientRef, agreementNumber) {
   await sendWithdrawnOffer(clientRef, agreementNumber)
 }
 
+export async function cancelOffer(clientRef, agreementNumber) {
+  await sendCancelledOffer(clientRef, agreementNumber)
+}
+
+export async function terminateOffer(clientRef, agreementNumber) {
+  await sendTerminateOffer(clientRef, agreementNumber)
+}
+
 export async function createTestAgreement(basePayload) {
   let sbi = faker.string.numeric(10)
   const isParallelRun = process.env.PARALLEL_RUN === 'true'
-
+  let frn = faker.string.numeric(10)
   if (!isParallelRun) {
     sbi = '106284736'
+    frn = '7282807759'
   }
 
-  const frn = faker.string.numeric(10)
   const agreementName = 'E2E Agreement Test Farm'
 
   const agreementId = await setupAgreement(

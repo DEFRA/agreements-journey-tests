@@ -1,33 +1,58 @@
 import { browser, expect } from '@wdio/globals'
 import { LoginPage } from '../page-objects/login.page.js'
 import {
-  createTestAgreement,
-  withdrawOffer
+  cancelOffer,
+  createTestAgreement
 } from '../support/agreement-helper.js'
-import { UpdateOfferPage } from 'page-objects/update-offer.page.js'
+import { ReviewOfferPage } from 'page-objects/review-offer.page.js'
 import * as constants from '../support/constants.js'
+import { UpdateOfferPage } from 'page-objects/update-offer.page.js'
+import { getAgreement } from '~/test/services/get-agreement.js'
 const loginPage = new LoginPage()
 const updateOfferPage = new UpdateOfferPage()
+const reviewOfferPage = new ReviewOfferPage()
 
 describe('Given the applicant has asked for changes to the offer ', () => {
-  describe('When the CW withdraws the offer', () => {
-    let agreementNumber
+  describe('When the CW cancels the offer', () => {
+    let agreementId
     let sbi
     const clientRef = 'ref-e2e-002'
     before(async function () {
       // Step 1: Create agreement
       const agreement = await createTestAgreement()
-      agreementNumber = agreement.agreementId
+      agreementId = agreement.agreementId
       sbi = agreement.sbi
-      console.log(`Created test agreement with ID: ${agreementNumber}`)
-      await withdrawOffer(clientRef, agreementNumber)
-      this.timeout(30000)
+      const agreementData = await getAgreement(agreementId)
+      console.log(`Created offer with ID: ${agreementId}, SBI: ${sbi}`)
+      console.log('agreementData:', JSON.stringify(agreementData, null, 2))
+      // Step 2: Login & accept offer
       await loginPage.login(sbi)
+      await reviewOfferPage.selectContinue()
+      // Step 3: Trigger termination via API/helper
       // eslint-disable-next-line wdio/no-pause
-      // await browser.pause(20000)
-    })
+      browser.pause(10000)
+      await cancelOffer(clientRef, agreementId)
+      // Step 4: Wait until UI reflects terminated state
+      await browser.waitUntil(
+        async () => {
+          await browser.refresh()
 
-    it('Then should show the title', async () => {
+          const title = await browser.getTitle()
+          console.log('Current title after refresh:', title)
+
+          return title === constants.WITHDRAW_OFFER_TITLE
+        },
+        {
+          timeout: 60000,
+          interval: 3000,
+          timeoutMsg: 'Agreement updated page did not load after termination'
+        }
+      )
+      // agreementData = await getAgreement(agreementId)
+      // console.log(`Created offer with ID: ${agreementId}, SBI: ${sbi}`)
+      // console.log('agreementData:', JSON.stringify(agreementData, null, 2))
+    })
+    it('Then should show the cancelled title', async () => {
       await expect(browser).toHaveTitle(constants.WITHDRAW_OFFER_TITLE)
     })
 

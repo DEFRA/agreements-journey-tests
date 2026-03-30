@@ -1,5 +1,5 @@
 import { Page } from './page.js'
-class WithdrawnOfferPage extends Page {
+class UpdateOfferPage extends Page {
   async getHeading() {
     return await $('h1.govuk-heading-l').getText()
   }
@@ -9,4 +9,4 @@ class WithdrawnOfferPage extends Page {
   }
 }
 
-export { WithdrawnOfferPage }
+export { UpdateOfferPage }
