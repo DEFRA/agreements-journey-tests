@@ -51,6 +51,10 @@ class ViewAgreementPage extends Page {
     return $('#actions')
   }
 
+  get itemsSubHeader() {
+    return $('#items')
+  }
+
   get paymentSubHeader() {
     return $('#payment')
   }
@@ -84,6 +88,10 @@ class ViewAgreementPage extends Page {
     return $('[data-test-id="contentsActionsLink"] a')
   }
 
+  get contentsItemsLink() {
+    return $('[data-test-id="contentsItemsLink"] a')
+  }
+
   get contentsPaymentLink() {
     return $('[data-test-id="contentsPaymentLink"] a')
   }
@@ -107,6 +115,18 @@ class ViewAgreementPage extends Page {
     )
   }
 
+  getWMPTableCell(tableType, rowIndex, columnIndex) {
+    return $(
+      `table[data-test-id="${tableType}"] ` +
+        `tr[data-test-id="${tableType}Row${rowIndex + 1}"] ` +
+        `td[data-test-id="${tableType}Cell${rowIndex + 1}_${columnIndex}"]`
+    )
+  }
+
+  getAgreementTotalCell(tableType) {
+    return $(`table[data-test-id="${tableType}"] tbody tr td strong`)
+  }
+
   getAgreementTableCell(tableType, rowIndex, columnIndex) {
     return $(
       `table[data-test-id="${tableType}"]
@@ -115,11 +135,11 @@ class ViewAgreementPage extends Page {
     )
   }
 
-  getAgreementDate(labelText) {
-    return $(
-      `//dt[normalize-space()="${labelText}"]
-      /following-sibling::dt[not(contains(normalize-space(), ':'))][1]`
+  async getAgreementDate(labelText) {
+    const element = await $(
+      `//dl[contains(@class,"dataset-info")]//dt[normalize-space(.)="${labelText}"]/following-sibling::dd[1]`
     )
+    return element
   }
 
   // Selector for the Print button

@@ -1,0 +1,90 @@
+{
+  "id": "randomUUID()",
+  "source": "fg-gas-backend",
+  "specversion": "1.0",
+  "type": "cloud.defra.test.fg-gas-backend.agreement.create",
+  "datacontenttype": "application/json",
+  "data": {
+    "clientRef": "ref-e2e-005",
+    "code": "woodland",
+    "identifiers": {
+      "sbi": "106284738",
+      "crn": "1102838829",
+      "frn": "1234567890",
+      "defraId": "manual-test"
+    },
+    "answers": {
+      "businessDetailsUpToDate": true,
+      "landRegisteredWithRpa": true,
+      "landManagementControl": true,
+      "publicBodyTenant": false,
+      "landHasGrazingRights": false,
+      "appLandHasExistingWmp": false,
+      "existingWmps": [],
+      "intendToApplyHigherTier": false,
+      "hectaresTenOrOverYearsOld": 12.5,
+      "hectaresUnderTenYearsOld": 3.25,
+      "totalHectaresForSelectedParcels": 15.75,
+      "centreGridReference": "SD48414684",
+      "woodlandName": "WMP Agreement AT",
+      "fcTeamCode": "FC-NW-01",
+      "applicant": {
+        "business": {
+          "name": "WMP Farm Ltd",
+          "reference": "SBI106284736",
+          "email": "farm@example.com",
+          "phone": "01234567890",
+          "address": {
+            "line1": "Benbrigge House",
+            "line2": "ALBRIGHTON",
+            "line3": null,
+            "line4": null,
+            "line5": null,
+            "street": "BRIDGE ROAD",
+            "city": "GRIMSBY",
+            "postalCode": "DY13 0UY"
+          }
+        },
+        "customer": {
+          "name": {
+            "title": "Mr",
+            "first": "John",
+            "middle": "A",
+            "last": "Doe"
+          }
+        }
+      },
+      "detailsConfirmedAt": "2025-11-21T10:10:43.673Z",
+      "totalHectaresAppliedFor": 15.75,
+      "guidanceRead": true,
+      "includedAllEligibleWoodland": true,
+      "applicationConfirmation": true,
+      "landParcels": [
+        {
+          "parcelId": "SK0971-7555",
+          "areaHa": 5.2182
+        },
+        {
+          "parcelId": "SK0971-9194",
+          "areaHa": 2.1703
+        }
+      ],
+      "totalAgreementPaymentPence": 157500,
+      "payments": {
+        "agreement": [
+          {
+            "code": "WMP1",
+            "description": "Produce a woodland management plan",
+            "activePaymentTier": 1,
+            "quantityInActiveTier": 15.75,
+            "activeTierRatePence": 10000,
+            "activeTierFlatRatePence": 0,
+            "quantity": 15.75,
+            "agreementTotalPence": 157500,
+            "unit": "ha"
+          }
+        ]
+      }
+    }
+  }
+}
