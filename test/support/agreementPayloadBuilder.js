@@ -10,10 +10,21 @@ export function buildAgreementPayload(
   overrides = {},
   basePayload = payloadCreateOffer
 ) {
+  const now = new Date().toISOString()
+
   const payload = {
     ...basePayload,
     id: randomUUID(),
-    time: new Date().toISOString()
+    data: {
+      ...basePayload.data,
+      answers: {
+        ...basePayload.data.answers,
+        detailsConfirmedAt: now
+      },
+      identifiers: {
+        ...basePayload.data.identifiers
+      }
+    }
   }
   payload.source = 'fg-gas-backend'
   payload.specversion = '1.0'

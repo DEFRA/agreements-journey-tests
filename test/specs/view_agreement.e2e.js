@@ -88,7 +88,7 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
     })
 
     it('Then should display all expected sub-headers', async () => {
-      for (const header of constants.SUB_HEADERS) {
+      for (const header of constants.BASE_SUB_HEADERS) {
         const element = await viewAgreementPage[header.element]
         await expect(element).toBeDisplayed()
         await expect(element).toHaveText(header.expected)
@@ -96,7 +96,7 @@ describe('Given the applicant has reviewed and accepted the offer', () => {
     })
 
     it('Then should display all expected contents links', async () => {
-      for (const link of constants.EXPECTED_CONTENTS) {
+      for (const link of constants.BASE_EXPECTED_CONTENTS) {
         const element = await viewAgreementPage[link.element]
         await expect(element).toBeDisplayed()
         await expect(element).toHaveText(link.expected)

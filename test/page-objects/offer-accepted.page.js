@@ -32,6 +32,12 @@ class OfferAcceptedPage extends Page {
     return await this.getLinkByPartialText('technical test information')
   }
 
+  async getWoodlandManagementPlanLink() {
+    return await this.getLinkByPartialText(
+      'Capital grants agreements: terms and conditions 2026'
+    )
+  }
+
   async getTechnicalTestActionsLink() {
     return await this.getLinkByPartialText('technical test actions')
   }
@@ -81,6 +87,12 @@ class OfferAcceptedPage extends Page {
 
   async getSssiGuidanceLink() {
     return await $('a*=SSSI consent')
+  }
+
+  async getIfYouNeedHelpHeading() {
+    const heading = await $('h2=If you need help')
+
+    return heading.getText()
   }
 }
 

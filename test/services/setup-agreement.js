@@ -3,12 +3,14 @@ import { browser } from '@wdio/globals'
 import { buildAgreementPayload } from '~/test/support/agreementPayloadBuilder.js'
 
 export async function setupAgreement(
-  { data: payloadOverrides = {} },
+  { data: payloadOverrides = {}, agreementDate } = {},
   basePayload
 ) {
   console.log('setupAgreement:payloadOverrides:', payloadOverrides)
   const requestBody = buildAgreementPayload(
-    { data: payloadOverrides },
+    {
+      data: payloadOverrides
+    },
     basePayload
   )
 

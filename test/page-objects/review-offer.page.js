@@ -119,6 +119,22 @@ class ReviewOfferPage extends Page {
     )
   }
 
+  async getActionsTableRowData(rowIndex) {
+    const row = await $(
+      `table[data-test-id="actionsTable"] tr[data-test-id="actionsTableRow${rowIndex}"]`
+    )
+
+    await row.waitForDisplayed()
+
+    const cells = await row.$$('td')
+
+    return {
+      action: (await cells[0].getText()).trim(),
+      code: (await cells[1].getText()).trim(),
+      grantPaymentAmount: (await cells[2].getText()).trim()
+    }
+  }
+
   async clickPrintableAgreementLinkAndSwitchTab() {
     const link = await $(
       `a[href*="${path.join('/', browser.options.proxy, '/')}"][href*="/print"]`
