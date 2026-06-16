@@ -176,10 +176,10 @@ describe('Given the applicant has received the WMP offer', () => {
       const expectedStartDate = 'XXXXX'
       const expectedEndDate = 'XXXXX'
       const startDateElement = await viewAgreementPage.getAgreementDate(
-        'Agreement start date:'
+        'Agreement Start Date:'
       )
       const endDateElement = await viewAgreementPage.getAgreementDate(
-        'Agreement end date:'
+        'Agreement End Date:'
       )
       await expect(startDateElement).toBeDisplayed()
       await expect(startDateElement).toHaveText(expectedStartDate)

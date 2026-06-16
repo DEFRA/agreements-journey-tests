@@ -85,7 +85,7 @@ describe('Given the farmer is authenticated', () => {
 
       await expect(termsAndConditionsLink).toHaveAttribute(
         'href',
-        'https://www.gov.uk/government/publications/capital-grants-agreements-terms-and-conditions-2026'
+        'https://www.gov.uk/government/publications/capital-grants-agreements-terms-and-conditions-2026/capital-grants-agreements-terms-and-conditions-2026'
       )
     })
 
