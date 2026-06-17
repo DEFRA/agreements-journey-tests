@@ -6,32 +6,40 @@ class ViewAgreementPage extends Page {
     return $('h1.govuk-heading-xl').getText()
   }
 
+  async getDatasetValue(label) {
+    const xpath = `//dl[contains(@class,"dataset-info")]/*[
+    normalize-space()="${label}" or normalize-space()="${label}:"
+  ]/following-sibling::*[1]`
+
+    return $(xpath).getText()
+  }
+
   async getAgreementHolder() {
-    return $('dl.dataset-info dd:nth-of-type(1)').getText()
+    return this.getDatasetValue('Agreement holder')
   }
 
   async getSBIValue() {
-    return $('dl.dataset-info dd:nth-of-type(2)').getText()
+    return this.getDatasetValue('SBI')
   }
 
   async getAddress() {
-    return $('dl.dataset-info dd:nth-of-type(3)').getText()
+    return this.getDatasetValue('Address')
   }
 
   async getAgreementName() {
-    return $('dl.dataset-info dd:nth-of-type(4)').getText()
+    return this.getDatasetValue('Agreement name')
   }
 
   async getAgreementNumber() {
-    return $('dl.dataset-info dd:nth-of-type(5)').getText()
+    return this.getDatasetValue('Agreement number')
   }
 
   async getStartDate() {
-    return $('dl.dataset-info dd:nth-of-type(6)').getText()
+    return this.getDatasetValue('Agreement start date')
   }
 
   async getEndDate() {
-    return $('dl.dataset-info dd:nth-of-type(7)').getText()
+    return this.getDatasetValue('Agreement end date')
   }
 
   // Sub-headers
@@ -182,9 +190,7 @@ class ViewAgreementPage extends Page {
   }
 
   getDraftAgreementMessage() {
-    return $(
-      '//div[contains(@class,"govuk-notification-banner__content")]//p[1]'
-    )
+    return $('//div[contains(@class,"govuk-notification-banner__content")]//h2')
   }
 }
 

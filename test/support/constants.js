@@ -152,7 +152,7 @@ export const CAPITAL_ITEMS_SUB_HEADERS = BASE_SUB_HEADERS.map((item) => {
   if (item.element === 'actionsSubHeader') {
     return {
       element: 'itemsSubHeader',
-      expected: '4. Summary of capital items'
+      expected: '4. Summary of Capital items'
     }
   }
 
