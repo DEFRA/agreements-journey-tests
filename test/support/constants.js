@@ -93,11 +93,9 @@ export const DEFAULT_TOTAL_SUBSEQUENT_PAYMENT = '£237.36'
 export const DEFAULT_TOTAL_YEARLY_PAYMENT = '£949.49'
 export const ACCEPT_OFFER_TITLE = 'Accept your agreement offer - GOV.UK'
 export const DEFAULT_FARM_NAME = 'Texels Hire & Contracting'
-export const WMP_FARM_NAME = 'WMP Farm Ltd'
 export const SBI = 'Single business identifier (SBI):'
 export const DEFAULT_SBI = 'Single business identifier (SBI): '
 export const DEFAULT_FARMER_NAME = 'Graham Gilfoyle'
-export const WMP_FARMER_NAME = 'John Doe'
 export const FARMER_NAME = 'Alfred Waldron'
 export const ACCEPT_OFFER_HEADER = 'Accept your agreement offer'
 export const REVIEW_OFFER_HEADER = 'Review your agreement offer'
@@ -136,7 +134,6 @@ export const HELP_TEXT =
 export const DEFAULT_ADDRESS =
   'Benbrigge House, ALBRIGHTON, BRIDGE ROAD, GRIMSBY, DY13 0UY'
 export const DEFAULT_AGREEMENT_NAME = 'Texels Hire & Contracting FPTT'
-export const WMP_AGREEMENT_NAME = 'WMP Agreement AT WMP'
 export const BASE_SUB_HEADERS = [
   { element: 'introSubHeader', expected: '1. Introduction and overview' },
   { element: 'partiesSubHeader', expected: '2. Parties to the agreement' },
@@ -148,16 +145,6 @@ export const BASE_SUB_HEADERS = [
   { element: 'protectionSubHeader', expected: '8. Data protection' }
 ]
 
-export const CAPITAL_ITEMS_SUB_HEADERS = BASE_SUB_HEADERS.map((item) => {
-  if (item.element === 'actionsSubHeader') {
-    return {
-      element: 'itemsSubHeader',
-      expected: '4. Summary of Capital items'
-    }
-  }
-
-  return item
-})
 export const BASE_EXPECTED_CONTENTS = [
   {
     element: 'contentsIntroLink',
@@ -178,24 +165,9 @@ export const BASE_EXPECTED_CONTENTS = [
   { element: 'contentsProtectionLink', expected: '8. Data protection' }
 ]
 
-export const CAPITAL_ITEMS_EXPECTED_CONTENTS = BASE_EXPECTED_CONTENTS.map(
-  (item) => {
-    if (item.element === 'contentsActionsLink') {
-      return {
-        element: 'contentsItemsLink',
-        expected: '4. Summary of capital items'
-      }
-    }
-
-    return item
-  }
-)
-
 export const USERNAME = '1102838829'
 export const PASSWORD = process.env.DEFRA_ID_USER_PASSWORD
 export const AGREEMENT_NAME = 'Farm payments technical test agreement document'
-export const WMP_AGREEMENT_NAME_HEADER =
-  'Woodland Management Plan PA3 agreement document'
 // --- Scenario 1: SSSI & HEFER Combined ---
 export const SSSI_HEFER_COMBINED_HEADING =
   'You must get consent to do your actions'
